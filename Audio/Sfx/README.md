@@ -1,0 +1,1 @@
+In this folder you want to put your Sfx files. It serves just as a inbetween layer, so the responsible person for creating sounds will not affect the files within the Unity Folder.

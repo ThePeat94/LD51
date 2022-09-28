@@ -1,0 +1,1 @@
+In this folder you want to put everything related to 3D Art. Be it Blender Files, Maya files, .FBC files or anything that relates to the given 3D data.
