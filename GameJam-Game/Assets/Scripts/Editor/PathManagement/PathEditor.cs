@@ -1,11 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Numerics;
-using Nidavellir.PathManagement;
+﻿using Nidavellir.PathManagement;
 using UnityEditor;
 using UnityEngine;
-using Quaternion = UnityEngine.Quaternion;
-using Vector3 = UnityEngine.Vector3;
 
 namespace Nidavellir.Editor.PathManagement
 {
