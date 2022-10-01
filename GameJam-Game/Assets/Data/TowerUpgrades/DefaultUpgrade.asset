@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: DefaultUpgrade
   m_EditorClassIdentifier: 
   towerRangeIncrease: 1
-  attackSpeedIncrease: 0.1
+  attackSpeedIncrease: 0.05
   damageIncrease: 0.3
+  Projectile: {fileID: 0}

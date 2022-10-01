@@ -62,11 +62,11 @@ namespace Nidavellir.Tower
             if (timeUntilNextAttack <= 0 && enemiesInRange.Count > 0)
             {
                 var closestEnemy = GetClosestEnemy();
-                var projectile = Object.Instantiate(TowerSettings.Projectile.gameObject).GetComponent<Projectile>();
+                var projectile = Object.Instantiate(Projectile.gameObject).GetComponent<Projectile>();
                 projectile.transform.position = ProjectileSpawnPoint.transform.position;
-                projectile.Init(closestEnemy, closestEnemy.transform.position, TowerSettings.Damage);
+                projectile.Init(closestEnemy, closestEnemy.transform.position, Damage);
 
-                timeUntilNextAttack = TowerSettings.AttackSpeed;
+                timeUntilNextAttack = AttackSpeed;
             }
         }
         
