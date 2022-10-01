@@ -26,6 +26,14 @@ namespace Nidavellir.Towers
         public Projectile Projectile { get; protected set; }
         public int CurrentLevel => appliedUpgrades.Count;
 
+
+        [ContextMenu("Place")]
+        private void DebugPlace()
+        {
+            Init();
+            Place();
+        }
+        
         public void Init()
         {
             TowerRange = TowerSettings.TowerRange;
