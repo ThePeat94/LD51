@@ -6,6 +6,8 @@ namespace Nidavellir
 {
     public class EnemyHealthController : MonoBehaviour
     {
+        public Enemy Enemy;
+        
         [SerializeField] private ResourceData m_resourceData;
         private ResourceController m_resourceController;
 
@@ -21,6 +23,7 @@ namespace Nidavellir
             this.m_resourceController.SubtractResource(amount);
             if (this.m_resourceController.CurrentValue <= 0)
             {
+                CurrencyController.Instance.AddCurrency(Enemy.EnemySettings.CurrencyReward);
                 Destroy(this.gameObject);
             }
         }

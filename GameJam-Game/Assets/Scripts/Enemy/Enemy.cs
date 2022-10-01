@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Nidavellir.PathManagement;
+using Nidavellir.Scriptables;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,13 +10,18 @@ namespace Nidavellir
 {
     public class Enemy : MonoBehaviour
     {
-        [SerializeField] private Vector3 m_direction;
-        [SerializeField] private int m_damage;
-        [SerializeField] private int m_level;
         [SerializeField] private Path path;
         [SerializeField] private int targetPointIndex;
+        [SerializeField] private EnemySO enemySettings;
 
-        public Vector3 Direction => m_direction;
+        private EnemyStats m_enemyStats;
+
+        public EnemySO EnemySettings => enemySettings;
+
+        private void Awake()
+        {
+            this.m_enemyStats = this.GetComponent<EnemyStats>();
+        }
 
         public Path Path
         {
@@ -26,7 +32,6 @@ namespace Nidavellir
         // Start is called before the first frame update
         void Start()
         {
-            this.m_direction = new Vector3(0, 0, -0.001f);
             targetPointIndex = 0;
         }
 
@@ -35,7 +40,7 @@ namespace Nidavellir
         {
             if (Vector3.Distance(this.transform.position, this.path.WayPoints[targetPointIndex].position) > 0.1f)
             {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, this.path.WayPoints[targetPointIndex].position, 5f * Time.deltaTime);
+                this.transform.position = Vector3.MoveTowards(this.transform.position, this.path.WayPoints[targetPointIndex].position, this.m_enemyStats.MovementSpeed * Time.deltaTime);
             }
             else
             {
@@ -50,7 +55,7 @@ namespace Nidavellir
         {
             if (collision.gameObject.TryGetComponent<PlayerHealthController>(out var playerHealthController))
             {
-                playerHealthController.TakeDamage(1);
+                playerHealthController.TakeDamage(this.m_enemyStats.Damage);
                 Destroy(this.gameObject);
             }
         }
