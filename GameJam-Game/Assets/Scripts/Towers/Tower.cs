@@ -88,9 +88,15 @@ namespace Nidavellir.Towers
             enemiesInRange.Remove(enemy);
         }
 
-        public void Place()
+        public bool Place()
         {
-            isPlaced = true;
+            if (CurrencyController.Instance.BuyItem(TowerSettings.Price))
+            {
+                isPlaced = true;
+                return true;
+            }
+            
+            return false;
         }
 
         public void Unplace()
@@ -99,12 +105,20 @@ namespace Nidavellir.Towers
         }
 
         [ContextMenu("Upgrade")]
-        public void Upgrade()
+        public bool Upgrade()
         {
             if (CurrentLevel < TowerSettings.MaxLevel - 1)
             {
-                ApplyUpgrade(TowerSettings.PossibleUpgrades[CurrentLevel]);
+                var nextUpgrade = TowerSettings.PossibleUpgrades[CurrentLevel];
+
+                if (CurrencyController.Instance.BuyItem(nextUpgrade.Price))
+                {
+                    ApplyUpgrade(nextUpgrade);
+                    return true;
+                }
             }
+
+            return false;
         }
         
         protected virtual void ApplyUpgrade(TowerUpgradeSO towerUpgradeSo)
