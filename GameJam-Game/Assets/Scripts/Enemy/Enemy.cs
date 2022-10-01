@@ -17,6 +17,12 @@ namespace Nidavellir
 
         public Vector3 Direction => m_direction;
 
+        public Path Path
+        {
+            get => this.path;
+            set => this.path = value;
+        }
+
         // Start is called before the first frame update
         void Start()
         {
