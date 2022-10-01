@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using Nidavellir.Scriptables;
+using Nidavellir.Towers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Nidavellir
+namespace Nidavellir.UI
 {
     public class TurretsPanelPresenter : MonoBehaviour
     {
@@ -10,11 +12,11 @@ namespace Nidavellir
 
         [SerializeField] private GameObject turretButtonPrefab;
 
-        [SerializeField] private List<Turret> turrets;
+        [SerializeField] private List<TowerSO> towers;
 
         private Camera mainCamera;
         private InputAction click;
-        private Turret activeTurret;
+        private Tower activeTower;
         private MeshRenderer activeTurretMeshRenderer;
         private Color activeTurretOriginalColor;
         private TurretButton selectedTurretButton;
@@ -26,35 +28,34 @@ namespace Nidavellir
 
         private void Start()
         {
-            foreach (var turret in turrets)
+            foreach (var turret in towers)
             {
                 var turretButton = Instantiate(turretButtonPrefab, transform).GetComponent<TurretButton>();
 
                 turretButton.SetTurret(turret);
-                turretButton.OnButtonClick = turretType =>
+                turretButton.OnButtonClick = towerSo =>
                 {
-                    var selectedTurret = turrets.Find(turret => turret.Type == turretType);
 
-                    if (activeTurret != null)
+                    if (activeTower != null)
                     {
-                        Destroy(activeTurret.gameObject);
-                        if (activeTurret.Type == selectedTurret.Type)
+                        Destroy(activeTower.gameObject);
+                        if (activeTower.TowerSettings == towerSo)
                         {
-                            activeTurret = null;
+                            activeTower = null;
                         }
                         else
                         {
-                            var activeTurretObject = Instantiate(selectedTurret.gameObject);
-                            activeTurret = activeTurretObject.GetComponent<Turret>();
-                            activeTurretMeshRenderer = activeTurretObject.GetComponent<MeshRenderer>();
+                            var activeTurretObject = Instantiate(towerSo.TowerPrefab.gameObject);
+                            activeTower = activeTurretObject.GetComponent<Tower>();
+                            activeTurretMeshRenderer = activeTurretObject.GetComponentInChildren<MeshRenderer>();
                             activeTurretOriginalColor = activeTurretMeshRenderer.material.color;
                         }
                     }
                     else
                     {
-                        var activeTurretObject = Instantiate(selectedTurret.gameObject);
-                        activeTurret = activeTurretObject.GetComponent<Turret>();
-                        activeTurretMeshRenderer = activeTurretObject.GetComponent<MeshRenderer>();
+                        var activeTurretObject = Instantiate(towerSo.TowerPrefab.gameObject);
+                        activeTower = activeTurretObject.GetComponent<Tower>();
+                        activeTurretMeshRenderer = activeTurretObject.GetComponentInChildren<MeshRenderer>();
                         activeTurretOriginalColor = activeTurretMeshRenderer.material.color;
                     }
                 };
@@ -63,17 +64,19 @@ namespace Nidavellir
 
         private void Update()
         {
-            if (activeTurret != null)
+            if (activeTower != null)
             {
                 if (GetMouseWorldPosition(out var mouseWorldPosition))
                 {
                     mouseWorldPosition.y = 0.5f;
-                    activeTurret.transform.position = mouseWorldPosition;
+                    activeTower.transform.position = mouseWorldPosition;
                     activeTurretMeshRenderer.material.color = activeTurretOriginalColor;
 
                     if (Mouse.current.rightButton.wasPressedThisFrame)
                     {
-                        activeTurret = null;
+                        activeTower.Place();
+                        activeTower.Init();
+                        activeTower = null;
                     }
                 }
                 else

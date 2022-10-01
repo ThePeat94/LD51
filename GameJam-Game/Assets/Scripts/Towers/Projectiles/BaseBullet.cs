@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Nidavellir.Tower.Projectiles
+namespace Nidavellir.Towers.Projectiles
 {
     public class BaseBullet : Projectile
     {

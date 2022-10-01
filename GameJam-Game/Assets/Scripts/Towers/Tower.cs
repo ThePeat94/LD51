@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nidavellir.Scriptables;
-using Nidavellir.Tower.Projectiles;
+using Nidavellir.Towers.Projectiles;
 using Nidavellir.Trigger;
 using UnityEngine;
 
-namespace Nidavellir.Tower
+namespace Nidavellir.Towers
 {
     public class Tower : MonoBehaviour
     {
@@ -29,7 +29,7 @@ namespace Nidavellir.Tower
         //TODO this is currently used for testing
         private void Start()
         {
-            Place(transform.position);
+            Place();
             Init();
         }
 
@@ -85,9 +85,8 @@ namespace Nidavellir.Tower
             enemiesInRange.Remove(enemy);
         }
 
-        public void Place(Vector3 position)
+        public void Place()
         {
-            transform.position = position;
             isPlaced = true;
         }
 

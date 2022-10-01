@@ -1,9 +1,9 @@
 using System;
-using Unity.VisualScripting;
+using Nidavellir.Scriptables;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Nidavellir
+namespace Nidavellir.UI
 {
     public class TurretButton : MonoBehaviour
     {
@@ -11,36 +11,22 @@ namespace Nidavellir
 
         [SerializeField] private Button button;
 
-        public Action<TurretType> OnButtonClick;
+        public Action<TowerSO> OnButtonClick;
 
-        private Turret turret;
+        private TowerSO towerSo;
 
-        public void SetTurret(Turret turret)
+        public void SetTurret(TowerSO towerSo)
         {
-            this.turret = turret;
+            this.towerSo = towerSo;
 
-            switch (turret.Type)
-            {
-                case TurretType.Red:
-                    image.color = Color.red;
-                    break;
-                case TurretType.Blue:
-                    image.color = Color.blue;
-                    break;
-                case TurretType.Green:
-                    image.color = Color.green;
-                    break;
-                default:
-                    image.color = Color.red;
-                    break;
-            }
+            image.sprite = towerSo.Icon;
         }
 
         private void Awake()
         {
             button.onClick.AddListener(() =>
             {
-                OnButtonClick?.Invoke(turret.Type);
+                OnButtonClick?.Invoke(towerSo);
             });
         }
     }
