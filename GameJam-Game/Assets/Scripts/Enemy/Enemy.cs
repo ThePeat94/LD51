@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Nidavellir.PathManagement;
+using Nidavellir.Scriptables;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,9 +12,11 @@ namespace Nidavellir
     {
         [SerializeField] private Path path;
         [SerializeField] private int targetPointIndex;
+        [SerializeField] private EnemySO enemySettings;
 
         private EnemyStats m_enemyStats;
-        
+
+        public EnemySO EnemySettings => enemySettings;
 
         private void Awake()
         {
