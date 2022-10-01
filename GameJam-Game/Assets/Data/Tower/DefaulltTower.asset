@@ -15,4 +15,14 @@ MonoBehaviour:
   name: DefaultTower
   towerRange: 50
   attackSpeed: 0.1
+  damage: 0
+  Icon: {fileID: 0}
+  price: 0
   Projectile: {fileID: 6750893419316787733, guid: dfe5f4fcaad5c9d4c92336674d15b8a2, type: 3}
+  PossibleUpgrades:
+  - {fileID: 11400000, guid: 85990d944878ab44ba0f1ddd4c2dba01, type: 2}
+  - {fileID: 11400000, guid: 85990d944878ab44ba0f1ddd4c2dba01, type: 2}
+  - {fileID: 11400000, guid: 85990d944878ab44ba0f1ddd4c2dba01, type: 2}
+  - {fileID: 11400000, guid: 85990d944878ab44ba0f1ddd4c2dba01, type: 2}
+  - {fileID: 11400000, guid: 85990d944878ab44ba0f1ddd4c2dba01, type: 2}
+  - {fileID: 11400000, guid: 85990d944878ab44ba0f1ddd4c2dba01, type: 2}

@@ -96,9 +96,10 @@ namespace Nidavellir.Tower
             isPlaced = false;
         }
 
+        [ContextMenu("Upgrade")]
         public void Upgrade()
         {
-            if (CurrentLevel < TowerSettings.MaxLevel)
+            if (CurrentLevel < TowerSettings.MaxLevel - 1)
             {
                 ApplyUpgrade(TowerSettings.PossibleUpgrades[CurrentLevel]);
             }
