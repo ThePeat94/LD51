@@ -9,8 +9,6 @@ namespace Nidavellir
 {
     public class Enemy : MonoBehaviour
     {
-        [SerializeField] private int m_health;
-        // [SerializeField] private Vector3 m_position;
         [SerializeField] private Vector3 m_direction;
         [SerializeField] private int m_damage;
         [SerializeField] private int m_level;
@@ -22,7 +20,6 @@ namespace Nidavellir
         // Start is called before the first frame update
         void Start()
         {
-            this.m_health = 5000;
             this.m_direction = new Vector3(0, 0, -0.001f);
             targetPointIndex = 0;
         }
@@ -41,13 +38,6 @@ namespace Nidavellir
                     targetPointIndex += 1;
                 
                 }
-            }
-            // this.m_health = this.m_health - 1;
-            
-            
-            if (this.m_health == 0)
-            {
-                Destroy(gameObject);
             }
         }
 
