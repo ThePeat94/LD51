@@ -18,13 +18,13 @@ namespace Nidavellir.Tower
         private GameObject currentTarget;
         private List<GameObject> enemiesInRange = new List<GameObject>();
         private bool isPlaced;
-        private List<TowerUpgradeSO> activeUpgrades = new List<TowerUpgradeSO>();
+        private List<TowerUpgradeSO> appliedUpgrades = new List<TowerUpgradeSO>();
         
         public float TowerRange { get; protected set; }
         public float AttackSpeed { get; protected set; }
         public float Damage { get; protected set; }
         public Projectile Projectile { get; protected set; }
-        public int CurrentLevel => activeUpgrades.Count + 1;
+        public int CurrentLevel => appliedUpgrades.Count;
         
         //TODO this is currently used for testing
         private void Start()
@@ -96,9 +96,17 @@ namespace Nidavellir.Tower
             isPlaced = false;
         }
 
-        public virtual void Upgrade(TowerUpgradeSO towerUpgradeSo)
+        public void Upgrade()
         {
-            activeUpgrades.Add(towerUpgradeSo);
+            if (CurrentLevel < TowerSettings.MaxLevel)
+            {
+                ApplyUpgrade(TowerSettings.PossibleUpgrades[CurrentLevel]);
+            }
+        }
+        
+        protected virtual void ApplyUpgrade(TowerUpgradeSO towerUpgradeSo)
+        {
+            appliedUpgrades.Add(towerUpgradeSo);
 
             TowerRange += towerUpgradeSo.TowerRangeIncrease;
             AttackSpeed -= towerUpgradeSo.AttackSpeedIncrease;
