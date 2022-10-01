@@ -72,9 +72,8 @@ namespace Nidavellir.UI
                     activeTower.transform.position = mouseWorldPosition;
                     activeTowerMeshRenderer.material.color = activeTowerOriginalColor;
 
-                    if (Mouse.current.rightButton.wasPressedThisFrame)
+                    if (Mouse.current.rightButton.wasPressedThisFrame && activeTower.Place())
                     {
-                        activeTower.Place();
                         activeTower.Init();
                         activeTower = null;
                     }

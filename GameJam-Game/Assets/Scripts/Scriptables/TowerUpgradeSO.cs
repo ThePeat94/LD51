@@ -11,11 +11,16 @@ namespace Nidavellir.Scriptables
         [SerializeField] private float attackSpeedIncrease;
         [SerializeField] private float damageIncrease;
 
+        [Header("Fields")] 
+        [SerializeField] private int price;
+        
         [Header("References")]
         public Projectile Projectile;
 
         public float TowerRangeIncrease => towerRangeIncrease;
         public float AttackSpeedIncrease => attackSpeedIncrease;
         public float DamageIncrease => damageIncrease;
+
+        public int Price => price;
     }
 }
