@@ -13,14 +13,25 @@ namespace Nidavellir.Editor.PathManagement
         {
             if (GUILayout.Button("Add new Waypoint"))
             {
-                Debug.Log("Add new waypoint");
-                var newWaypoint = new GameObject($"New Waypoint ({this.PathInstance.WayPoints.Count})");
+                var newWaypoint = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                newWaypoint.name = $"New Waypoint ({this.PathInstance.WayPoints.Count})";
+                newWaypoint.transform.SetParent(this.PathInstance.transform);
                 if (this.PathInstance.WayPoints.Count > 0)
-                    newWaypoint.transform.position = this.PathInstance.WayPoints[^1].position + Vector3.forward;
+                    newWaypoint.transform.position = this.PathInstance.WayPoints[^1]
+                        .position + Vector3.forward;
                 else
                     newWaypoint.transform.position = Vector3.zero;
-                
+
                 this.PathInstance.WayPoints.Add(newWaypoint.transform);
+            }
+            else if (GUILayout.Button("Clear Waypoints"))
+            {
+                this.PathInstance.WayPoints.Clear();
+                while (this.PathInstance.transform.childCount > 0)
+                {
+                    Object.DestroyImmediate(this.PathInstance.transform.GetChild(0).gameObject);
+                }
+                
             }
 
             this.DrawDefaultInspector();
@@ -47,7 +58,7 @@ namespace Nidavellir.Editor.PathManagement
                 if (EditorGUI.EndChangeCheck())
                 {
                     Undo.RecordObject(this.PathInstance, "Free move path waypoint");
-                    waypoint.position = newWayPointPosition;
+                    waypoint.position = new Vector3(newWayPointPosition.x, 1f, newWayPointPosition.z);
                 }
             }
         }
