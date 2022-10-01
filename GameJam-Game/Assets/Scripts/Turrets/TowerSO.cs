@@ -10,7 +10,11 @@ namespace Nidavellir.Turrets
         [SerializeField] private new string name;
         [SerializeField] private float towerRange;
         [SerializeField] private float attackSpeed;
-        
+
+        [Header("Shop Values")] 
+        public Sprite Icon;
+        [SerializeField] private int price;
+
         [Header("References")]
         public Projectile Projectile;
 
@@ -18,5 +22,7 @@ namespace Nidavellir.Turrets
         public float TowerRange => towerRange;
         public float AttackSpeed => attackSpeed;
         public float Damage => Projectile.Damage;
+
+        public int Price => price;
     }
 }

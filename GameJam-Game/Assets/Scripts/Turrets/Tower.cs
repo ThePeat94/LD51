@@ -11,14 +11,17 @@ namespace Nidavellir.Turrets
         [Header("References")] 
         public TowerSO TowerSettings;
         public SphereBaseTrigger AttackBaseTrigger;
+        public Transform ProjectileSpawnPoint;
 
         private float timeUntilNextAttack;
         private GameObject currentTarget;
         private List<GameObject> enemiesInRange = new List<GameObject>();
-        private bool isPlaced = true; //TODO change once the tower is placeable
+        private bool isPlaced = false; //TODO change once the tower is placeable
 
+        //TODO this is currently used for testing
         private void Start()
         {
+            Place(transform.position);
             Init();
         }
 
@@ -47,7 +50,7 @@ namespace Nidavellir.Turrets
             {
                 var closestEnemy = GetClosestEnemy();
                 var projectile = Instantiate(TowerSettings.Projectile.gameObject).GetComponent<Projectile>();
-                projectile.transform.position = transform.position; //TODO add projectile spawnpoint
+                projectile.transform.position = ProjectileSpawnPoint.transform.position;
                 projectile.Init(closestEnemy, closestEnemy.transform.position);
 
                 timeUntilNextAttack = TowerSettings.AttackSpeed;
@@ -67,6 +70,17 @@ namespace Nidavellir.Turrets
         private void RemoveEnemyInRange(GameObject enemy)
         {
             enemiesInRange.Remove(enemy);
+        }
+
+        public void Place(Vector3 position)
+        {
+            transform.position = position;
+            isPlaced = true;
+        }
+
+        public void Unplace()
+        {
+            isPlaced = false;
         }
         
         
