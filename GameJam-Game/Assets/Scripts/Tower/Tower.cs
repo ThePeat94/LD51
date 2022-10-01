@@ -13,12 +13,19 @@ namespace Nidavellir.Tower
         public TowerSO TowerSettings;
         public SphereBaseTrigger AttackBaseTrigger;
         public Transform ProjectileSpawnPoint;
-
+        
         private float timeUntilNextAttack;
         private GameObject currentTarget;
         private List<GameObject> enemiesInRange = new List<GameObject>();
-        private bool isPlaced = false; //TODO change once the tower is placeable
-
+        private bool isPlaced;
+        private List<TowerUpgradeSO> appliedUpgrades = new List<TowerUpgradeSO>();
+        
+        public float TowerRange { get; protected set; }
+        public float AttackSpeed { get; protected set; }
+        public float Damage { get; protected set; }
+        public Projectile Projectile { get; protected set; }
+        public int CurrentLevel => appliedUpgrades.Count;
+        
         //TODO this is currently used for testing
         private void Start()
         {
@@ -28,11 +35,16 @@ namespace Nidavellir.Tower
 
         public void Init()
         {
+            TowerRange = TowerSettings.TowerRange;
+            AttackSpeed = TowerSettings.AttackSpeed;
+            Damage = TowerSettings.Damage;
+            Projectile = TowerSettings.Projectile;
+            
             AttackBaseTrigger.Init(Vector3.one * TowerSettings.TowerRange);
-            timeUntilNextAttack = 0;
-
             AttackBaseTrigger.EventOnTriggerEnter += AddEnemyInRange;
             AttackBaseTrigger.EventOnTriggerExit += RemoveEnemyInRange;
+            
+            timeUntilNextAttack = 0;
         }
 
         private void Update()
@@ -52,7 +64,7 @@ namespace Nidavellir.Tower
                 var closestEnemy = GetClosestEnemy();
                 var projectile = Object.Instantiate(TowerSettings.Projectile.gameObject).GetComponent<Projectile>();
                 projectile.transform.position = ProjectileSpawnPoint.transform.position;
-                projectile.Init(closestEnemy, closestEnemy.transform.position);
+                projectile.Init(closestEnemy, closestEnemy.transform.position, TowerSettings.Damage);
 
                 timeUntilNextAttack = TowerSettings.AttackSpeed;
             }
@@ -82,6 +94,26 @@ namespace Nidavellir.Tower
         public void Unplace()
         {
             isPlaced = false;
+        }
+
+        public void Upgrade()
+        {
+            if (CurrentLevel < TowerSettings.MaxLevel)
+            {
+                ApplyUpgrade(TowerSettings.PossibleUpgrades[CurrentLevel]);
+            }
+        }
+        
+        protected virtual void ApplyUpgrade(TowerUpgradeSO towerUpgradeSo)
+        {
+            appliedUpgrades.Add(towerUpgradeSo);
+
+            TowerRange += towerUpgradeSo.TowerRangeIncrease;
+            AttackSpeed -= towerUpgradeSo.AttackSpeedIncrease;
+            Damage += towerUpgradeSo.DamageIncrease;
+
+            if (towerUpgradeSo.Projectile != null)
+                Projectile = towerUpgradeSo.Projectile;
         }
         
         

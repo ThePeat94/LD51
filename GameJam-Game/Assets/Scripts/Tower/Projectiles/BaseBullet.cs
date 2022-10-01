@@ -4,9 +4,9 @@ namespace Nidavellir.Tower.Projectiles
 {
     public class BaseBullet : Projectile
     {
-        public override void Init(GameObject target, Vector3 targetPosition)
+        public override void Init(GameObject target, Vector3 targetPosition, float damage)
         {
-            base.Init(target, targetPosition);
+            base.Init(target, targetPosition, damage);
             transform.LookAt(TargetPosition);
         }
         
