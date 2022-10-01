@@ -6,7 +6,7 @@ namespace Nidavellir.PathManagement
 {
     public class Path : MonoBehaviour
     {
-        [SerializeField] private List<Transform> m_wayPoints;
+        [SerializeField] private List<Transform> m_wayPoints = new List<Transform>();
 
         public List<Transform> WayPoints => this.m_wayPoints;
 
