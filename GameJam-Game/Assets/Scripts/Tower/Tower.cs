@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+using Nidavellir.Scriptables;
+using Nidavellir.Tower.Projectiles;
 using Nidavellir.Trigger;
-using Nidavellir.Turrets.Projectiles;
 using UnityEngine;
 
-namespace Nidavellir.Turrets
+namespace Nidavellir.Tower
 {
     public class Tower : MonoBehaviour
     {
@@ -49,7 +50,7 @@ namespace Nidavellir.Turrets
             if (timeUntilNextAttack <= 0 && enemiesInRange.Count > 0)
             {
                 var closestEnemy = GetClosestEnemy();
-                var projectile = Instantiate(TowerSettings.Projectile.gameObject).GetComponent<Projectile>();
+                var projectile = Object.Instantiate(TowerSettings.Projectile.gameObject).GetComponent<Projectile>();
                 projectile.transform.position = ProjectileSpawnPoint.transform.position;
                 projectile.Init(closestEnemy, closestEnemy.transform.position);
 

@@ -1,7 +1,7 @@
-﻿using Nidavellir.Turrets.Projectiles;
+﻿using Nidavellir.Tower.Projectiles;
 using UnityEngine;
 
-namespace Nidavellir.Turrets
+namespace Nidavellir.Scriptables
 {
     [CreateAssetMenu(fileName = "Tower", menuName = "Tower/Create", order = 0)]
     public class TowerSO : ScriptableObject

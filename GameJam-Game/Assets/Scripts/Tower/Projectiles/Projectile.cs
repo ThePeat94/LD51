@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Nidavellir.Turrets.Projectiles
+namespace Nidavellir.Tower.Projectiles
 {
     public abstract class Projectile : MonoBehaviour
     {
