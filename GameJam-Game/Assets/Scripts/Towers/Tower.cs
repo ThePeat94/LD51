@@ -25,13 +25,6 @@ namespace Nidavellir.Towers
         public float Damage { get; protected set; }
         public Projectile Projectile { get; protected set; }
         public int CurrentLevel => appliedUpgrades.Count;
-        
-        //TODO this is currently used for testing
-        private void Start()
-        {
-            Place();
-            Init();
-        }
 
         public void Init()
         {

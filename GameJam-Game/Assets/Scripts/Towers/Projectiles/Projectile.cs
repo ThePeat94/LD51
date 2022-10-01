@@ -5,15 +5,11 @@ namespace Nidavellir.Towers.Projectiles
     public abstract class Projectile : MonoBehaviour
     {
         [Header("Fields")]
-        [SerializeField] private float moveSpeed;
+        [SerializeField] protected float moveSpeed;
 
-        private float damage;
-        private GameObject target;
-        private Vector3 targetPosition;
-
-        public float MoveSpeed => moveSpeed;
-        public GameObject Target => target;
-        public Vector3 TargetPosition => targetPosition;
+        protected float damage;
+        protected GameObject target;
+        protected Vector3 targetPosition;
 
         public virtual void Init(GameObject target, Vector3 targetPosition, float damage)
         {
