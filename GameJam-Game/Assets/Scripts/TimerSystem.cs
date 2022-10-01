@@ -17,7 +17,10 @@ namespace Nidavellir
         private const float TickerTime = 10f;
 
         private float totalTime;
-        private float time;
+        private float tickTime;
+
+        public float TotalTime => totalTime;
+        public float TickTickTime => tickTime;
 
         private TimerSystem()
         {
@@ -38,15 +41,15 @@ namespace Nidavellir
 
         private void Update()
         {
-            time += Time.deltaTime;
+            tickTime += Time.deltaTime;
             totalTime += Time.deltaTime;
 
-            OnTimerTick?.Invoke(time);
+            OnTimerTick?.Invoke(tickTime);
             OnTotalTimeTick?.Invoke(totalTime);
 
-            if (time >= TickerTime)
+            if (tickTime >= TickerTime)
             {
-                time = 0;
+                tickTime = 0;
                 OnTimerEndTick?.Invoke();
             }
         }

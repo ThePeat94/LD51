@@ -11,10 +11,11 @@ namespace Nidavellir.UI
 
         private void Start()
         {
-            TimerSystem.Instance.OnTotalTimeTick += TotalTimerTick;
+            UpdateTimerValueText(TimerSystem.Instance.TotalTime);
+            TimerSystem.Instance.OnTotalTimeTick += UpdateTimerValueText;
         }
 
-        private void TotalTimerTick(float totalTime)
+        private void UpdateTimerValueText(float totalTime)
         {
             valueText.text = TimeSpan.FromSeconds(totalTime).ToString(@"mm\:ss");
         }
