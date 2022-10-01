@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84c751c413254c1bba01afb3f81b1f73, type: 3}
-  m_Name: DefaultEnemy
+  m_Script: {fileID: 11500000, guid: 9f714c37bf80417b8ab34464927067f8, type: 3}
+  m_Name: Wave 1
   m_EditorClassIdentifier: 
-  name: DefaultEnemy
-  moveSpeed: 5
-  currencyReward: 20
+  m_spawnGroups:
+  - m_enemyPrefab: {fileID: 1477184434702443251, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+    m_count: 1

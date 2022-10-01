@@ -132,11 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278a1d1d90894f9e908e87df9cda3825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_direction: {x: 0, y: 0, z: 0}
-  m_damage: 0
-  m_level: 1
-  path: {fileID: 0}
-  targetPointIndex: 0
 --- !u!54 &1477184434702443278
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -151,7 +146,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1477184434702443279
 MonoBehaviour:
@@ -165,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cca971d1c364cf7b304d77c56ad03f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_enemyConfig: {fileID: 11400000, guid: 5f7d9a96409ffc6418c114d1811af508, type: 2}
   m_resourceData: {fileID: 11400000, guid: c3aceb03a56618d45811d372dca442c5, type: 2}
 --- !u!136 &1226429728233114578
 CapsuleCollider:
@@ -192,3 +188,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57271f7781d7b514fa92d7d784efbb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_initialStats: {fileID: 11400000, guid: 5f7d9a96409ffc6418c114d1811af508, type: 2}

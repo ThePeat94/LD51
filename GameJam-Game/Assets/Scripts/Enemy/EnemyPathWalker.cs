@@ -8,45 +8,36 @@ using UnityEngine;
 
 namespace Nidavellir
 {
-    public class Enemy : MonoBehaviour
+    public class EnemyPathWalker : MonoBehaviour
     {
-        [SerializeField] private Path path;
-        [SerializeField] private int targetPointIndex;
-        [SerializeField] private EnemySO enemySettings;
-
+        private int m_targetPointIndex;
         private EnemyStats m_enemyStats;
 
-        public EnemySO EnemySettings => enemySettings;
+        public Path Path { get; set; }
 
         private void Awake()
         {
             this.m_enemyStats = this.GetComponent<EnemyStats>();
         }
 
-        public Path Path
-        {
-            get => this.path;
-            set => this.path = value;
-        }
-
         // Start is called before the first frame update
         void Start()
         {
-            targetPointIndex = 0;
+            this.m_targetPointIndex = 0;
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (Vector3.Distance(this.transform.position, this.path.WayPoints[targetPointIndex].position) > 0.1f)
+            if (Vector3.Distance(this.transform.position, this.Path.WayPoints[this.m_targetPointIndex].position) > 0.1f)
             {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, this.path.WayPoints[targetPointIndex].position, this.m_enemyStats.MovementSpeed * Time.deltaTime);
+                this.transform.position = Vector3.MoveTowards(this.transform.position, this.Path.WayPoints[this.m_targetPointIndex].position, this.m_enemyStats.MovementSpeed * Time.deltaTime);
             }
             else
             {
-                if (targetPointIndex < path.WayPoints.Count - 1)
+                if (this.m_targetPointIndex < this.Path.WayPoints.Count - 1)
                 {
-                    targetPointIndex += 1;
+                    this.m_targetPointIndex += 1;
                 }
             }
         }

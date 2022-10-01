@@ -8,6 +8,7 @@ namespace Nidavellir
 {
     public class EnemyStats : MonoBehaviour
     {
+        [SerializeField] private EnemySO m_initialStats;
         private float m_movementSpeed;
         private int m_level;
         private int m_damage;
@@ -21,7 +22,9 @@ namespace Nidavellir
         private void Awake()
         {
             this.m_healthController = this.GetComponent<EnemyHealthController>();
-            
+            this.m_movementSpeed = this.m_initialStats.MoveSpeed;
+            this.m_level = 1;
+            this.m_damage = 1;
         }
 
         public void ApplyBuff(EnemyBuffData buffData)

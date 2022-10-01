@@ -8,9 +8,9 @@ namespace Nidavellir
     {
         [SerializeField] private EnemyBuffData m_enemyBuffData;
 
-        private void Awake()
+        private void Start()
         {
-            TimerSystem.Instance.OnTimerEndTick += OnTimerTickEnd;
+            TimerSystem.Instance.OnTimerEndTick += this.OnTimerTickEnd;
         }
 
         private void OnTimerTickEnd()

@@ -2,7 +2,7 @@
 
 namespace Nidavellir.Scriptables
 {
-    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
+    [CreateAssetMenu(fileName = "Enemy Buff Data", menuName = "Enemy/Buff Data", order = 0)]
     public class EnemyBuffData : ScriptableObject
     {
         [SerializeField] private float m_movementSpeedIncrease;
