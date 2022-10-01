@@ -3,15 +3,14 @@ using System.Linq;
 using Nidavellir.Trigger;
 using Nidavellir.Turrets.Projectiles;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Nidavellir.Turrets
 {
-    public  class Tower : MonoBehaviour
+    public class Tower : MonoBehaviour
     {
         [Header("References")] 
         public TowerSO TowerSettings;
-        [FormerlySerializedAs("AttackTrigger")] public SphereBaseTrigger attackBaseTrigger;
+        public SphereBaseTrigger AttackBaseTrigger;
 
         private float timeUntilNextAttack;
         private GameObject currentTarget;
@@ -25,11 +24,11 @@ namespace Nidavellir.Turrets
 
         public void Init()
         {
-            attackBaseTrigger.Init(Vector3.one * TowerSettings.TowerRange);
+            AttackBaseTrigger.Init(Vector3.one * TowerSettings.TowerRange);
             timeUntilNextAttack = 0;
 
-            attackBaseTrigger.EventOnTriggerEnter += AddEnemyInRange;
-            attackBaseTrigger.EventOnTriggerExit += RemoveEnemyInRange;
+            AttackBaseTrigger.EventOnTriggerEnter += AddEnemyInRange;
+            AttackBaseTrigger.EventOnTriggerExit += RemoveEnemyInRange;
         }
 
         private void Update()
@@ -74,7 +73,7 @@ namespace Nidavellir.Turrets
 #if UNITY_EDITOR
         private void OnValidate()
         {
-            attackBaseTrigger?.SetSize(Vector3.one * TowerSettings.TowerRange);
+            AttackBaseTrigger?.SetSize(Vector3.one * TowerSettings.TowerRange);
         }
 #endif
     }
