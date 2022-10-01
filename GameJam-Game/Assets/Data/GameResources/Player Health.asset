@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b86ef476c254954cbedf013b8c8a06b, type: 3}
-  m_Name: DefaultUpgrade
+  m_Script: {fileID: 11500000, guid: 31aa6830350e4228a524a1951d92d741, type: 3}
+  m_Name: Player Health
   m_EditorClassIdentifier: 
-  towerRangeIncrease: 1
-  attackSpeedIncrease: 0.05
-  damageIncrease: 0.3
-  Projectile: {fileID: 0}
+  m_resourceData: {fileID: 11400000, guid: 039355741733c8a4da4e415e8e3f46fb, type: 2}

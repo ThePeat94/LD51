@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using Nidavellir.Tower.Projectiles;
+using Nidavellir.Towers;
+using Nidavellir.Towers.Projectiles;
 using UnityEngine;
 
 namespace Nidavellir.Scriptables
@@ -18,6 +19,7 @@ namespace Nidavellir.Scriptables
         [SerializeField] private int price;
 
         [Header("References")]
+        public Tower TowerPrefab;
         public Projectile Projectile;
         public List<TowerUpgradeSO> PossibleUpgrades;
 

@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Nidavellir.Scriptables;
-using Nidavellir.Tower.Projectiles;
+using Nidavellir.Towers.Projectiles;
 using Nidavellir.Trigger;
 using UnityEngine;
 
-namespace Nidavellir.Tower
+namespace Nidavellir.Towers
 {
     public class Tower : MonoBehaviour
     {
@@ -29,7 +29,7 @@ namespace Nidavellir.Tower
         //TODO this is currently used for testing
         private void Start()
         {
-            Place(transform.position);
+            Place();
             Init();
         }
 
@@ -62,11 +62,11 @@ namespace Nidavellir.Tower
             if (timeUntilNextAttack <= 0 && enemiesInRange.Count > 0)
             {
                 var closestEnemy = GetClosestEnemy();
-                var projectile = Object.Instantiate(TowerSettings.Projectile.gameObject).GetComponent<Projectile>();
+                var projectile = Object.Instantiate(Projectile.gameObject).GetComponent<Projectile>();
                 projectile.transform.position = ProjectileSpawnPoint.transform.position;
-                projectile.Init(closestEnemy, closestEnemy.transform.position, TowerSettings.Damage);
+                projectile.Init(closestEnemy, closestEnemy.transform.position, Damage);
 
-                timeUntilNextAttack = TowerSettings.AttackSpeed;
+                timeUntilNextAttack = AttackSpeed;
             }
         }
         
@@ -85,9 +85,8 @@ namespace Nidavellir.Tower
             enemiesInRange.Remove(enemy);
         }
 
-        public void Place(Vector3 position)
+        public void Place()
         {
-            transform.position = position;
             isPlaced = true;
         }
 

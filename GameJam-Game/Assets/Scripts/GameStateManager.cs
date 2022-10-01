@@ -7,10 +7,13 @@ namespace Nidavellir
 {
     public class GameStateManager : MonoBehaviour
     {
+        [SerializeField] private PlayerHud m_playerHud;
+
         public enum State
         {
             Started,
-            Paused
+            Paused,
+            GameOver
         };
 
         private State m_currentState;
@@ -22,21 +25,32 @@ namespace Nidavellir
         private void Awake()
         {
             this.m_inputProcessor = this.GetComponent<InputProcessor>();
+            this.m_playerHud = Object.FindObjectOfType<PlayerHud>();
         }
-
-        // Start is called before the first frame update
-        void Start()
-        {
         
-        }
 
         // Update is called once per frame
         void Update()
         {
             if (this.m_inputProcessor.QuitTriggered)
             {
-                this.m_currentState = State.Paused;
-                FindObjectOfType<PauseMenu>(true).ShowMenu();
+                if(this.m_currentState != State.GameOver)
+                {
+                    if (this.m_currentState == State.Started)
+                    {
+                        this.m_currentState = State.Paused;
+                        this.m_playerHud.ShowPauseMenu();
+                    }
+                    else if (this.m_currentState == State.Paused)
+                    {
+                        this.m_currentState = State.Started;
+                        this.m_playerHud.HidePauseMenu();
+                    }
+                }
+                else
+                {
+                    Application.Quit();
+                }
                 return;
             }
 
@@ -51,6 +65,17 @@ namespace Nidavellir
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 return;
             }
+        }
+
+        public void TriggerGameOver()
+        {
+            this.m_currentState = State.GameOver;
+            this.m_playerHud.ShowLoseScreen();
+        }
+
+        public void HidePauseMenu()
+        {
+            this.m_currentState = State.Started;
         }
     }
 }

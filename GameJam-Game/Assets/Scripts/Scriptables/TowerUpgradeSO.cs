@@ -1,4 +1,4 @@
-using Nidavellir.Tower.Projectiles;
+using Nidavellir.Towers.Projectiles;
 using UnityEngine;
 
 namespace Nidavellir.Scriptables

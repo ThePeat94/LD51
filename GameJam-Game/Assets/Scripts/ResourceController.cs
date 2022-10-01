@@ -66,6 +66,15 @@ namespace Nidavellir
             this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue));
         }
 
+        public void SubtractResource(float amount)
+        {
+            if (amount < 0)
+                throw new ArgumentException($"{amount} is less than 0");
+            
+            this.CurrentValue -= amount;
+            this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue));
+        }
+
         public void ApplyDeltaToMaximumValue(float amount)
         {
             this.MaxValue += amount;
@@ -75,7 +84,7 @@ namespace Nidavellir
             this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue));
         }
 
-        public event EventHandler<ResourceValueChangedEventArgs> ResourceValueChanged
+        public event EventHandler<ResourceValueChangedEventArgs> ValueChanged
         {
             add => this.m_resourceValueChanged += value;
             remove => this.m_resourceValueChanged -= value;
