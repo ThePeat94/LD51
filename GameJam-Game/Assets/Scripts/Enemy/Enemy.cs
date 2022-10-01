@@ -29,14 +29,13 @@ namespace Nidavellir
         {
             if (Vector3.Distance(this.transform.position, this.path.WayPoints[targetPointIndex].position) > 0.1f)
             {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, this.path.WayPoints[targetPointIndex].position, 15f * Time.deltaTime);
+                this.transform.position = Vector3.MoveTowards(this.transform.position, this.path.WayPoints[targetPointIndex].position, 5f * Time.deltaTime);
             }
             else
             {
                 if (targetPointIndex < path.WayPoints.Count - 1)
                 {
                     targetPointIndex += 1;
-                
                 }
             }
         }

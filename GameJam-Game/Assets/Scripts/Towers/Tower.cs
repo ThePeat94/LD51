@@ -52,9 +52,13 @@ namespace Nidavellir.Towers
         {
             timeUntilNextAttack -= deltaTime;
 
-            if (timeUntilNextAttack <= 0 && enemiesInRange.Count > 0)
+            if (timeUntilNextAttack <= 0)
             {
                 var closestEnemy = GetClosestEnemy();
+
+                if (closestEnemy == null)
+                    return;
+                
                 var projectile = Object.Instantiate(Projectile.gameObject).GetComponent<Projectile>();
                 projectile.transform.position = ProjectileSpawnPoint.transform.position;
                 projectile.Init(closestEnemy, closestEnemy.transform.position, Damage);
@@ -65,7 +69,13 @@ namespace Nidavellir.Towers
         
         private GameObject GetClosestEnemy()
         {
-            return enemiesInRange.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).First();
+            var enemiesHitByOverlapSphere = Physics.OverlapSphere(this.transform.position, this.TowerRange)
+                .Where(c => c.TryGetComponent<EnemyHealthController>(out _)).ToArray();
+            
+            if(enemiesHitByOverlapSphere.Length > 0)
+                return enemiesHitByOverlapSphere.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).First().gameObject;
+
+            return null;
         }
 
         private void AddEnemyInRange(GameObject enemy)
