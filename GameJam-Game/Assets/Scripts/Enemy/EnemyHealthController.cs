@@ -10,7 +10,8 @@ namespace Nidavellir
         
         [SerializeField] private ResourceData m_resourceData;
         private ResourceController m_resourceController;
-
+        private bool dead;
+        
         public ResourceController ResourceController => this.m_resourceController;
 
         private void Awake()
@@ -21,8 +22,9 @@ namespace Nidavellir
         public void TakeDamage(float amount)
         {
             this.m_resourceController.SubtractResource(amount);
-            if (this.m_resourceController.CurrentValue <= 0)
+            if (this.m_resourceController.CurrentValue <= 0 && !dead)
             {
+                dead = true;
                 CurrencyController.Instance.AddCurrency(Enemy.EnemySettings.CurrencyReward);
                 Destroy(this.gameObject);
             }
