@@ -6,20 +6,20 @@ using UnityEngine.InputSystem;
 
 namespace Nidavellir.UI
 {
-    public class TurretsPanelPresenter : MonoBehaviour
+    public class TowersPanelPresenter : MonoBehaviour
     {
         [SerializeField] private LayerMask placeableAreaLayerMask;
 
-        [SerializeField] private GameObject turretButtonPrefab;
+        [SerializeField] private GameObject towerButtonPrefab;
 
         [SerializeField] private List<TowerSO> towers;
 
         private Camera mainCamera;
         private InputAction click;
         private Tower activeTower;
-        private MeshRenderer activeTurretMeshRenderer;
-        private Color activeTurretOriginalColor;
-        private TurretButton selectedTurretButton;
+        private MeshRenderer activeTowerMeshRenderer;
+        private Color activeTowerOriginalColor;
+        private TowerButton selectedTowerButton;
 
         private void Awake()
         {
@@ -28,12 +28,12 @@ namespace Nidavellir.UI
 
         private void Start()
         {
-            foreach (var turret in towers)
+            foreach (var towerSo in towers)
             {
-                var turretButton = Instantiate(turretButtonPrefab, transform).GetComponent<TurretButton>();
+                var towerButton = Instantiate(towerButtonPrefab, transform).GetComponent<TowerButton>();
 
-                turretButton.SetTurret(turret);
-                turretButton.OnButtonClick = towerSo =>
+                towerButton.SetTowerSo(towerSo);
+                towerButton.OnButtonClick = towerSo =>
                 {
 
                     if (activeTower != null)
@@ -45,18 +45,18 @@ namespace Nidavellir.UI
                         }
                         else
                         {
-                            var activeTurretObject = Instantiate(towerSo.TowerPrefab.gameObject);
-                            activeTower = activeTurretObject.GetComponent<Tower>();
-                            activeTurretMeshRenderer = activeTurretObject.GetComponentInChildren<MeshRenderer>();
-                            activeTurretOriginalColor = activeTurretMeshRenderer.material.color;
+                            var activeTowerObject = Instantiate(towerSo.TowerPrefab.gameObject);
+                            activeTower = activeTowerObject.GetComponent<Tower>();
+                            activeTowerMeshRenderer = activeTowerObject.GetComponentInChildren<MeshRenderer>();
+                            activeTowerOriginalColor = activeTowerMeshRenderer.material.color;
                         }
                     }
                     else
                     {
-                        var activeTurretObject = Instantiate(towerSo.TowerPrefab.gameObject);
-                        activeTower = activeTurretObject.GetComponent<Tower>();
-                        activeTurretMeshRenderer = activeTurretObject.GetComponentInChildren<MeshRenderer>();
-                        activeTurretOriginalColor = activeTurretMeshRenderer.material.color;
+                        var activeTowerObject = Instantiate(towerSo.TowerPrefab.gameObject);
+                        activeTower = activeTowerObject.GetComponent<Tower>();
+                        activeTowerMeshRenderer = activeTowerObject.GetComponentInChildren<MeshRenderer>();
+                        activeTowerOriginalColor = activeTowerMeshRenderer.material.color;
                     }
                 };
             }
@@ -70,7 +70,7 @@ namespace Nidavellir.UI
                 {
                     mouseWorldPosition.y = 0.5f;
                     activeTower.transform.position = mouseWorldPosition;
-                    activeTurretMeshRenderer.material.color = activeTurretOriginalColor;
+                    activeTowerMeshRenderer.material.color = activeTowerOriginalColor;
 
                     if (Mouse.current.rightButton.wasPressedThisFrame)
                     {
@@ -81,7 +81,7 @@ namespace Nidavellir.UI
                 }
                 else
                 {
-                    activeTurretMeshRenderer.material.color = Color.black;
+                    activeTowerMeshRenderer.material.color = Color.black;
                 }
             }
         }

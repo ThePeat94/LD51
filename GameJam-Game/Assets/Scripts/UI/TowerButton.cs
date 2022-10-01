@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Nidavellir.UI
 {
-    public class TurretButton : MonoBehaviour
+    public class TowerButton : MonoBehaviour
     {
         [SerializeField] private Image image;
 
@@ -15,7 +15,7 @@ namespace Nidavellir.UI
 
         private TowerSO towerSo;
 
-        public void SetTurret(TowerSO towerSo)
+        public void SetTowerSo(TowerSO towerSo)
         {
             this.towerSo = towerSo;
 
