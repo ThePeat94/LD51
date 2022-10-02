@@ -14,6 +14,7 @@ namespace Nidavellir.UI
         [SerializeField] private TextMeshProUGUI m_healthText;
         [SerializeField] private float m_currentHealth;
         [SerializeField] private Image m_background;
+        [SerializeField] private int m_lowHealthThreshold = 3;
 
         private void Awake()
         {
@@ -28,7 +29,7 @@ namespace Nidavellir.UI
 
         private void Update()
         {
-            if (m_currentHealth <= 8)
+            if (m_currentHealth <= this.m_lowHealthThreshold)
             {
                 Debug.Log("Low on health!");
                 AnimateHealthBarLow();

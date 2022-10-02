@@ -18,9 +18,10 @@ namespace Nidavellir.UI
             // valueText.transform.DORotate(new Vector3(0, 0, 2f), 1f).SetLoops(-1)
                 // .SetEase(Ease.InOutBack);
             var sequence = DOTween.Sequence();
-            sequence.Append(valueText.transform.DORotate(new Vector3(0, 0, 2f), 1f).SetEase(Ease.OutQuad));
-            sequence.Append(valueText.transform.DORotate(new Vector3(0, 0, -2f), 1f).SetEase(Ease.OutQuad));
-            sequence.Rewind();
+            sequence.Append(valueText.transform.DORotate(new Vector3(0, 0, 2f), 1f).SetEase(Ease.InOutSine));
+            sequence.Append(valueText.transform.DORotate(new Vector3(0, 0, -2f), 1f).SetEase(Ease.InOutSine));
+            sequence.Append(valueText.transform.DORotate(new Vector3(0, 0, 2f), 1f).SetEase(Ease.InOutSine));
+            // sequence.Rewind();
             sequence.SetLoops(-1);
             sequence.Play();
         }
