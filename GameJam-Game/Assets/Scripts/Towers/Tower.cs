@@ -25,6 +25,8 @@ namespace Nidavellir.Towers
         public float Damage { get; protected set; }
         public Projectile Projectile { get; protected set; }
         public int CurrentLevel => appliedUpgrades.Count;
+        public float CostsForNextLevel => this.TowerSettings.PossibleUpgrades[this.CurrentLevel].Price;
+        public bool IsPlaced => this.isPlaced;
 
 
         [ContextMenu("Place")]
@@ -128,7 +130,7 @@ namespace Nidavellir.Towers
 
             return false;
         }
-        
+
         protected virtual void ApplyUpgrade(TowerUpgradeSO towerUpgradeSo)
         {
             appliedUpgrades.Add(towerUpgradeSo);

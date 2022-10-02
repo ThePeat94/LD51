@@ -30,7 +30,6 @@ namespace Nidavellir.UI
 
         public void ShowMenu()
         {
-            Cursor.visible = true;
             this.gameObject.SetActive(true);
         }
 
@@ -70,7 +69,6 @@ namespace Nidavellir.UI
         public void CloseMenu()
         {
             this.gameObject.SetActive(false);
-            Cursor.visible = false;
         }
     }
 }
