@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DefaultEnemy
   m_EditorClassIdentifier: 
   name: DefaultEnemy
-  moveSpeed: 2.5
+  moveSpeed: 20
   currencyReward: 20
