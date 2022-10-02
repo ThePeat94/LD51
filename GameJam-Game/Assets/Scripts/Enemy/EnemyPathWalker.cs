@@ -1,15 +1,16 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Nidavellir.PathManagement;
-using Nidavellir.Scriptables;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Nidavellir
 {
     public class EnemyPathWalker : MonoBehaviour
     {
+        public static readonly int Walking = Animator.StringToHash("Walking");
+        public static readonly int Die = Animator.StringToHash("Die");
+        
+        [Header("References")] 
+        public Animator Animator;
+        
         private int m_targetPointIndex;
         private EnemyStats m_enemyStats;
 
@@ -18,6 +19,7 @@ namespace Nidavellir
         private void Awake()
         {
             this.m_enemyStats = this.GetComponent<EnemyStats>();
+            Animator.SetBool(EnemyPathWalker.Walking, true);
         }
 
         // Start is called before the first frame update
@@ -29,9 +31,16 @@ namespace Nidavellir
         // Update is called once per frame
         void Update()
         {
-            if (Vector3.Distance(this.transform.position, this.Path.WayPoints[this.m_targetPointIndex].position) > 0.1f)
+            var targetPoint = this.Path.WayPoints[this.m_targetPointIndex].position;
+
+            if (Vector3.Distance(this.transform.position, targetPoint) > 0.8f)
             {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, this.Path.WayPoints[this.m_targetPointIndex].position, this.m_enemyStats.MovementSpeed * Time.deltaTime);
+                var newPosition = Vector3.MoveTowards(this.transform.position, targetPoint, this.m_enemyStats.MovementSpeed * Time.deltaTime);
+                Animator.SetFloat("MoveSpeed", m_enemyStats.MovementSpeed * Time.deltaTime / Vector3.Distance(transform.position, newPosition));
+                
+                this.transform.position = newPosition;
+                this.transform.LookAt(new Vector3(targetPoint.x, transform.position.y, targetPoint.z));
+
             }
             else
             {
