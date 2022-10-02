@@ -14,7 +14,7 @@ namespace Nidavellir
         public event TickTotalTime OnTotalTimeTick;
         public event TickTimer OnTimerTick;
         
-        private const float TickerTime = 10f;
+        public const float TickerTime = 10f;
 
         private float totalTime;
         private float tickTime;
