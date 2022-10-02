@@ -7,8 +7,14 @@ namespace Nidavellir.PathManagement
     public class Path : MonoBehaviour
     {
         [SerializeField] private List<Transform> m_wayPoints = new List<Transform>();
-
+        [SerializeField] private PlayerHealthController m_playerBase;
+        
         public List<Transform> WayPoints => this.m_wayPoints;
+
+        private void Awake()
+        {
+            this.m_wayPoints.Add(this.m_playerBase.transform);
+        }
 
         private void OnDrawGizmos()
         {
@@ -25,6 +31,11 @@ namespace Nidavellir.PathManagement
                 }
 
                 previousWayPoint = wayPoint;
+            }
+
+            if (this.m_playerBase)
+            {
+                Gizmos.DrawLine(previousWayPoint.position, this.m_playerBase.transform.position);
             }
         }
     }

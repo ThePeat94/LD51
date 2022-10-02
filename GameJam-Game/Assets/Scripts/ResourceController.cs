@@ -36,8 +36,9 @@ namespace Nidavellir
             if (value < 0)
                 throw new ArgumentException($"{value} is less than 0");
 
+            var oldValue = this.CurrentValue;
             this.CurrentValue += value;
-            this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue));
+            this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue, oldValue));
         }
 
         public bool CanAfford(float amount)
@@ -50,8 +51,9 @@ namespace Nidavellir
 
         public void ResetValues()
         {
+            var oldValue = this.CurrentValue;
             this.CurrentValue = 0f;
-            this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue));
+            this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue, oldValue));
         }
 
         public void UseResource(float amount)
@@ -62,8 +64,9 @@ namespace Nidavellir
             if (amount > this.CurrentValue)
                 throw new InvalidOperationException($"{amount} is greater than {this.CurrentValue}");
 
+            var oldValue = this.CurrentValue;
             this.CurrentValue -= amount;
-            this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue));
+            this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue, oldValue));
         }
 
         public void SubtractResource(float amount)
@@ -71,17 +74,20 @@ namespace Nidavellir
             if (amount < 0)
                 throw new ArgumentException($"{amount} is less than 0");
             
+            var oldValue = this.CurrentValue;
             this.CurrentValue -= amount;
-            this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue));
+            this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue, oldValue));
         }
 
         public void ApplyDeltaToMaximumValue(float amount)
         {
+            var oldValue = this.CurrentValue;
+            var oldMaximumValue = this.MaxValue;
             this.MaxValue += amount;
             this.MaxValue = Math.Max(0, this.MaxValue);
             this.CurrentValue = Mathf.Min(this.CurrentValue, this.MaxValue);
-            this.m_maximumValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.MaxValue));
-            this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue));
+            this.m_maximumValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.MaxValue, oldMaximumValue));
+            this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue, oldValue));
         }
 
         public event EventHandler<ResourceValueChangedEventArgs> ValueChanged

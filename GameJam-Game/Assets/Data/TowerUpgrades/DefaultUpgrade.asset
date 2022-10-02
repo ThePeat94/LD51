@@ -15,4 +15,5 @@ MonoBehaviour:
   towerRangeIncrease: 1
   attackSpeedIncrease: 0.05
   damageIncrease: 0.3
+  price: 10
   Projectile: {fileID: 0}

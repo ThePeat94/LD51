@@ -20,7 +20,7 @@ namespace Nidavellir
         private float tickTime;
 
         public float TotalTime => totalTime;
-        public float TickTickTime => tickTime;
+        public float TickTime => tickTime;
 
         private TimerSystem()
         {
