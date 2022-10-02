@@ -9,7 +9,6 @@ namespace Nidavellir.UI
     {
         [Header("References")] public TextMeshProUGUI valueText;
         private int loopCounter = 1;
-        private bool isNumberEven = true;
 
         private void Start()
         {
