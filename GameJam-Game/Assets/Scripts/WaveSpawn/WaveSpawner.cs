@@ -92,7 +92,7 @@ namespace Nidavellir.Util
             {
                 this.m_spawnedEnemies.Remove(enemy);
 
-                if (this.m_spawnedEnemies.Count == 0 && this.m_waves.Count == 0)
+                if (this.m_spawnedEnemies.Count == 0 && this.m_waves.Count == 0 && this.m_gameStateManager.CurrentState != GameStateManager.State.GameOver)
                 {
                     this.m_gameStateManager.TriggerGameWon();
                 }
