@@ -14,14 +14,16 @@ namespace Nidavellir.Towers
         public TowerSO TowerSettings;
         public SphereBaseTrigger AttackBaseTrigger;
         public Transform ProjectileSpawnPoint;
+        public Transform Muzzle;
         
         private float timeUntilNextAttack;
         private GameObject currentTarget;
         private List<GameObject> enemiesInRange = new List<GameObject>();
         private bool isPlaced;
-
+        private List<TowerUpgradeSO> appliedUpgrades = new List<TowerUpgradeSO>();
+        private GameObject closestEnemy = null;
         private Queue<TowerUpgradeSO> m_towerUpgrades;
-
+        
         public float TowerRange { get; protected set; }
         public float AttackSpeed { get; protected set; }
         public float Damage { get; protected set; }
@@ -56,6 +58,13 @@ namespace Nidavellir.Towers
         {
             if(!isPlaced)
                 return;
+
+            closestEnemy = GetClosestEnemy();
+            
+            if (Muzzle != null && closestEnemy != null)
+            {
+                Muzzle.LookAt(new Vector3(closestEnemy.transform.position.x, closestEnemy.transform.position.y, closestEnemy.transform.position.z));
+            }
             
             Shoot(Time.deltaTime);
         }
@@ -66,13 +75,21 @@ namespace Nidavellir.Towers
 
             if (timeUntilNextAttack <= 0)
             {
-                var closestEnemy = GetClosestEnemy();
-
                 if (closestEnemy == null)
                     return;
                 
                 var projectile = Object.Instantiate(Projectile.gameObject).GetComponent<Projectile>();
-                projectile.transform.position = ProjectileSpawnPoint.transform.position;
+
+                if (ProjectileSpawnPoint != null)
+                {
+                    projectile.transform.position = ProjectileSpawnPoint.transform.position;
+                }
+                else
+                {
+                    Debug.LogError($"{ TowerSettings.Name }: no ProjectileSpawnPoint defined");
+                    projectile.transform.position = transform.position;
+                }
+                
                 projectile.Init(closestEnemy, closestEnemy.transform.position, Damage);
 
                 timeUntilNextAttack = AttackSpeed;

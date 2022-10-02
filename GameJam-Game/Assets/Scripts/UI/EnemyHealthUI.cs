@@ -52,8 +52,9 @@ namespace Nidavellir.UI
 
         private void UpdateUIValues(float newValue)
         {
-            healthSlider.value = enemyHealthController.ResourceController.CurrentValue;
-            healthValueText.text = ((int)newValue).ToString();
+            var clampedValue = Mathf.Clamp(newValue, 0, float.MaxValue);
+            healthSlider.value = clampedValue;
+            healthValueText.text = ((int)clampedValue).ToString();
         }
     }
 }
