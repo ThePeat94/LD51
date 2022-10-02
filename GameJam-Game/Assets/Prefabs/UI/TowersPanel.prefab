@@ -116,9 +116,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8375525e8baf4509b68375e66a20a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withoutAttackTriggerLayerMask:
+    serializedVersion: 2
+    m_Bits: 131159
   placeableAreaLayerMask:
     serializedVersion: 2
     m_Bits: 131072
+  nonPlaceableAreaLayerMask:
+    serializedVersion: 2
+    m_Bits: 87
   towerButtonPrefab: {fileID: 4573944427916241490, guid: 7142b116111584196984a598a29e0225, type: 3}
   towers:
   - {fileID: 11400000, guid: c0203b9c4308a9448bc020fb47d34d7a, type: 2}
