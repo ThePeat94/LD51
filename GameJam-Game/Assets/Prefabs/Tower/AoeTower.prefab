@@ -93,7 +93,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 50cc907509847bc4380a797eccadd109, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,7 +125,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8804260913370112850}
   - component: {fileID: 8804260913370112849}
-  m_Layer: 0
+  - component: {fileID: -1078466482778782422}
+  m_Layer: 8
   m_Name: AoeTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +148,7 @@ Transform:
   - {fileID: 8804260912410508255}
   - {fileID: 8804260913829899398}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8804260913370112849
 MonoBehaviour:
@@ -164,6 +165,19 @@ MonoBehaviour:
   TowerSettings: {fileID: 11400000, guid: 8ef766e1c56894365913bd65469922f5, type: 2}
   AttackBaseTrigger: {fileID: 8804260913829899399}
   ProjectileSpawnPoint: {fileID: 1198858397289776826}
+--- !u!65 &-1078466482778782422
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804260913370112848}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.513923, z: 1}
+  m_Center: {x: 0, y: 0.7569612, z: 0}
 --- !u!1 &8804260913829899397
 GameObject:
   m_ObjectHideFlags: 0
