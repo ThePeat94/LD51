@@ -16,6 +16,8 @@ namespace Nidavellir.Towers
         public Transform ProjectileSpawnPoint;
         public Transform Muzzle;
         
+        [SerializeField] private GameObject rangeIndicator;
+        
         private float timeUntilNextAttack;
         private GameObject currentTarget;
         private List<GameObject> enemiesInRange = new List<GameObject>();
@@ -31,7 +33,12 @@ namespace Nidavellir.Towers
         public int CurrentLevel { get; private set; }
         public float CostsForNextLevel => this.m_towerUpgrades.Count > 0 ? this.m_towerUpgrades.Peek().Price : 0;
         public bool IsPlaced => this.isPlaced;
-
+        
+        private void Start()
+        {
+            var rangeCofactor = 2 * TowerSettings.TowerRange;
+            rangeIndicator.transform.localScale = new Vector3(rangeCofactor, rangeCofactor, rangeCofactor) ;
+        }
 
         [ContextMenu("Place")]
         private void DebugPlace()
@@ -122,6 +129,7 @@ namespace Nidavellir.Towers
             if (CurrencyController.Instance.BuyItem(TowerSettings.Price))
             {
                 isPlaced = true;
+                rangeIndicator.SetActive(false);
                 this.CurrentLevel++;
                 this.m_towerUpgrades = new(this.TowerSettings.PossibleUpgrades);
                 return true;
@@ -133,6 +141,7 @@ namespace Nidavellir.Towers
         public void Unplace()
         {
             isPlaced = false;
+            rangeIndicator.SetActive(true);
         }
 
         [ContextMenu("Upgrade")]
