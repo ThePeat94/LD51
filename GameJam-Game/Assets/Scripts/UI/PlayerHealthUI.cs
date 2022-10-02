@@ -14,7 +14,7 @@ namespace Nidavellir.UI
         [SerializeField] private TextMeshProUGUI m_healthText;
         [SerializeField] private float m_currentHealth;
         [SerializeField] private Image m_background;
-        [SerializeField] private int m_lowHealthThreshold = 3;
+        [SerializeField] private int m_lowHealthThreshold = 5;
 
         private void Awake()
         {
@@ -29,18 +29,17 @@ namespace Nidavellir.UI
 
         private void Update()
         {
-            if (m_currentHealth <= this.m_lowHealthThreshold)
-            {
-                Debug.Log("Low on health!");
-                AnimateHealthBarLow();
-            }
+            
         }
 
         private void PlayerHealthChanged(object sender, ResourceValueChangedEventArgs e)
         {
             this.m_healthText.text = e.NewValue.ToString();
             this.m_currentHealth = e.NewValue;
-            Debug.Log("m_currentHealth:" + m_currentHealth);
+            if (m_currentHealth <= m_lowHealthThreshold)
+            {
+                AnimateHealthBarLow();
+            }
             AnimateHealthBarHit();
         }
 
@@ -48,15 +47,15 @@ namespace Nidavellir.UI
         {
              this.transform.DOShakePosition(0.5f, 5);
              this.transform.DOShakeScale(0.5f, 0.1f, randomnessMode:ShakeRandomnessMode.Harmonic);
-             // this.m_background.DOColor(Color.red, 0.25f).SetLoops(2, LoopType.Yoyo);
              this.m_healthText.DOColor(Color.red, 0.25f).SetLoops(2, LoopType.Yoyo);
         }
 
         private void AnimateHealthBarLow()
         {
-            this.transform.DOShakePosition(-1, 6);
-            this.transform.DOShakeScale(0.5f, 0.1f, vibrato:5, randomnessMode:ShakeRandomnessMode.Harmonic);
-            this.m_healthText.DOColor(Color.red, 0.25f);
+            var sequence = DOTween.Sequence();
+            sequence.Append(this.transform.DOScale(1.3f, 0.3f).SetLoops(2, LoopType.Yoyo));
+            sequence.Append(this.transform.DOScale(1.15f, 0.3f).SetLoops(2, LoopType.Yoyo));
+            sequence.SetLoops(-1);
         }
 
 
