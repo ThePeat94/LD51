@@ -261,6 +261,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1477184434702443277}
     m_Modifications:
+    - target: {fileID: 8049550090109887882, guid: 599fd28f388644f969b75b7f054f7136, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8049550090109887883, guid: 599fd28f388644f969b75b7f054f7136, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -308,6 +312,14 @@ PrefabInstance:
     - target: {fileID: 8049550090109887884, guid: 599fd28f388644f969b75b7f054f7136, type: 3}
       propertyPath: m_Name
       value: BuffFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049550090656256966, guid: 599fd28f388644f969b75b7f054f7136, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049550090685860590, guid: 599fd28f388644f969b75b7f054f7136, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
