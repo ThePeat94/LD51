@@ -10,8 +10,28 @@ namespace Nidavellir.Audio
     /// </summary>
     public class SfxPlayer : MonoBehaviour
     {
+        public static SfxPlayer Instance { get; private set; }
+
         private AudioSource m_loopingAudioSource;
-        
+
+        private SfxPlayer()
+        {
+        }
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(this);
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
         public void PlayLoopingSfx(SfxData sfxData)
         {
             if (this.m_loopingAudioSource == null)
@@ -27,7 +47,7 @@ namespace Nidavellir.Audio
         {
             this.m_loopingAudioSource.Stop();
         }
-        
+
         public void PlayOneShot(SfxData sfxData)
         {
             this.StartCoroutine(this.PlayClipAndDestroySource(sfxData));

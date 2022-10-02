@@ -27,12 +27,12 @@ Transform:
   m_GameObject: {fileID: 784397973566268512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.97, z: 26.71}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.89, y: 1.89, z: 1.89}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 966027274643180221}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &784397973566268514
 BoxCollider:
@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerHealthResource: {fileID: 11400000, guid: 1196f3ce225d68547ab949a0137f88cd, type: 2}
+  loseHealthSfxData: {fileID: 11400000, guid: 1e14ae6f4526a4e40ac89b68d6ef6fae, type: 2}
 --- !u!1001 &784397974805376342
 PrefabInstance:
   m_ObjectHideFlags: 0

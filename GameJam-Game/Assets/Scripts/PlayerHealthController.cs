@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Nidavellir.EventArgs;
+using Nidavellir.Audio;
 using Nidavellir.Scriptables;
+using Nidavellir.Scriptables.Audio;
 using UnityEngine;
 
 namespace Nidavellir
@@ -10,6 +8,7 @@ namespace Nidavellir
     public class PlayerHealthController : MonoBehaviour
     {
         [SerializeField] private Resource m_playerHealthResource;
+        [SerializeField] private SfxData loseHealthSfxData;
 
         private GameStateManager m_gameStateManager;
 
@@ -23,6 +22,7 @@ namespace Nidavellir
             if (this.m_gameStateManager.CurrentState == GameStateManager.State.Started)
             {
                 this.m_playerHealthResource.ResourceController.SubtractResource(amount);
+                SfxPlayer.Instance.PlayOneShot(loseHealthSfxData);
 
                 if (this.m_playerHealthResource.ResourceController.CurrentValue <= 0f)
                     this.m_gameStateManager.TriggerGameOver();

@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using Nidavellir.Audio;
+using Nidavellir.Scriptables.Audio;
+using UnityEngine;
 
 namespace Nidavellir.Towers.Projectiles
 {
     public class BaseBullet : Projectile
     {
+        [SerializeField] private SfxData hitSfxData;
+
         public override void Init(GameObject target, Vector3 targetPosition, float damage)
         {
             base.Init(target, targetPosition, damage);
@@ -17,9 +21,14 @@ namespace Nidavellir.Towers.Projectiles
             if (Vector3.Distance(transform.position, this.targetPosition) <= 0.01f)
             {
                 if (this.target != null)
+                {
                     target
                         .GetComponent<EnemyHealthController>()
                         .TakeDamage(this.damage);
+
+                    SfxPlayer.Instance.PlayOneShot(hitSfxData);
+                }
+
                 Destroy(this.gameObject);
             }
         }
