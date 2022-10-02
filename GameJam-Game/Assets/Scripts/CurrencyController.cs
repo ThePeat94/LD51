@@ -1,4 +1,6 @@
+using Nidavellir.Audio;
 using Nidavellir.Scriptables;
+using Nidavellir.Scriptables.Audio;
 using UnityEngine;
 
 namespace Nidavellir
@@ -7,12 +9,14 @@ namespace Nidavellir
     {
         private static CurrencyController instance;
         [SerializeField] private Resource currencyResource;
-        
+        [SerializeField] private SfxData gainCurrencySfxData;
+
         public static CurrencyController Instance => instance;
         public Resource CurrencyResource => currencyResource;
 
-
-        private CurrencyController() {}
+        private CurrencyController()
+        {
+        }
 
         private void Awake()
         {
@@ -29,21 +33,19 @@ namespace Nidavellir
         public void AddCurrency(int amount)
         {
             currencyResource.ResourceController.Add(amount);
+
+            SfxPlayer.Instance.PlayOneShot(gainCurrencySfxData);
         }
 
         public bool BuyItem(int amount)
         {
             if (!currencyResource.ResourceController.CanAfford(amount))
                 return false;
-            
+
             currencyResource.ResourceController.UseResource(amount);
             return true;
         }
-        
-        
-        
-        
-        
+
         [ContextMenu("AddCurrency")]
         private void TestAdd()
         {

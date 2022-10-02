@@ -128,5 +128,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b596dad4e74fa9a6f9b21404cc8276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
   moveSpeed: 50
+  hitSfxData: {fileID: 11400000, guid: 0b1d459af336b4a789fedc010e085e6a, type: 2}
