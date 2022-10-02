@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currencyResource: {fileID: 11400000, guid: 50bcf0c1000e00846be4caa0881ee96a, type: 2}
+  gainCurrencySfxData: {fileID: 11400000, guid: 6f4b2f451c60449d498eee05f34cb410, type: 2}

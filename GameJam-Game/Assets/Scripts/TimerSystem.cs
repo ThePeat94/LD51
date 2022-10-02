@@ -1,3 +1,5 @@
+using Nidavellir.Audio;
+using Nidavellir.Scriptables.Audio;
 using UnityEngine;
 
 namespace Nidavellir
@@ -14,7 +16,9 @@ namespace Nidavellir
         public event TickTotalTime OnTotalTimeTick;
         public event TickTimer OnTimerTick;
         
-        private const float TickerTime = 10f;
+        public const float TickerTime = 10f;
+
+        [SerializeField] private SfxData tickSfxData;
 
         private float totalTime;
         private float tickTime;
@@ -49,6 +53,7 @@ namespace Nidavellir
 
             if (tickTime >= TickerTime)
             {
+                SfxPlayer.Instance.PlayOneShot(tickSfxData);
                 tickTime = 0;
                 OnTimerEndTick?.Invoke();
             }

@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyBuffData: {fileID: 11400000, guid: 3884701dece074f2b8f3802df1958f65, type: 2}
+  buffEnemySfxData: {fileID: 11400000, guid: 8e82c5443dc4b447fb097bf549429cb3, type: 2}

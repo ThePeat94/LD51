@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Nidavellir.PathManagement;
 using Nidavellir.Scriptables;
+using TMPro;
 using UnityEngine;
 using Random = System.Random;
 
@@ -14,6 +15,7 @@ namespace Nidavellir.Util
         [SerializeField] private Transform m_spawnPoint;
         [SerializeField] private Path m_path;
         [SerializeField] private Vector3 m_enemyOffset;
+        [SerializeField] private TextMeshProUGUI spawnCountdownText;
 
         private GameStateManager m_gameStateManager;
 
@@ -31,6 +33,13 @@ namespace Nidavellir.Util
         private void Start()
         {
             TimerSystem.Instance.OnTimerEndTick += this.OnTimerHasEndedTick;
+            TimerSystem.Instance.OnTotalTimeTick += OnTotalTimeTick;
+        }
+
+        private void OnTotalTimeTick(float totalTime)
+        {
+            var remainingTimeForNextSpawn = Mathf.RoundToInt((TimerSystem.TickerTime - (TimeSpan.FromSeconds(totalTime).Seconds % TimerSystem.TickerTime)));
+            spawnCountdownText.text = $"{remainingTimeForNextSpawn}";
         }
 
         private void OnTimerHasEndedTick()

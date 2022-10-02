@@ -25,12 +25,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818077942587024392}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.477, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7194861984165211954}
+  m_Father: {fileID: 5738485509422822839}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &2769656685499646965
@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pumpkin
       objectReference: {fileID: 0}
+    - target: {fileID: 1477184434702443276, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+      propertyPath: Animator
+      value: 
+      objectReference: {fileID: 8001081362503351548}
     - target: {fileID: 1477184434702443277, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -184,10 +188,32 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8296293700659014149, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5738485509422822839}
-    - targetCorrespondingSourceObject: {fileID: 8296293700659014149, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4150650263376956847}
   m_SourcePrefab: {fileID: 100100000, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+--- !u!1 &1334119982291212398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 178082395189255513, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+  m_PrefabInstance: {fileID: 1223593647458895159}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8001081362503351548
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334119982291212398}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: b7472d5c3d025554a84b0e2cc78dea5a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &7194861984165211954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8296293700659014149, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
@@ -250,7 +276,10 @@ PrefabInstance:
       value: Pumpkin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8ac632daf56dfa446829aef12ce57f88, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4150650263376956847}
   m_SourcePrefab: {fileID: 100100000, guid: 8ac632daf56dfa446829aef12ce57f88, type: 3}
 --- !u!4 &5738485509422822839 stripped
 Transform:
