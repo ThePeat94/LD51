@@ -33,6 +33,14 @@ namespace Nidavellir.Editor.PathManagement
                 }
                 
             }
+            else if (GUILayout.Button("Ground Paths"))
+            {
+                foreach (var wayPoint in this.PathInstance.WayPoints)
+                {
+                    var currentPos = wayPoint.position;
+                    wayPoint.position = new Vector3(currentPos.x, 0f, currentPos.z);
+                }
+            }
 
             this.DrawDefaultInspector();
         }
@@ -58,7 +66,7 @@ namespace Nidavellir.Editor.PathManagement
                 if (EditorGUI.EndChangeCheck())
                 {
                     Undo.RecordObject(this.PathInstance, "Free move path waypoint");
-                    waypoint.position = new Vector3(newWayPointPosition.x, 1f, newWayPointPosition.z);
+                    waypoint.position = new Vector3(newWayPointPosition.x, 0f, newWayPointPosition.z);
                 }
             }
         }
