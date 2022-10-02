@@ -12,6 +12,7 @@ namespace Nidavellir.UI
         public TextMeshProUGUI ValueText;
 
         private float currentCurrencyValue;
+        // private Tweener m_coinLossTweener;
 
         private void Start()
         {
@@ -25,7 +26,7 @@ namespace Nidavellir.UI
             UpdateCurrencyValueText((int)e.NewValue);
             if (currentCurrencyValue < e.NewValue) AnimateCoinGain();
             if (currentCurrencyValue > e.NewValue) AnimateCoinLoss();
-        }
+            }
 
         private void UpdateCurrencyValueText(int newValue)
         {
@@ -34,11 +35,13 @@ namespace Nidavellir.UI
 
         private void AnimateCoinGain()
         {
+            this.ValueText.transform.DORewind();
             this.ValueText.transform.DOScale(1.5f, 0.15f).SetLoops(2, LoopType.Yoyo);
         }
         
         private void AnimateCoinLoss()
         {
+            this.ValueText.transform.DORewind();
             this.ValueText.transform.DOLocalMove(this.ValueText.transform.localPosition + new Vector3(0, -25, 0), 0.1f).SetLoops(2, LoopType.Yoyo);
         }
     }
