@@ -56,13 +56,6 @@ namespace Nidavellir.UI
 
         public void BackToMenu()
         {
-            this.StartCoroutine(this.LoadGame());
-        }
-
-        IEnumerator LoadGame()
-        {
-            this.m_transition.SetTrigger("Start");
-            yield return new WaitForSeconds(this.m_transitionTime);
             SceneManager.LoadScene(0);
         }
 

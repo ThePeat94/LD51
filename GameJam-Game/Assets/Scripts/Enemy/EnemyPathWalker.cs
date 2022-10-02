@@ -1,3 +1,4 @@
+using System;
 using Nidavellir.PathManagement;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ namespace Nidavellir
     {
         public static readonly int Walking = Animator.StringToHash("Walking");
         public static readonly int Die = Animator.StringToHash("Die");
+
+        private EventHandler m_reachedGoal;
         
         [Header("References")] 
         public Animator Animator;
@@ -15,6 +18,12 @@ namespace Nidavellir
         private EnemyStats m_enemyStats;
 
         public Path Path { get; set; }
+        
+        public event EventHandler ReachedGoal
+        {
+            add => this.m_reachedGoal += value;
+            remove => this.m_reachedGoal -= value;
+        }
 
         private void Awake()
         {
@@ -56,7 +65,7 @@ namespace Nidavellir
             if (collision.gameObject.TryGetComponent<PlayerHealthController>(out var playerHealthController))
             {
                 playerHealthController.TakeDamage(this.m_enemyStats.Damage);
-
+                this.m_reachedGoal?.Invoke(this.gameObject, System.EventArgs.Empty);
                 Destroy(this.gameObject, 1.5f);
             }
         }

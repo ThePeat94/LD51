@@ -13,6 +13,7 @@ namespace Nidavellir
         {
             Started,
             Paused,
+            Won,
             GameOver
         };
 
@@ -34,7 +35,7 @@ namespace Nidavellir
         {
             if (this.m_inputProcessor.QuitTriggered)
             {
-                if(this.m_currentState != State.GameOver)
+                if(this.m_currentState != State.GameOver && this.m_currentState != State.Won)
                 {
                     if (this.m_currentState == State.Started)
                     {
@@ -71,6 +72,15 @@ namespace Nidavellir
         {
             this.m_currentState = State.GameOver;
             this.m_playerHud.ShowLoseScreen();
+        }
+
+        public void TriggerGameWon()
+        {
+            if(this.m_currentState != State.Won)
+            {
+                this.m_currentState = State.Won;
+                this.m_playerHud.ShowWonScreen();
+            }
         }
 
         public void HidePauseMenu()
