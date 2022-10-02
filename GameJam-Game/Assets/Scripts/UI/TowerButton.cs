@@ -1,5 +1,6 @@
 using System;
 using Nidavellir.Scriptables;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ namespace Nidavellir.UI
 
         [SerializeField] private Button button;
 
+        [SerializeField] private TextMeshProUGUI priceText;
+
         public Action<TowerSO> OnButtonClick;
 
         private TowerSO towerSo;
@@ -20,6 +23,8 @@ namespace Nidavellir.UI
             this.towerSo = towerSo;
 
             image.sprite = towerSo.Icon;
+
+            priceText.text = towerSo.Price.ToString();
         }
 
         private void Awake()
