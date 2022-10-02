@@ -21,6 +21,7 @@ namespace Nidavellir
         public void TakeDamage(float amount)
         {
             this.m_resourceController.SubtractResource(amount);
+            
             if (this.m_resourceController.CurrentValue <= 0 && !dead)
             {
                 dead = true;
