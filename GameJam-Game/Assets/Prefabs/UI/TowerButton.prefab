@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4573944427916241488}
   - component: {fileID: 258393499217922043}
   - component: {fileID: 1246375827316949511}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: TowerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
