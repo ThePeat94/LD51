@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pumpkin
+  m_Controller: {fileID: 9100000, guid: 80ea24354f8f2254aa2b364c9d96e569, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 63cc54ca6888b8d4fbe6e68a4b001ad3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 55488f74c2ea13c4ca7ff855751dbba6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6e99a99015787e543a72da616921edb0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6e99a99015787e543a72da616921edb0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6a6990256814c3b4ebf565096fb4458a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 66619dac1866fa347ba50d9a200bb7f5, type: 2}

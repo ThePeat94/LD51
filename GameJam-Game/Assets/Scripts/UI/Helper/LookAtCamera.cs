@@ -7,7 +7,7 @@ namespace Nidavellir.UI.Helper
         private void Update()
         {
             var cameraPosition = Camera.main.transform.position;
-            transform.LookAt(new Vector3(cameraPosition.x, transform.position.y, transform.position.z));
+            transform.LookAt(new Vector3(cameraPosition.x, cameraPosition.y, transform.position.z));
         }
     }
 }

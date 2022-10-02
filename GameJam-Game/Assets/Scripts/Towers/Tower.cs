@@ -28,6 +28,14 @@ namespace Nidavellir.Towers
         public float CostsForNextLevel => this.TowerSettings.PossibleUpgrades[this.CurrentLevel].Price;
         public bool IsPlaced => this.isPlaced;
 
+
+        [ContextMenu("Place")]
+        private void DebugPlace()
+        {
+            Init();
+            Place();
+        }
+        
         public void Init()
         {
             TowerRange = TowerSettings.TowerRange;
