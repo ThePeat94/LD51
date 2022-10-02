@@ -7,5 +7,7 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Lollipop Projectile Animator
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: cadc648d0f6792e4dbbdeedbe80b484b, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 8b0c97d3344a39442b97747687715af0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: baa94e31c9fac1440820231a36523b5b, type: 2}

@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lollipop Animation
+  m_Name: Projectile Default
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: baa94e31c9fac1440820231a36523b5b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8b0c97d3344a39442b97747687715af0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

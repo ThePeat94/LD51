@@ -60,12 +60,13 @@ namespace Nidavellir.Towers
                 return;
 
             closestEnemy = GetClosestEnemy();
-            Shoot(Time.deltaTime);
-
+            
             if (Muzzle != null && closestEnemy != null)
             {
                 Muzzle.LookAt(new Vector3(closestEnemy.transform.position.x, closestEnemy.transform.position.y, closestEnemy.transform.position.z));
             }
+            
+            Shoot(Time.deltaTime);
         }
 
         private void Shoot(float deltaTime)
