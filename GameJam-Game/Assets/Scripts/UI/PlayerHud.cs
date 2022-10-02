@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Nidavellir.Towers;
+using UnityEngine;
 
 namespace Nidavellir.UI
 {
@@ -7,7 +8,8 @@ namespace Nidavellir.UI
         [SerializeField] private GameObject m_loseScreenPanel;
         [SerializeField] private GameObject m_mainGamePanel;
         [SerializeField] private PauseMenu m_pauseMenu;
-        
+        [SerializeField] private TowerUI m_towerUI;
+
 
         public void ShowLoseScreen()
         {
@@ -26,6 +28,11 @@ namespace Nidavellir.UI
             this.m_pauseMenu.CloseMenu();
             this.m_mainGamePanel.SetActive(true);
             FindObjectOfType<GameStateManager>().HidePauseMenu();
+        }
+
+        public void ShowTower(Tower tower)
+        {
+            this.m_towerUI.DisplayTower(tower);
         }
     }
 }

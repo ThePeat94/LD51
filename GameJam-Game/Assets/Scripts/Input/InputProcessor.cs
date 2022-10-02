@@ -16,6 +16,8 @@ namespace Nidavellir.Input
         public bool RetryTriggered => this.m_playerInput.Actions.Retry.triggered;
 
         public bool IsBoosting { get; private set; }
+        public Vector2 MousePosition => this.m_playerInput.Actions.MousePosition.ReadValue<Vector2>();
+        public bool LeftMouseClickTriggered => this.m_playerInput.Actions.LeftMouseClick.triggered;
 
         private void Awake()
         {
