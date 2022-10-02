@@ -15,6 +15,7 @@ namespace Nidavellir.Util
         [SerializeField] private Path m_path;
         [SerializeField] private Vector3 m_enemyOffset;
 
+        private GameStateManager m_gameStateManager;
 
 
         private int m_currentWaveIndex = 0;
@@ -23,6 +24,8 @@ namespace Nidavellir.Util
         {
             if(this.m_path == null)
                 this.m_path = FindObjectOfType<Path>();
+
+            this.m_gameStateManager = FindObjectOfType<GameStateManager>();
         }
 
         private void Start()
@@ -32,7 +35,8 @@ namespace Nidavellir.Util
 
         private void OnTimerHasEndedTick()
         {
-            this.SpawnWave();
+            if (this.m_gameStateManager.CurrentState == GameStateManager.State.Started)
+                this.SpawnWave();
         }
 
         private void SpawnWave()

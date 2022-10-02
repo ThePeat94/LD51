@@ -141,5 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed445faf69cf7c642bd4933e1e3d4ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_titleTheme: {fileID: 0}
-  m_gameTheme: {fileID: 0}
+  m_titleTheme: {fileID: 11400000, guid: 615c9e4b6f6599448996c3cbaf3502aa, type: 2}
+  m_gameTheme: {fileID: 11400000, guid: c09e4f1cb703a4ab4afa657fdf86d7e2, type: 2}

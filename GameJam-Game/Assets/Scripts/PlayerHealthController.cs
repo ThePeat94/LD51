@@ -22,7 +22,7 @@ namespace Nidavellir
         {
             if (this.m_gameStateManager.CurrentState == GameStateManager.State.Started)
             {
-                this.m_playerHealthResource.ResourceController.UseResource(amount);
+                this.m_playerHealthResource.ResourceController.SubtractResource(amount);
 
                 if (this.m_playerHealthResource.ResourceController.CurrentValue <= 0f)
                     this.m_gameStateManager.TriggerGameOver();
