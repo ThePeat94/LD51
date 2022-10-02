@@ -26,7 +26,7 @@ namespace Nidavellir.UI
             UpdateCurrencyValueText((int)e.NewValue);
             if (currentCurrencyValue < e.NewValue) AnimateCoinGain();
             if (currentCurrencyValue > e.NewValue) AnimateCoinLoss();
-            }
+        }
 
         private void UpdateCurrencyValueText(int newValue)
         {
@@ -38,7 +38,12 @@ namespace Nidavellir.UI
             this.ValueText.transform.DORewind();
             this.ValueText.transform.DOScale(1.5f, 0.15f).SetLoops(2, LoopType.Yoyo);
         }
-        
+
+        private void OnDestroy()
+        {
+            CurrencyController.Instance.CurrencyResource.ResourceController.ValueChanged -= CurrencyValueChanged;
+        }
+
         private void AnimateCoinLoss()
         {
             this.ValueText.transform.DORewind();

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nidavellir.EventArgs;
 using Nidavellir.PathManagement;
 using Nidavellir.Scriptables;
 using TMPro;
@@ -11,16 +12,15 @@ namespace Nidavellir.Util
 {
     public class WaveSpawner : MonoBehaviour
     {
-        [SerializeField] private List<WaveData> m_waves;
+        [SerializeField] private List<WaveData> m_waveData;
         [SerializeField] private Transform m_spawnPoint;
         [SerializeField] private Path m_path;
         [SerializeField] private Vector3 m_enemyOffset;
         [SerializeField] private TextMeshProUGUI spawnCountdownText;
 
         private GameStateManager m_gameStateManager;
-
-
-        private int m_currentWaveIndex = 0;
+        private List<GameObject> m_spawnedEnemies = new();
+        private Queue<WaveData> m_waves;
 
         private void Awake()
         {
@@ -28,6 +28,7 @@ namespace Nidavellir.Util
                 this.m_path = FindObjectOfType<Path>();
 
             this.m_gameStateManager = FindObjectOfType<GameStateManager>();
+            this.m_waves = new(this.m_waveData);
         }
 
         private void Start()
@@ -50,10 +51,10 @@ namespace Nidavellir.Util
 
         private void SpawnWave()
         {
-            if (this.m_currentWaveIndex >= this.m_waves.Count)
+            if (this.m_waves.Count == 0)
                 return;
             
-            var currentWave = this.m_waves[this.m_currentWaveIndex];
+            var currentWave = this.m_waves.Dequeue();
 
             var currentSpawnPosition = this.m_spawnPoint.position;
             
@@ -61,14 +62,41 @@ namespace Nidavellir.Util
             {
                 for (var i = 0; i < spawnGroup.Count; i++)
                 {
-                    var enemy = GameObject.Instantiate(spawnGroup.EnemyPrefab, currentSpawnPosition, Quaternion.identity)
-                        .GetComponent<EnemyPathWalker>();
-                    enemy.Path = this.m_path;
+                    var enemy = GameObject.Instantiate(spawnGroup.EnemyPrefab, currentSpawnPosition, Quaternion.identity);
+                    var pathWalker = enemy.GetComponent<EnemyPathWalker>();
+                    pathWalker.Path = this.m_path;
+                    pathWalker.ReachedGoal += EnemyReachedGoal;
                     currentSpawnPosition += this.m_enemyOffset;
+                    this.m_spawnedEnemies.Add(enemy);
+                    enemy.GetComponent<EnemyHealthController>().ResourceController.ValueChanged += ((sender, args) => this.EnemyHealthChanged(args, enemy));
                 }
             }
+        }
 
-            this.m_currentWaveIndex++;
+        private void EnemyReachedGoal(object sender, System.EventArgs e)
+        {
+            this.RemoveEnemy(sender as GameObject);
+        }
+
+        private void EnemyHealthChanged(ResourceValueChangedEventArgs e, GameObject enemy)
+        {
+            if (e.NewValue <= 0)
+            {
+                this.RemoveEnemy(enemy);
+            }
+        }
+
+        private void RemoveEnemy(GameObject enemy)
+        {
+            if(this.m_spawnedEnemies.Contains(enemy))
+            {
+                this.m_spawnedEnemies.Remove(enemy);
+
+                if (this.m_spawnedEnemies.Count == 0 && this.m_waves.Count == 0)
+                {
+                    this.m_gameStateManager.TriggerGameWon();
+                }
+            }
         }
 
         private void OnDestroy()

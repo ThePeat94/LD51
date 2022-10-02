@@ -6,6 +6,7 @@ namespace Nidavellir.UI
     public class PlayerHud : MonoBehaviour
     {
         [SerializeField] private GameObject m_loseScreenPanel;
+        [SerializeField] private GameObject m_winScreenPanel;
         [SerializeField] private GameObject m_mainGamePanel;
         [SerializeField] private PauseMenu m_pauseMenu;
         [SerializeField] private TowerUI m_towerUI;
@@ -33,6 +34,12 @@ namespace Nidavellir.UI
         public void ShowTower(Tower tower)
         {
             this.m_towerUI.DisplayTower(tower);
+        }
+
+        public void ShowWonScreen()
+        {
+            this.m_mainGamePanel.SetActive(false);
+            this.m_winScreenPanel.SetActive(true);
         }
     }
 }
