@@ -3,6 +3,7 @@ using System.Linq;
 using Nidavellir.Scriptables;
 using Nidavellir.Towers.Projectiles;
 using Nidavellir.Trigger;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Nidavellir.Towers
@@ -18,14 +19,15 @@ namespace Nidavellir.Towers
         private GameObject currentTarget;
         private List<GameObject> enemiesInRange = new List<GameObject>();
         private bool isPlaced;
-        private List<TowerUpgradeSO> appliedUpgrades = new List<TowerUpgradeSO>();
-        
+
+        private Queue<TowerUpgradeSO> m_towerUpgrades;
+
         public float TowerRange { get; protected set; }
         public float AttackSpeed { get; protected set; }
         public float Damage { get; protected set; }
         public Projectile Projectile { get; protected set; }
-        public int CurrentLevel => appliedUpgrades.Count;
-        public float CostsForNextLevel => this.TowerSettings.PossibleUpgrades[this.CurrentLevel].Price;
+        public int CurrentLevel { get; private set; }
+        public float CostsForNextLevel => this.m_towerUpgrades.Count > 0 ? this.m_towerUpgrades.Peek().Price : 0;
         public bool IsPlaced => this.isPlaced;
 
 
@@ -103,6 +105,8 @@ namespace Nidavellir.Towers
             if (CurrencyController.Instance.BuyItem(TowerSettings.Price))
             {
                 isPlaced = true;
+                this.CurrentLevel++;
+                this.m_towerUpgrades = new(this.TowerSettings.PossibleUpgrades);
                 return true;
             }
             
@@ -117,13 +121,14 @@ namespace Nidavellir.Towers
         [ContextMenu("Upgrade")]
         public bool Upgrade()
         {
-            if (CurrentLevel < TowerSettings.MaxLevel - 1)
+            if (this.m_towerUpgrades.Count > 0)
             {
-                var nextUpgrade = TowerSettings.PossibleUpgrades[CurrentLevel];
+                var nextUpgrade = this.m_towerUpgrades.Peek();
 
                 if (CurrencyController.Instance.BuyItem(nextUpgrade.Price))
                 {
                     ApplyUpgrade(nextUpgrade);
+                    this.m_towerUpgrades.Dequeue();
                     return true;
                 }
             }
@@ -133,14 +138,14 @@ namespace Nidavellir.Towers
 
         protected virtual void ApplyUpgrade(TowerUpgradeSO towerUpgradeSo)
         {
-            appliedUpgrades.Add(towerUpgradeSo);
-
             TowerRange += towerUpgradeSo.TowerRangeIncrease;
             AttackSpeed -= towerUpgradeSo.AttackSpeedIncrease;
             Damage += towerUpgradeSo.DamageIncrease;
 
             if (towerUpgradeSo.Projectile != null)
                 Projectile = towerUpgradeSo.Projectile;
+
+            this.CurrentLevel++;
         }
         
         
@@ -150,5 +155,7 @@ namespace Nidavellir.Towers
             AttackBaseTrigger?.SetSize(Vector3.one * TowerSettings.TowerRange);
         }
 #endif
+        public bool CanUpgrade() => this.HasUpgradeAvailable() & CurrencyController.Instance.CurrencyResource.ResourceController.CanAfford(this.CostsForNextLevel);
+        public bool HasUpgradeAvailable() => this.m_towerUpgrades.Count > 0;
     }
 }

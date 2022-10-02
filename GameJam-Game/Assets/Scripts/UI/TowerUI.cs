@@ -18,6 +18,8 @@ namespace Nidavellir.UI
         [SerializeField] private TextMeshProUGUI m_rangeText;
         [SerializeField] private TextMeshProUGUI m_costsText;
         [SerializeField] private Button m_upgradeButton;
+        [SerializeField] private GameObject m_upgradeCostsRow;
+        
         
         private Tower m_towerToDisplay;
 
@@ -48,7 +50,7 @@ namespace Nidavellir.UI
 
         private void OnCurrencyChanged(object sender, ResourceValueChangedEventArgs e)
         {
-            this.m_upgradeButton.interactable = this.m_currencyResource.ResourceController.CanAfford(this.m_towerToDisplay.CostsForNextLevel);
+            this.UpdateButton();
         }
         
         
@@ -59,7 +61,13 @@ namespace Nidavellir.UI
             this.m_attackSpeedText.text = $"{this.m_towerToDisplay.AttackSpeed:F2}";
             this.m_costsText.text = $"{this.m_towerToDisplay.CostsForNextLevel}";
             this.m_rangeText.text = $"{this.m_towerToDisplay.TowerRange:F2}";
-            this.m_upgradeButton.interactable = this.m_towerToDisplay.CurrentLevel < this.m_towerToDisplay.TowerSettings.PossibleUpgrades.Count - 1 && this.m_currencyResource.ResourceController.CanAfford(this.m_towerToDisplay.CostsForNextLevel);
+            this.m_upgradeCostsRow.SetActive(this.m_towerToDisplay.HasUpgradeAvailable());
+            this.UpdateButton();
+        }
+
+        private void UpdateButton()
+        {
+            this.m_upgradeButton.interactable = this.m_towerToDisplay.CanUpgrade();
         }
     }
 }
