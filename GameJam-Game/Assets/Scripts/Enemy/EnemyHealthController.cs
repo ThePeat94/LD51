@@ -7,6 +7,7 @@ namespace Nidavellir
     public class EnemyHealthController : MonoBehaviour
     {
         [SerializeField] private EnemySO m_enemyConfig;
+        [SerializeField] private EnemyPathWalker m_enemyPathWalker;
         [SerializeField] private ResourceData m_resourceData;
 
         private ResourceController m_resourceController;
@@ -25,10 +26,21 @@ namespace Nidavellir
 
             if (this.m_resourceController.CurrentValue <= 0 && !dead)
             {
-                dead = true;
-                CurrencyController.Instance.AddCurrency(this.m_enemyConfig.CurrencyReward);
-                Destroy(this.gameObject);
+                Die();
             }
+        }
+
+        private void Die()
+        {
+            dead = true;
+            CurrencyController.Instance.AddCurrency(this.m_enemyConfig.CurrencyReward);
+
+            GetComponent<Collider>().enabled = false;
+            
+            m_enemyPathWalker.Animator.SetTrigger(EnemyPathWalker.Die);
+            m_enemyPathWalker.enabled = false;
+
+            Destroy(this.gameObject, 1.5f);
         }
     }
 }

@@ -56,7 +56,8 @@ namespace Nidavellir
             if (collision.gameObject.TryGetComponent<PlayerHealthController>(out var playerHealthController))
             {
                 playerHealthController.TakeDamage(this.m_enemyStats.Damage);
-                Destroy(this.gameObject);
+
+                Destroy(this.gameObject, 1.5f);
             }
         }
     }
