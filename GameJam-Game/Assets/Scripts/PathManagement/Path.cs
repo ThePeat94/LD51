@@ -33,7 +33,7 @@ namespace Nidavellir.PathManagement
                 previousWayPoint = wayPoint;
             }
 
-            if (this.m_playerBase)
+            if (this.m_playerBase && previousWayPoint != null)
             {
                 Gizmos.DrawLine(previousWayPoint.position, this.m_playerBase.transform.position);
             }

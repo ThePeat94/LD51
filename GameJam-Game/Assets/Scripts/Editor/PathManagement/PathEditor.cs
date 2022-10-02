@@ -66,7 +66,7 @@ namespace Nidavellir.Editor.PathManagement
                 if (EditorGUI.EndChangeCheck())
                 {
                     Undo.RecordObject(this.PathInstance, "Free move path waypoint");
-                    waypoint.position = new Vector3(newWayPointPosition.x, 1f, newWayPointPosition.z);
+                    waypoint.position = new Vector3(newWayPointPosition.x, 0f, newWayPointPosition.z);
                 }
             }
         }
