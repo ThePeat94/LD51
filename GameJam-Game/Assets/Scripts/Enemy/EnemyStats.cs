@@ -9,6 +9,7 @@ namespace Nidavellir
     public class EnemyStats : MonoBehaviour
     {
         [SerializeField] private EnemySO m_initialStats;
+        [SerializeField] private ParticleSystem buffParticleSystem;
         private float m_movementSpeed;
         private int m_level;
         private int m_damage;
@@ -33,6 +34,7 @@ namespace Nidavellir
             this.m_healthController.ResourceController.Add(buffData.HealthIncrease);
             this.m_level++;
             this.m_damage++;
+            buffParticleSystem.Play();
         }
     }
 }
