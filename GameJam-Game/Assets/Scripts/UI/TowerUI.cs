@@ -32,12 +32,14 @@ namespace Nidavellir.UI
         {
             this.gameObject.SetActive(true);
             this.m_towerToDisplay = toDisplay;
+            m_towerToDisplay.SetRangeIndicatorActive(true);
             this.UpdateUI();
         }
 
         public void Close()
         {
             this.gameObject.SetActive(false);
+            m_towerToDisplay.SetRangeIndicatorActive(false);
             this.m_towerToDisplay = null;
             this.m_currencyResource.ResourceController.ValueChanged -= this.OnCurrencyChanged;
         }

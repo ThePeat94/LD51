@@ -129,7 +129,7 @@ namespace Nidavellir.Towers
             if (CurrencyController.Instance.BuyItem(TowerSettings.Price))
             {
                 isPlaced = true;
-                rangeIndicator.SetActive(false);
+                SetRangeIndicatorActive(false);
                 this.CurrentLevel++;
                 this.m_towerUpgrades = new(this.TowerSettings.PossibleUpgrades);
                 return true;
@@ -141,7 +141,12 @@ namespace Nidavellir.Towers
         public void Unplace()
         {
             isPlaced = false;
-            rangeIndicator.SetActive(true);
+            SetRangeIndicatorActive(true);
+        }
+
+        public void SetRangeIndicatorActive(bool active)
+        {
+            rangeIndicator.SetActive(active);
         }
 
         [ContextMenu("Upgrade")]
