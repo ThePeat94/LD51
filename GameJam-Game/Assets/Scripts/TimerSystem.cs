@@ -37,12 +37,20 @@ namespace Nidavellir
             if (Instance == null)
             {
                 Instance = this;
+                GameStateManager.Instance.OnValueReset += Reset;
             }
             else
             {
                 Destroy(gameObject);
                 return;
             }
+        }
+        
+        private void Reset()
+        {
+            GameStateManager.Instance.OnValueReset -= Reset;
+
+            Destroy(this);
         }
 
         private void Update()

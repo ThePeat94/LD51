@@ -23,11 +23,20 @@ namespace Nidavellir
             if (instance == null)
             {
                 instance = this;
+                GameStateManager.Instance.OnValueReset += Reset;
             }
             else
             {
                 Destroy(this);
             }
+        }
+
+        private void Reset()
+        {
+            GameStateManager.Instance.OnValueReset -= Reset;
+            currencyResource.ResourceController.ResetToStartValues();
+            
+            Destroy(this);
         }
 
         public void AddCurrency(int amount)

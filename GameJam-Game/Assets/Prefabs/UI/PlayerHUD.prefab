@@ -365,6 +365,8 @@ MonoBehaviour:
   m_mainGamePanel: {fileID: 1381731983326755490}
   m_pauseMenu: {fileID: 1235550333635474755}
   m_towerUI: {fileID: 7486732491291571415}
+  winMusic: {fileID: 11400000, guid: a1875f85a7b5e4b85a70855ecd8fd892, type: 2}
+  loseMusic: {fileID: 11400000, guid: 7e96f6e48833e4cdf811647a309f521f, type: 2}
 --- !u!1 &2143212734692049951
 GameObject:
   m_ObjectHideFlags: 0

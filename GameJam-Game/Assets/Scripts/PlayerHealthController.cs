@@ -1,3 +1,4 @@
+using System;
 using Nidavellir.Audio;
 using Nidavellir.Scriptables;
 using Nidavellir.Scriptables.Audio;
@@ -10,22 +11,28 @@ namespace Nidavellir
         [SerializeField] private Resource m_playerHealthResource;
         [SerializeField] private SfxData loseHealthSfxData;
 
-        private GameStateManager m_gameStateManager;
 
         private void Awake()
         {
-            this.m_gameStateManager = FindObjectOfType<GameStateManager>();
+            GameStateManager.Instance.OnValueReset += Reset;
+        }
+
+        private void Reset()
+        {
+            GameStateManager.Instance.OnValueReset -= Reset;
+            
+            m_playerHealthResource.ResourceController.ResetToStartValues();
         }
 
         public void TakeDamage(int amount)
         {
-            if (this.m_gameStateManager.CurrentState == GameStateManager.State.Started)
+            if (GameStateManager.Instance.CurrentState == GameStateManager.State.Started)
             {
                 this.m_playerHealthResource.ResourceController.SubtractResource(amount);
                 SfxPlayer.Instance.PlayOneShot(loseHealthSfxData);
 
                 if (this.m_playerHealthResource.ResourceController.CurrentValue <= 0f)
-                    this.m_gameStateManager.TriggerGameOver();
+                    GameStateManager.Instance.TriggerGameOver();
             }
         }
     }
