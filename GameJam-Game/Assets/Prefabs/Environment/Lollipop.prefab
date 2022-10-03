@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3683097681196012087}
+  - component: {fileID: 182801783934858254}
   m_Layer: 0
   m_Name: Lollipop
   m_TagString: Untagged
@@ -30,8 +31,21 @@ Transform:
   m_Children:
   - {fileID: 614216705826257402}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &182801783934858254
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331091340197033135}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4.5543633, z: 1}
+  m_Center: {x: 0, y: 1.7771811, z: 0}
 --- !u!1001 &1084412771369426449
 PrefabInstance:
   m_ObjectHideFlags: 0
