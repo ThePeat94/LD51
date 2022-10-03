@@ -1674,7 +1674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4097033760392699246, guid: 654e1e9bf2957497488cd8ab78b0ed8e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4097033760392699246, guid: 654e1e9bf2957497488cd8ab78b0ed8e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1724,7 +1724,7 @@ MonoBehaviour:
   m_CellSize: {x: 155, y: 200}
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
-  m_ConstraintCount: 2
+  m_ConstraintCount: 1
 --- !u!224 &4097033762125818519 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4097033760392699246, guid: 654e1e9bf2957497488cd8ab78b0ed8e, type: 3}
