@@ -9,7 +9,6 @@ namespace Nidavellir.UI
     {
         [SerializeField] private Slider m_musicVolumeSlider;
         [SerializeField] private Slider m_sfxVolumeSlider;
-        [SerializeField] private Slider m_MouseSensitivitySlider;
         [SerializeField] private Animator m_transition;
         [SerializeField] private float m_transitionTime;
 
@@ -18,26 +17,19 @@ namespace Nidavellir.UI
         {
             this.m_musicVolumeSlider.onValueChanged.AddListener(this.MusicVolumeSliderChanged);
             this.m_sfxVolumeSlider.onValueChanged.AddListener(this.SfxVolumeSliderChanged);
-            this.m_MouseSensitivitySlider.onValueChanged.AddListener(this.MouseSensSliderChanged);
         }
 
         private void Start()
         {
             this.m_musicVolumeSlider.value = GlobalSettings.Instance.MusicVolume;
             this.m_sfxVolumeSlider.value = GlobalSettings.Instance.SfxVolume;
-            this.m_MouseSensitivitySlider.value = GlobalSettings.Instance.MouseSensitivity;
         }
 
         public void ShowMenu()
         {
             this.gameObject.SetActive(true);
         }
-
-        public void MouseSensSliderChanged(float volume)
-        {
-            GlobalSettings.Instance.MouseSensitivity = volume;
-        }
-
+        
         public void MusicVolumeSliderChanged(float volume)
         {
             GlobalSettings.Instance.MusicVolume = volume;
