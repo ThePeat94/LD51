@@ -37,6 +37,11 @@ namespace Nidavellir.UI
             });
         }
 
+        private void OnDestroy()
+        {
+            this.m_currencyResource.ResourceController.ValueChanged -= this.OnCurrencyChanged;
+        }
+
         private void OnCurrencyChanged(object sender, ResourceValueChangedEventArgs e)
         {
             this.button.interactable = e.NewValue >= this.towerSo.Price;
