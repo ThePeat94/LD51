@@ -17,7 +17,7 @@ MonoBehaviour:
   attackSpeed: 1.5
   damage: 30
   Icon: {fileID: 21300000, guid: 31af2d59d227b47d49d7e8e4b26fb4e0, type: 3}
-  price: 20
+  price: 25
   TowerPrefab: {fileID: 2679977689409671936, guid: 80b4001144ad9405a913d91137a000bc, type: 3}
   Projectile: {fileID: -8231468493807737498, guid: 965b735e03d272c45ac43a6b4d7d4a5a, type: 3}
   PossibleUpgrades:
