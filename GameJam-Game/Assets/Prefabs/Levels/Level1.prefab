@@ -2472,8 +2472,6 @@ Transform:
   - {fileID: 4624805148210731762}
   - {fileID: 5389724679117809765}
   - {fileID: 5389724680406890712}
-  - {fileID: 879489470850210466}
-  - {fileID: 7786948993994021300}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2890,6 +2888,8 @@ Transform:
   - {fileID: 3909564153464405033}
   - {fileID: 8260358304062978321}
   - {fileID: 4883222473230500021}
+  - {fileID: 879489470850210466}
+  - {fileID: 7786948993994021300}
   - {fileID: 2513342590524843166}
   m_Father: {fileID: 5389724680043816856}
   m_RootOrder: -1
@@ -4041,7 +4041,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 5389724680043816856}
+    m_TransformParent: {fileID: 5389724680406890712}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9568905f66b8cf74f8c0a4fe708ab543, type: 3}
       propertyPath: m_RootOrder
@@ -8285,7 +8285,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 5389724680043816856}
+    m_TransformParent: {fileID: 5389724680406890712}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9568905f66b8cf74f8c0a4fe708ab543, type: 3}
       propertyPath: m_RootOrder
@@ -8293,7 +8293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9568905f66b8cf74f8c0a4fe708ab543, type: 3}
       propertyPath: m_LocalScale.x
-      value: 62.592293
+      value: 62.592297
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9568905f66b8cf74f8c0a4fe708ab543, type: 3}
       propertyPath: m_LocalScale.y
@@ -8301,7 +8301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9568905f66b8cf74f8c0a4fe708ab543, type: 3}
       propertyPath: m_LocalScale.z
-      value: 62.592293
+      value: 62.592297
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9568905f66b8cf74f8c0a4fe708ab543, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8349,7 +8349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9568905f66b8cf74f8c0a4fe708ab543, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
