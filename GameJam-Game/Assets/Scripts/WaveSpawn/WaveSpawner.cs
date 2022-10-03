@@ -69,7 +69,7 @@ namespace Nidavellir.Util
                     currentSpawnPosition += this.m_enemyOffset;
                     this.m_spawnedEnemies.Add(enemy);
                     enemy.GetComponent<EnemyHealthController>()
-                        .Init(spawnGroup.HealthData);
+                        .Init(spawnGroup.HealthData, spawnGroup.EnemyData);
                     enemy.GetComponent<EnemyStats>()
                         .Init(spawnGroup.EnemyData);
                     enemy.GetComponent<EnemyHealthController>().ResourceController.ValueChanged += ((sender, args) => this.EnemyHealthChanged(args, enemy));

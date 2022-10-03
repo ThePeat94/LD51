@@ -24,8 +24,10 @@ namespace Nidavellir
         public ResourceController ResourceController => this.m_resourceController;
 
 
-        public void Init(ResourceData resourceData)
+        public void Init(ResourceData resourceData, EnemySO config)
         {
+            this.m_resourceData = resourceData;
+            this.m_enemyConfig = config;
             this.m_resourceController = new(resourceData);
 
             if (spawnSfxData != null && spawnSfxData.Count > 0)

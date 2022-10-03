@@ -15,5 +15,5 @@ MonoBehaviour:
   m_spawnGroups:
   - m_enemyPrefab: {fileID: 322870052839401412, guid: 823c7a64964a8a840a26d4601ffff3b7, type: 3}
     m_count: 1
-    m_healthData: {fileID: 11400000, guid: 35d87755542ff784c9b2e68dbf47a306, type: 2}
-    m_enemyData: {fileID: 11400000, guid: 2a73acba93a05cc44b22e4de8ecbb032, type: 2}
+    m_healthData: {fileID: 11400000, guid: c15242de106bd6040a076fb466053ba3, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 9a0c1b66fcfb033418771f601f5f5708, type: 2}
