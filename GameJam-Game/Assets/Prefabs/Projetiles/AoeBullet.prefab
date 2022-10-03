@@ -129,5 +129,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 35
-  hitRange: 2
+  hitRange: 3
   hitSfxData: {fileID: 11400000, guid: ced9632b352f74eae9ea3c91de0a28b7, type: 2}
