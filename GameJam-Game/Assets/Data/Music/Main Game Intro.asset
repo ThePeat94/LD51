@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd63d081b0dd74b4ba2e0b4f020ff4b4, type: 3}
   m_Name: Main Game Intro
   m_EditorClassIdentifier: 
-  m_musicClip: {fileID: 8300000, guid: 234a3dddceff58341bb10c357a7b24e8, type: 3}
-  m_volume: 0.543
+  m_musicClip: {fileID: 8300000, guid: 3fe7d51826f3f7843a51c1d4d528a0b1, type: 3}
+  m_volume: 0.5
   m_looping: 0
   m_followingClip: {fileID: 11400000, guid: 3671562143ab0664ca7bd430529bd4da, type: 2}
