@@ -9,8 +9,6 @@ namespace Nidavellir.UI
     {
         [SerializeField] private Slider m_musicVolumeSlider;
         [SerializeField] private Slider m_sfxVolumeSlider;
-        [SerializeField] private Animator m_transition;
-        [SerializeField] private float m_transitionTime;
 
 
         private void Awake()

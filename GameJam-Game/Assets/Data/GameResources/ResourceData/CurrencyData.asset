@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3442f715a0624c21a49c1aba64ebfe9f, type: 3}
   m_Name: CurrencyData
   m_EditorClassIdentifier: 
-  m_startingValue: 100
+  m_startingValue: 50
   m_maxValue: 1e+29

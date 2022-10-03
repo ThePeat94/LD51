@@ -680,8 +680,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_musicVolumeSlider: {fileID: 3848916489218804758}
   m_sfxVolumeSlider: {fileID: 702959083552020778}
-  m_transition: {fileID: 0}
-  m_transitionTime: 0
 --- !u!1 &2167617152225150680
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,14 +739,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.4901961, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a4481f36a80a2224da9ec0f7e7dc3670, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7bb2cd42594f481449a0f1543dd5d068, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

@@ -49,7 +49,8 @@ namespace Nidavellir.UI
 
         public void QuitApplication()
         {
-            GameStateManager.Instance.TriggerGameQuit();
+            if (Application.platform != RuntimePlatform.WebGLPlayer)
+                Application.Quit();
         }
 
         public void SfxVolumeSliderChanged(float volume)
