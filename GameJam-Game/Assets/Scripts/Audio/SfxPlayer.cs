@@ -82,6 +82,7 @@ namespace Nidavellir.Audio
         private void PlayClipOnAudioSource(SfxData sfxData, AudioSource audioSource)
         {
             audioSource.clip = sfxData.AudioClip;
+            Debug.Log($"Playing Sfx {sfxData.name} with volume {sfxData.Volume * GlobalSettings.Instance.SfxVolume:F2}");
             audioSource.volume = sfxData.Volume * GlobalSettings.Instance.SfxVolume;
             audioSource.Play();
         }
