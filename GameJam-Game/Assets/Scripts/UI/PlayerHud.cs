@@ -32,9 +32,9 @@ namespace Nidavellir.UI
 
         public void HidePauseMenu()
         {
+            GameStateManager.Instance.TriggerUnpause();
             this.m_pauseMenu.CloseMenu();
             this.m_mainGamePanel.SetActive(true);
-            FindObjectOfType<GameStateManager>().HidePauseMenu();
         }
 
         public void ShowTower(Tower tower)

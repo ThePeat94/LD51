@@ -25,8 +25,9 @@ namespace Nidavellir
     
         public State CurrentState => this.m_currentState;
         public static GameStateManager Instance => instance;
-        
+
         public event Action OnPause;
+        public event Action OnUnpause;
         public event Action OnQuit;
         public event Action OnValueReset;
 
@@ -55,13 +56,11 @@ namespace Nidavellir
                 {
                     if (this.m_currentState == State.Started)
                     {
-                        this.m_currentState = State.Paused;
-                        this.m_playerHud.ShowPauseMenu();
+                        TriggerPause();
                     }
                     else if (this.m_currentState == State.Paused)
                     {
-                        this.m_currentState = State.Started;
-                        this.m_playerHud.HidePauseMenu();
+                        m_playerHud.HidePauseMenu();
                     }
                 }
                 else
@@ -83,6 +82,25 @@ namespace Nidavellir
             }
         }
 
+        public void TriggerPause()
+        {
+            this.m_currentState = State.Paused;
+            this.m_playerHud.ShowPauseMenu();
+
+            Time.timeScale = 0;
+            
+            OnPause?.Invoke();
+        }
+
+        public void TriggerUnpause()
+        {
+            this.m_currentState = State.Started;
+            
+            Time.timeScale = 1;
+
+            OnUnpause?.Invoke();
+        }
+
         public void TriggerGameOver()
         {
             this.m_currentState = State.GameOver;
@@ -102,7 +120,8 @@ namespace Nidavellir
         {
             OnQuit?.Invoke();
             
-            Application.Quit();
+            if (Application.platform != RuntimePlatform.WebGLPlayer)
+                Application.Quit();
         }
 
         public void TriggerRetry()
@@ -120,12 +139,6 @@ namespace Nidavellir
             GameStateManager.instance = null;
             
             SceneManager.LoadScene(0);
-        }
-        
-
-        public void HidePauseMenu()
-        {
-            this.m_currentState = State.Started;
         }
     }
 }
