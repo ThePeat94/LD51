@@ -62,6 +62,14 @@ namespace Nidavellir.UI
         {
             if (activeTower != null)
             {
+                if (Mouse.current.rightButton.wasPressedThisFrame)
+                {
+                    Destroy(activeTower.gameObject);
+                    this.activeTower = null;
+                    return;
+                }
+                
+                
                 var mousePosition = Mouse.current.position.ReadValue();
                 var ray = mainCamera.ScreenPointToRay(mousePosition);
 
