@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Skeleton Data Wave 4
   m_EditorClassIdentifier: 
   name: Skeleton
-  moveSpeed: 21
+  moveSpeed: 10.5
   currencyReward: 10
   m_minimumSpeed: 5

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Bat Data Wave 5
   m_EditorClassIdentifier: 
   name: Bat
-  moveSpeed: 32
+  moveSpeed: 16
   currencyReward: 10
   m_minimumSpeed: 5
