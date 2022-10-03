@@ -1,4 +1,5 @@
 using System;
+using Nidavellir.Audio;
 using Nidavellir.Input;
 using Nidavellir.UI;
 using UnityEngine;
@@ -86,6 +87,7 @@ namespace Nidavellir
         {
             this.m_currentState = State.Paused;
             this.m_playerHud.ShowPauseMenu();
+            MusicPlayer.Instance.PauseClip();
 
             Time.timeScale = 0;
             
@@ -95,7 +97,8 @@ namespace Nidavellir
         public void TriggerUnpause()
         {
             this.m_currentState = State.Started;
-            
+            MusicPlayer.Instance.UnpauseClip();
+
             Time.timeScale = 1;
 
             OnUnpause?.Invoke();
