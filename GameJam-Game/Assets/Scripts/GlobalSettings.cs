@@ -10,7 +10,6 @@ namespace Nidavellir
         private EventHandler m_musicVolumeChanged;
         private float m_sfxVolume;
         private EventHandler m_sfxVolumeChanged;
-        private float m_mouseSensitivity;
         private EventHandler m_sensitivityChanged;
 
         private GlobalSettings()
@@ -47,16 +46,6 @@ namespace Nidavellir
             {
                 this.m_sfxVolume = value;
                 this.m_sfxVolumeChanged?.Invoke(this, System.EventArgs.Empty);
-            }
-        }
-    
-        public float MouseSensitivity
-        {
-            get => this.m_mouseSensitivity;
-            set
-            {
-                this.m_mouseSensitivity = value;
-                this.m_sensitivityChanged?.Invoke(this, System.EventArgs.Empty);
             }
         }
 
