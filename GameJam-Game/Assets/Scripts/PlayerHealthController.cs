@@ -9,7 +9,7 @@ namespace Nidavellir
     public class PlayerHealthController : MonoBehaviour
     {
         [SerializeField] private Resource m_playerHealthResource;
-        [SerializeField] private SfxData loseHealthSfxData;
+        [SerializeField] private RandomClipPlayer m_randomLoseHealthPlayer;
 
 
         private void Awake()
@@ -29,7 +29,7 @@ namespace Nidavellir
             if (GameStateManager.Instance.CurrentState == GameStateManager.State.Started)
             {
                 this.m_playerHealthResource.ResourceController.SubtractResource(amount);
-                SfxPlayer.Instance.PlayOneShot(loseHealthSfxData);
+                this.m_randomLoseHealthPlayer.PlayRandomOneShot();
 
                 if (this.m_playerHealthResource.ResourceController.CurrentValue <= 0f)
                     GameStateManager.Instance.TriggerGameOver();

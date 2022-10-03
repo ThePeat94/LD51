@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Nidavellir.Audio;
 using Nidavellir.Scriptables;
+using Nidavellir.Scriptables.Audio;
 using Nidavellir.Towers.Projectiles;
 using Nidavellir.Trigger;
 using UnityEngine;
@@ -27,6 +29,8 @@ namespace Nidavellir.Towers
         private Color nonPlaceableRangeIndicatorColor;
 
         [SerializeField] private BoxCollider boxCollider;
+        [SerializeField] private SfxData m_shootSfx;
+        
 
         private float timeUntilNextAttack;
         private GameObject currentTarget;
@@ -114,6 +118,7 @@ namespace Nidavellir.Towers
                 }
 
                 projectile.Init(closestEnemy, closestEnemy.transform.position, Damage);
+                SfxPlayer.Instance.PlayOneShot(this.m_shootSfx);
 
                 timeUntilNextAttack = AttackSpeed;
             }

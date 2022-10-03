@@ -11472,6 +11472,26 @@ PrefabInstance:
       propertyPath: m_enemyConfig
       value: 
       objectReference: {fileID: 11400000, guid: bd09aee26332f99479eb5fa4b9e67f20, type: 2}
+    - target: {fileID: 1477184434702443279, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+      propertyPath: deathSfxData.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1477184434702443279, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+      propertyPath: spawnSfxData.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1477184434702443279, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+      propertyPath: deathSfxData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e417284ed0c65e0459d68f55573305eb, type: 2}
+    - target: {fileID: 1477184434702443279, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+      propertyPath: deathSfxData.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1efba4d554fd7e043b454518bbdb4f3a, type: 2}
+    - target: {fileID: 1477184434702443279, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+      propertyPath: spawnSfxData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4159d552cf0cfc741b559c20e7dbdd24, type: 2}
     - target: {fileID: 4134332674944247296, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
       propertyPath: m_initialStats
       value: 

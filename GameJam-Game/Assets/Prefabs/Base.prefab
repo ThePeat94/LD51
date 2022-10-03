@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 784397973566268527}
   - component: {fileID: 784397973566268514}
   - component: {fileID: 784397973566268515}
+  - component: {fileID: 5750236582684386442}
   m_Layer: 9
   m_Name: Base
   m_TagString: Untagged
@@ -60,7 +61,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerHealthResource: {fileID: 11400000, guid: 1196f3ce225d68547ab949a0137f88cd, type: 2}
-  loseHealthSfxData: {fileID: 11400000, guid: 1e14ae6f4526a4e40ac89b68d6ef6fae, type: 2}
+  m_randomLoseHealthPlayer: {fileID: 5750236582684386442}
+--- !u!114 &5750236582684386442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784397973566268512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab3a8a280ace654288685df4f3b2e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_concurrentPlyback: 1
+  m_audioClips:
+  - {fileID: 11400000, guid: 1e14ae6f4526a4e40ac89b68d6ef6fae, type: 2}
+  - {fileID: 11400000, guid: a933e1e068f15e244b862a0c6f0e697a, type: 2}
+  - {fileID: 11400000, guid: c944c4dff961e45429e23555d76e190a, type: 2}
 --- !u!1001 &784397974805376342
 PrefabInstance:
   m_ObjectHideFlags: 0

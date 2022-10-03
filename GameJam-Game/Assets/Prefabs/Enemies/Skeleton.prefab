@@ -11355,6 +11355,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1477184434702443279, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+      propertyPath: deathSfxData.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1477184434702443279, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+      propertyPath: spawnSfxData.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1477184434702443279, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+      propertyPath: deathSfxData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 946dfe6666437e647b623831654472c4, type: 2}
+    - target: {fileID: 1477184434702443279, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+      propertyPath: spawnSfxData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b0ab52e212bcbd40a36c75a7346ea9c, type: 2}
     - target: {fileID: 1706160772341757638, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
       propertyPath: m_Height
       value: 2

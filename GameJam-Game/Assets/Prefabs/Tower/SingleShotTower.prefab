@@ -1336,6 +1336,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3053044341177238108}
     - target: {fileID: 7677573017416105605, guid: bd29ef923aa2686419075470aeceaa1d, type: 3}
+      propertyPath: m_shootSfx
+      value: 
+      objectReference: {fileID: 11400000, guid: 8cfabe37a1117bc4bb055eaeb0363c51, type: 2}
+    - target: {fileID: 7677573017416105605, guid: bd29ef923aa2686419075470aeceaa1d, type: 3}
       propertyPath: TowerSettings
       value: 
       objectReference: {fileID: 11400000, guid: 7832317720550c44fa71be02b9665f37, type: 2}
