@@ -65,10 +65,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2172468411143716011}
   - {fileID: 5619210580702709307}
   - {fileID: 5466674203006404021}
   - {fileID: 5790697235589893459}
+  - {fileID: 2172468411143716011}
   m_Father: {fileID: 8756797789183169870}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -767,7 +767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.498291, y: 4.979492}
+  m_AnchoredPosition: {x: 1.498291, y: -155}
   m_SizeDelta: {x: -134.8679, y: -445.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3221788293816430671
@@ -801,17 +801,18 @@ MonoBehaviour:
   m_text: 'Milmalissa & zeichn - Digital Artists
 
 
-
-    manio - Music and Sound Director
-
+    manio - Sound Director
 
 
-    ThePeat,
-    Amomamo, serefbulbul, Julian & CaveDave - Developers
+    manio,
+    Mauricio Plasma & Tabea Wink - Music
 
 
-    Mike Dermendjin -
-    Game Design'
+    ThePeat, Amomamo, serefbulbul, Julian
+    & CaveDave - Developers
+
+
+    Mike Dermendjin - Game Design'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3fe82a189a7be8747a0fe5766f48b0bd, type: 2}
   m_sharedMaterial: {fileID: 7132942837202033035, guid: 3fe82a189a7be8747a0fe5766f48b0bd, type: 2}
@@ -1718,7 +1719,7 @@ RectTransform:
   - {fileID: 1646160597423965541}
   - {fileID: 750508126882896648}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
