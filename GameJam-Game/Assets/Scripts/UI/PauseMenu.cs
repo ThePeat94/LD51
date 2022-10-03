@@ -37,8 +37,7 @@ namespace Nidavellir.UI
 
         public void QuitApplication()
         {
-            if (Application.platform != RuntimePlatform.WebGLPlayer)
-                Application.Quit();
+            GameStateManager.Instance.TriggerGameQuit();
         }
 
         public void SfxVolumeSliderChanged(float volume)
@@ -48,12 +47,13 @@ namespace Nidavellir.UI
 
         public void BackToMenu()
         {
-            SceneManager.LoadScene(0);
+            GameStateManager.Instance.TriggerBackToMainMenu();
         }
 
         public void CloseMenu()
         {
             this.gameObject.SetActive(false);
+            GameStateManager.Instance.TriggerUnpause();
         }
     }
 }

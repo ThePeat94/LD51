@@ -23,13 +23,31 @@ namespace Nidavellir.Audio
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(this);
+                GameStateManager.Instance.OnValueReset += Reset;
             }
             else
             {
                 Destroy(gameObject);
                 return;
             }
+        }
+
+        private void Reset()
+        {
+            GameStateManager.Instance.OnValueReset -= Reset;
+
+            this.StopAllCoroutines();
+            
+            if(m_loopingAudioSource != null)
+                StopLoopingCurrentSfx();
+            
+            foreach (var audioSource in GetComponents<AudioSource>())
+            {
+                audioSource.Stop();
+                Destroy(audioSource);
+            }
+            
+            Destroy(this);
         }
 
         public void PlayLoopingSfx(SfxData sfxData)

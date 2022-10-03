@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd63d081b0dd74b4ba2e0b4f020ff4b4, type: 3}
+  m_Name: Main Game Intro
+  m_EditorClassIdentifier: 
+  m_musicClip: {fileID: 8300000, guid: 234a3dddceff58341bb10c357a7b24e8, type: 3}
+  m_volume: 0.543
+  m_looping: 0
+  m_followingClip: {fileID: 11400000, guid: 3671562143ab0664ca7bd430529bd4da, type: 2}

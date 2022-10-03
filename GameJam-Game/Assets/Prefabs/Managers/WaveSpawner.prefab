@@ -377,6 +377,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bb7b0b542514a433589fc93b99f28ad4, type: 2}
   - {fileID: 11400000, guid: 58bdb7d53255547108176ce6b233a80a, type: 2}
   - {fileID: 11400000, guid: e9aa9434778244c51a2bfd9aab10fc1b, type: 2}
+  - {fileID: 11400000, guid: 360e5d1a3b5cb4e4ba5ec1be3cbe4714, type: 2}
+  - {fileID: 11400000, guid: e8c5988f83bb1dd41b1074e2417a3bf2, type: 2}
+  - {fileID: 11400000, guid: 543241d067f48564fa81499c12ea2482, type: 2}
+  - {fileID: 11400000, guid: 53114ce9ae769fe4983a80827498ac35, type: 2}
+  - {fileID: 11400000, guid: e4c478d964909144a966bf4447150589, type: 2}
+  - {fileID: 11400000, guid: c055182ef42b2254ebec0f29afce1f43, type: 2}
+  - {fileID: 11400000, guid: aaaebe9cb2a60e94198ed38896fba084, type: 2}
+  - {fileID: 11400000, guid: 8a9560affea7ee74db0d771f87d2364c, type: 2}
   m_spawnPoint: {fileID: 8058109896798354067}
   m_path: {fileID: 0}
   m_enemyOffset: {x: 0, y: 0, z: -3}

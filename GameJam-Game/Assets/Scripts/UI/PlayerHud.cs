@@ -1,4 +1,6 @@
-﻿using Nidavellir.Towers;
+﻿using Nidavellir.Audio;
+using Nidavellir.Scriptables.Audio;
+using Nidavellir.Towers;
 using UnityEngine;
 
 namespace Nidavellir.UI
@@ -10,12 +12,16 @@ namespace Nidavellir.UI
         [SerializeField] private GameObject m_mainGamePanel;
         [SerializeField] private PauseMenu m_pauseMenu;
         [SerializeField] private TowerUI m_towerUI;
+        [SerializeField] private SfxData winMusic;
+        [SerializeField] private SfxData loseMusic;
 
 
         public void ShowLoseScreen()
         {
             this.m_mainGamePanel.SetActive(false);
             this.m_loseScreenPanel.SetActive(true);
+            
+            SfxPlayer.Instance.PlayOneShot(loseMusic);
         }
 
         public void ShowPauseMenu()
@@ -26,9 +32,9 @@ namespace Nidavellir.UI
 
         public void HidePauseMenu()
         {
+            GameStateManager.Instance.TriggerUnpause();
             this.m_pauseMenu.CloseMenu();
             this.m_mainGamePanel.SetActive(true);
-            FindObjectOfType<GameStateManager>().HidePauseMenu();
         }
 
         public void ShowTower(Tower tower)
@@ -40,6 +46,8 @@ namespace Nidavellir.UI
         {
             this.m_mainGamePanel.SetActive(false);
             this.m_winScreenPanel.SetActive(true);
+            
+            SfxPlayer.Instance.PlayOneShot(winMusic);
         }
     }
 }

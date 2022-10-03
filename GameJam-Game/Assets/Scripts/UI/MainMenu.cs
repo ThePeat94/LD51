@@ -49,7 +49,7 @@ namespace Nidavellir.UI
 
         public void QuitApplication()
         {
-            Application.Quit();
+            GameStateManager.Instance.TriggerGameQuit();
         }
 
         public void SfxVolumeSliderChanged(float volume)

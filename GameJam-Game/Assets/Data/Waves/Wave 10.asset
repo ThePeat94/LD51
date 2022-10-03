@@ -13,7 +13,19 @@ MonoBehaviour:
   m_Name: Wave 10
   m_EditorClassIdentifier: 
   m_spawnGroups:
+  - m_enemyPrefab: {fileID: 3955615323696169378, guid: e9da175b8c306fe439b3ac8609a8fc52, type: 3}
+    m_count: 2
+    m_healthData: {fileID: 11400000, guid: 42b0b38d910e5ba49bdaf4066a1fc524, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 391ae950d0d143d4eb79c331a6c573f2, type: 2}
   - m_enemyPrefab: {fileID: 8737240820323936012, guid: 0c7cbecbea34a4d4b9ed5785d639571c, type: 3}
-    m_count: 5
+    m_count: 3
+    m_healthData: {fileID: 11400000, guid: a8431100ba71f694984242ed46c8f5c6, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 74de6c2660a9d6142ae279082c53e958, type: 2}
   - m_enemyPrefab: {fileID: 322870052839401412, guid: 0993db1623aa26742afa074fef7dc7c8, type: 3}
-    m_count: 5
+    m_count: 3
+    m_healthData: {fileID: 11400000, guid: 01c28e056e08c3a4db284780ae8fac71, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 243654a87d6ffa6448e6922dd7fe07be, type: 2}
+  - m_enemyPrefab: {fileID: 4916105555238097903, guid: 2844123d126083f40b14f69fea16fa98, type: 3}
+    m_count: 2
+    m_healthData: {fileID: 11400000, guid: 77d71b36f2b8db14f9b61569f791f112, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 35e047987c4f41b43842c528fa7a77b2, type: 2}

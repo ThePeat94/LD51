@@ -9,7 +9,8 @@ namespace Nidavellir
     {
         private EventHandler<ResourceValueChangedEventArgs> m_resourceValueChanged;
         private EventHandler<ResourceValueChangedEventArgs> m_maximumValueChanged;
-
+        
+        public float StartingValue { get; private set; }
         public float CurrentValue { get; private set; }
         public float MaxValue { get; private set; }
 
@@ -17,7 +18,8 @@ namespace Nidavellir
         {
             if (resourceData.StartingValue > resourceData.MaxValue)
                 throw new ArgumentException($"startingValue {resourceData.StartingValue} is greater than maxValue {resourceData.MaxValue}");
-            
+
+            this.StartingValue = resourceData.StartingValue;
             this.CurrentValue = resourceData.StartingValue;
             this.MaxValue = resourceData.MaxValue;
         }
@@ -27,6 +29,7 @@ namespace Nidavellir
             if (startingValue > maxValue)
                 throw new ArgumentException($"startingValue {startingValue} is greater than maxValue {maxValue}");
 
+            this.StartingValue = startingValue;
             this.CurrentValue = startingValue;
             this.MaxValue = maxValue;
         }
@@ -53,6 +56,13 @@ namespace Nidavellir
         {
             var oldValue = this.CurrentValue;
             this.CurrentValue = 0f;
+            this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue, oldValue));
+        }
+
+        public void ResetToStartValues()
+        {
+            var oldValue = this.CurrentValue;
+            this.CurrentValue = StartingValue;
             this.m_resourceValueChanged?.Invoke(this, new ResourceValueChangedEventArgs(this.CurrentValue, oldValue));
         }
 

@@ -6758,38 +6758,6 @@ PrefabInstance:
       propertyPath: m_enemyOffset.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8058109896284013074, guid: a7eca9b5254264578b8e642f50632613, type: 3}
-      propertyPath: m_waveData.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8058109896284013074, guid: a7eca9b5254264578b8e642f50632613, type: 3}
-      propertyPath: m_waveData.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 971d338643e1a4a15816739253fcb0c3, type: 2}
-    - target: {fileID: 8058109896284013074, guid: a7eca9b5254264578b8e642f50632613, type: 3}
-      propertyPath: m_waveData.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 063a62328553e4ddf86a59090ca0ecc7, type: 2}
-    - target: {fileID: 8058109896284013074, guid: a7eca9b5254264578b8e642f50632613, type: 3}
-      propertyPath: m_waveData.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 93c6bff9e868d489aaf16672af96344c, type: 2}
-    - target: {fileID: 8058109896284013074, guid: a7eca9b5254264578b8e642f50632613, type: 3}
-      propertyPath: m_waveData.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: ceb97af6313254e068f80c95fd31f615, type: 2}
-    - target: {fileID: 8058109896284013074, guid: a7eca9b5254264578b8e642f50632613, type: 3}
-      propertyPath: m_waveData.Array.data[7]
-      value: 
-      objectReference: {fileID: 11400000, guid: f69afa6756c6c4f71a98e63de812e11e, type: 2}
-    - target: {fileID: 8058109896284013074, guid: a7eca9b5254264578b8e642f50632613, type: 3}
-      propertyPath: m_waveData.Array.data[8]
-      value: 
-      objectReference: {fileID: 11400000, guid: ad789b797176c425d8619077bf8e27e8, type: 2}
-    - target: {fileID: 8058109896284013074, guid: a7eca9b5254264578b8e642f50632613, type: 3}
-      propertyPath: m_waveData.Array.data[9]
-      value: 
-      objectReference: {fileID: 11400000, guid: 24e274b04b8a8412bb1d76a6fd55b0bd, type: 2}
     - target: {fileID: 8058109896284013075, guid: a7eca9b5254264578b8e642f50632613, type: 3}
       propertyPath: m_Name
       value: WaveSpawner

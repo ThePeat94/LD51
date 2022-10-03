@@ -22,6 +22,4 @@ MonoBehaviour:
   Projectile: {fileID: 6465812692893542409, guid: 67dd01478e939084c982f8d1bcc1fef9, type: 3}
   PossibleUpgrades:
   - {fileID: 11400000, guid: 09fbff2ce2a91b4409628fb56351e4d3, type: 2}
-  - {fileID: 11400000, guid: a3b91fe9d3b9a654eb4c35b8b5e9c597, type: 2}
-  - {fileID: 11400000, guid: 78b8e7192ddf37a4d87e122a36c293d1, type: 2}
-  - {fileID: 11400000, guid: 1d6a0df661819494b9fb14942862319e, type: 2}
+  - {fileID: 11400000, guid: 70ffa00b31843d640a6a184b92295b0a, type: 2}
