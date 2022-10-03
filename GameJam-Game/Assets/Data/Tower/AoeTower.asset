@@ -16,7 +16,7 @@ MonoBehaviour:
   towerRange: 7
   attackSpeed: 1.5
   damage: 5
-  Icon: {fileID: 21300000, guid: 7aafc4345b4662b40ab8984cc83365ee, type: 3}
+  Icon: {fileID: 21300000, guid: 31af2d59d227b47d49d7e8e4b26fb4e0, type: 3}
   price: 15
   TowerPrefab: {fileID: 8804260913370112849, guid: 742d8a6f9db3f49e4aa1a1c4d66a6cd9, type: 3}
   Projectile: {fileID: 3632440093877231406, guid: a6d743c9c32054aa28bcb23ee782e548, type: 3}
