@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GameOverTheme
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: 7ef0201935fb8fa46943afb61920197d, type: 3}
-  m_volume: 1
+  m_volume: 0.5
