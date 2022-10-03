@@ -12,16 +12,12 @@ namespace Nidavellir.UI
         [SerializeField] private GameObject m_mainGamePanel;
         [SerializeField] private PauseMenu m_pauseMenu;
         [SerializeField] private TowerUI m_towerUI;
-        [SerializeField] private SfxData winMusic;
-        [SerializeField] private SfxData loseMusic;
 
 
         public void ShowLoseScreen()
         {
             this.m_mainGamePanel.SetActive(false);
             this.m_loseScreenPanel.SetActive(true);
-            
-            SfxPlayer.Instance.PlayOneShot(loseMusic);
         }
 
         public void ShowPauseMenu()
@@ -46,8 +42,6 @@ namespace Nidavellir.UI
         {
             this.m_mainGamePanel.SetActive(false);
             this.m_winScreenPanel.SetActive(true);
-            
-            SfxPlayer.Instance.PlayOneShot(winMusic);
         }
     }
 }

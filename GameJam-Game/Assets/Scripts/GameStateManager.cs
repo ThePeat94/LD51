@@ -1,6 +1,7 @@
 using System;
 using Nidavellir.Audio;
 using Nidavellir.Input;
+using Nidavellir.Scriptables.Audio;
 using Nidavellir.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,6 +22,10 @@ namespace Nidavellir
         private static GameStateManager instance;
         
         [SerializeField] private PlayerHud m_playerHud;
+        [SerializeField] private SfxData m_winFanfare;
+        [SerializeField] private SfxData m_loseFanfare;
+        
+        
         private State m_currentState;
         private InputProcessor m_inputProcessor;
     
@@ -108,6 +113,8 @@ namespace Nidavellir
         {
             this.m_currentState = State.GameOver;
             this.m_playerHud.ShowLoseScreen();
+            SfxPlayer.Instance.PlayOneShot(this.m_loseFanfare);
+            MusicPlayer.Instance.ForceStop();
         }
 
         public void TriggerGameWon()
@@ -116,6 +123,8 @@ namespace Nidavellir
             {
                 this.m_currentState = State.Won;
                 this.m_playerHud.ShowWonScreen();
+                SfxPlayer.Instance.PlayOneShot(this.m_winFanfare);
+                MusicPlayer.Instance.ForceStop();
             }
         }
 
