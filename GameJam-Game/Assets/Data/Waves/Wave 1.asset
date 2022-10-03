@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_spawnGroups:
   - m_enemyPrefab: {fileID: 8737240820323936012, guid: 0c7cbecbea34a4d4b9ed5785d639571c, type: 3}
-    m_count: 1
-  - m_enemyPrefab: {fileID: 322870052839401412, guid: 0993db1623aa26742afa074fef7dc7c8, type: 3}
-    m_count: 1
+    m_count: 2
+    m_healthData: {fileID: 11400000, guid: 6cd61521c3af13340912a556c8ca9c94, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 2ff0d952d5a7ada488f49517d73362f2, type: 2}

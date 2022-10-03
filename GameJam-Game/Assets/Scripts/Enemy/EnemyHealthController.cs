@@ -17,9 +17,10 @@ namespace Nidavellir
 
         public ResourceController ResourceController => this.m_resourceController;
 
-        private void Awake()
+
+        public void Init(ResourceData resourceData)
         {
-            this.m_resourceController = new(this.m_resourceData);
+            this.m_resourceController = new(resourceData);
         }
 
         public void TakeDamage(float amount)
