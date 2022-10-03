@@ -21,15 +21,15 @@ namespace Nidavellir.UI
             this.m_playerHealthResource.ResourceController.ValueChanged += this.PlayerHealthChanged;
         }
 
+        private void OnDestroy()
+        {
+            this.m_playerHealthResource.ResourceController.ValueChanged -= this.PlayerHealthChanged;
+        }
+
         private void Start()
         {
             this.m_healthText.text = this.m_playerHealthResource.ResourceController.CurrentValue.ToString();
             m_currentHealth = this.m_playerHealthResource.ResourceController.CurrentValue;
-        }
-
-        private void Update()
-        {
-            
         }
 
         private void PlayerHealthChanged(object sender, ResourceValueChangedEventArgs e)
