@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Skeleton Dying
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: 3670879ae6091c747b9af1ceadfc2442, type: 3}
-  m_volume: 1
+  m_volume: 0.3
