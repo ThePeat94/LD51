@@ -1,14 +1,14 @@
+using System;
 using Nidavellir.Input;
 using Nidavellir.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 
 namespace Nidavellir
 {
     public class GameStateManager : MonoBehaviour
     {
-        [SerializeField] private PlayerHud m_playerHud;
-
         public enum State
         {
             Started,
@@ -17,14 +17,30 @@ namespace Nidavellir
             GameOver
         };
 
+        private static GameStateManager instance;
+        
+        [SerializeField] private PlayerHud m_playerHud;
         private State m_currentState;
         private InputProcessor m_inputProcessor;
     
         public State CurrentState => this.m_currentState;
+        public static GameStateManager Instance => instance;
+        
+        public event Action OnPause;
+        public event Action OnQuit;
+        public event Action OnValueReset;
 
 
         private void Awake()
         {
+            if(instance != null)
+            {
+                Destroy(this);
+                return;
+            }
+            
+            instance = this;
+
             this.m_inputProcessor = this.GetComponent<InputProcessor>();
             this.m_playerHud = Object.FindObjectOfType<PlayerHud>();
         }
@@ -50,21 +66,20 @@ namespace Nidavellir
                 }
                 else
                 {
-                    Application.Quit();
+                    TriggerGameQuit();
                 }
                 return;
             }
 
             if (this.m_inputProcessor.BackToMainTriggered)
             {
-                SceneManager.LoadScene(0);
+                TriggerBackToMainMenu();
                 return;
             }
 
             if (this.m_inputProcessor.RetryTriggered)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                return;
+                TriggerRetry();
             }
         }
 
@@ -82,6 +97,31 @@ namespace Nidavellir
                 this.m_playerHud.ShowWonScreen();
             }
         }
+
+        public void TriggerGameQuit()
+        {
+            OnQuit?.Invoke();
+            
+            Application.Quit();
+        }
+
+        public void TriggerRetry()
+        {
+            OnValueReset?.Invoke();
+
+            GameStateManager.instance = null;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        public void TriggerBackToMainMenu()
+        {
+            OnValueReset?.Invoke();
+
+            GameStateManager.instance = null;
+            
+            SceneManager.LoadScene(0);
+        }
+        
 
         public void HidePauseMenu()
         {

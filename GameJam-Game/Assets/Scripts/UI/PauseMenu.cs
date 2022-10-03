@@ -48,7 +48,7 @@ namespace Nidavellir.UI
 
         public void BackToMenu()
         {
-            SceneManager.LoadScene(0);
+            GameStateManager.Instance.TriggerBackToMainMenu();
         }
 
         public void CloseMenu()
