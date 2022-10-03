@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3442f715a0624c21a49c1aba64ebfe9f, type: 3}
-  m_Name: Base Enemy Resource Data
+  m_Name: Base Enemy Health Resource Data
   m_EditorClassIdentifier: 
   m_startingValue: 10
   m_maxValue: 10
