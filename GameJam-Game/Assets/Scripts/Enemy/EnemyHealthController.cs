@@ -13,6 +13,8 @@ namespace Nidavellir
         private ResourceController m_resourceController;
         private bool dead;
 
+        public event Action OnDeath;
+
         public ResourceController ResourceController => this.m_resourceController;
 
         private void Awake()
@@ -41,6 +43,8 @@ namespace Nidavellir
             m_enemyPathWalker.enabled = false;
 
             Destroy(this.gameObject, 1.5f);
+            
+            OnDeath?.Invoke();
         }
     }
 }

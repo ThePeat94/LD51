@@ -29,6 +29,7 @@ namespace Nidavellir.UI
         {
             this.enemyHealthController = enemyHealthController;
             enemyHealthController.ResourceController.ValueChanged += EnemyHealthChanged;
+            this.enemyHealthController.OnDeath += Hide;
 
             transform.position = position;
 
@@ -55,6 +56,14 @@ namespace Nidavellir.UI
             var clampedValue = Mathf.Clamp(newValue, 0, float.MaxValue);
             healthSlider.value = clampedValue;
             healthValueText.text = ((int)clampedValue).ToString();
+        }
+        
+        private void Hide()
+        {
+            enemyHealthController.ResourceController.ValueChanged -= EnemyHealthChanged;
+            enemyHealthController.OnDeath -= Hide;
+            
+            Destroy(gameObject);
         }
     }
 }
