@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: PumpkinSkeleton
   m_EditorClassIdentifier: 
   name: PumpkinSkeleton
-  moveSpeed: 20
+  moveSpeed: 3
   currencyReward: 20
+  m_minimumSpeed: 0

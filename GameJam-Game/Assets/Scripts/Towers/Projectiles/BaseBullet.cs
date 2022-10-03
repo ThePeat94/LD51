@@ -22,15 +22,20 @@ namespace Nidavellir.Towers.Projectiles
             {
                 if (this.target != null)
                 {
-                    target
-                        .GetComponent<EnemyHealthController>()
-                        .TakeDamage(this.damage);
-
-                    SfxPlayer.Instance.PlayOneShot(hitSfxData);
+                    this.HitTarget();
                 }
 
                 Destroy(this.gameObject);
             }
+        }
+
+        protected virtual void HitTarget()
+        {
+            target
+                .GetComponent<EnemyHealthController>()
+                .TakeDamage(this.damage);
+
+            SfxPlayer.Instance.PlayOneShot(hitSfxData);
         }
     }
 }

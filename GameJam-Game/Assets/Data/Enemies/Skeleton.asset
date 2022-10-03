@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: 
   name: DefaultEnemy
-  moveSpeed: 20
+  moveSpeed: 4
   currencyReward: 20
+  m_minimumSpeed: 0
