@@ -17,3 +17,7 @@ MonoBehaviour:
     m_count: 1
     m_healthData: {fileID: 11400000, guid: c15242de106bd6040a076fb466053ba3, type: 2}
     m_enemyData: {fileID: 11400000, guid: 9a0c1b66fcfb033418771f601f5f5708, type: 2}
+  - m_enemyPrefab: {fileID: 3955615323696169378, guid: e9da175b8c306fe439b3ac8609a8fc52, type: 3}
+    m_count: 1
+    m_healthData: {fileID: 11400000, guid: c15242de106bd6040a076fb466053ba3, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 9a0c1b66fcfb033418771f601f5f5708, type: 2}

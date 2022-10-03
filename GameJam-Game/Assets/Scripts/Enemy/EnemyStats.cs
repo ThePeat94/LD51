@@ -52,6 +52,12 @@ namespace Nidavellir
 
         public void ApplyBuff(EnemyBuffData buffData)
         {
+            if (this.m_level == 1)
+            {
+                this.m_level++;
+                return;
+            }
+            
             this.m_movementSpeed += buffData.MovementSpeedIncrease;
             this.m_healthController.ResourceController.Add(buffData.HealthIncrease);
             this.m_level++;
