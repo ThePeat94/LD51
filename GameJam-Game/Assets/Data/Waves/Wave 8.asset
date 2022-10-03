@@ -13,5 +13,19 @@ MonoBehaviour:
   m_Name: Wave 8
   m_EditorClassIdentifier: 
   m_spawnGroups:
+  - m_enemyPrefab: {fileID: 3955615323696169378, guid: e9da175b8c306fe439b3ac8609a8fc52, type: 3}
+    m_count: 2
+    m_healthData: {fileID: 11400000, guid: 5b71a423b95ef52438474bf6e9b35cd4, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 3be365713ab054b48acc2ce15cb40e76, type: 2}
+  - m_enemyPrefab: {fileID: 8737240820323936012, guid: 0c7cbecbea34a4d4b9ed5785d639571c, type: 3}
+    m_count: 3
+    m_healthData: {fileID: 11400000, guid: aaeac5d356ebb12418dbca768cb9b210, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 034984ff28e132a48bb61edf52511952, type: 2}
   - m_enemyPrefab: {fileID: 322870052839401412, guid: 0993db1623aa26742afa074fef7dc7c8, type: 3}
+    m_count: 3
+    m_healthData: {fileID: 11400000, guid: b7a3d826abd366c408875796c00ed5c5, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 7ac6c5c4063bb73458ad850135cf64c4, type: 2}
+  - m_enemyPrefab: {fileID: 4916105555238097903, guid: 2844123d126083f40b14f69fea16fa98, type: 3}
     m_count: 1
+    m_healthData: {fileID: 11400000, guid: 35d87755542ff784c9b2e68dbf47a306, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 2a73acba93a05cc44b22e4de8ecbb032, type: 2}
