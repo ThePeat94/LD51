@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bat moving
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: ba25b36e7855656459afa04d36c4b450, type: 3}
-  m_volume: 0.4
+  m_volume: 0.3
