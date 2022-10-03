@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BulletHit
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: 4f7c42c2d86f2b249b66392643283196, type: 3}
-  m_volume: 0.3
+  m_volume: 0.15

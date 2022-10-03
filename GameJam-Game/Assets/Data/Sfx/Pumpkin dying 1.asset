@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Pumpkin dying 1
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: 8b9d802427eea9a4299b481919220b5e, type: 3}
-  m_volume: 1
+  m_volume: 0.4

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Pumpkin Head Spawning
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: 0c0398efdb6950e41ac774ebaa873832, type: 3}
-  m_volume: 1
+  m_volume: 0.4

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Heavy Canon Shot
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: 7415e8b84e2d1ad45a58116407de0202, type: 3}
-  m_volume: 0.4
+  m_volume: 0.1

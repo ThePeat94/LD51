@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Mid Canon Shot
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: 92b69ff9c880cb142939e25533db54cb, type: 3}
-  m_volume: 0.4
+  m_volume: 0.1

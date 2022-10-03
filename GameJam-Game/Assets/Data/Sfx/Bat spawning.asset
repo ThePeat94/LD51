@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bat spawning
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: d787f5b5a3d6e53428ac76dfb18c1f04, type: 3}
-  m_volume: 1
+  m_volume: 0.4

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bat dying 2
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: 023daf5eeb08598468c307db77458581, type: 3}
-  m_volume: 1
+  m_volume: 0.4

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AoeBulletHit
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: 2c12665e152a74af28dc79bc33479d04, type: 3}
-  m_volume: 1
+  m_volume: 0.4

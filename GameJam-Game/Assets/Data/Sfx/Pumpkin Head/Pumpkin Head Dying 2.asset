@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Pumpkin Head Dying 2
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: a1e083e76eef1ce4186d5cdad6fedaba, type: 3}
-  m_volume: 1
+  m_volume: 0.4

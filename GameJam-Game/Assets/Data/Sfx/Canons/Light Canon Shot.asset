@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Light Canon Shot
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: ce79517bfde87c2428dbad52cd6f3e9f, type: 3}
-  m_volume: 0.4
+  m_volume: 0.1
