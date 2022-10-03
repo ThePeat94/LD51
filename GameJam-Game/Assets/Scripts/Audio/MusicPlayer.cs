@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Nidavellir.Scriptables.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,7 +18,8 @@ namespace Nidavellir.Audio
         private AudioSource m_audioSource;
         private MusicData m_currentMusicData;
         private Coroutine m_playingCoroutine;
-
+        private bool isPaused;
+        
         public static MusicPlayer Instance { get; private set; }
 
         private void Awake()
@@ -51,6 +53,18 @@ namespace Nidavellir.Audio
             this.m_audioSource.volume = this.m_currentMusicData.Volume * GlobalSettings.Instance.MusicVolume;
         }
 
+        public void PauseClip()
+        {
+            isPaused = true;
+            this.m_audioSource.Pause();
+        }
+        
+        public void UnpauseClip()
+        {
+            isPaused = false;
+            this.m_audioSource.UnPause();
+        }
+        
         private void PlayClip(MusicData toPlay)
         {
             this.m_audioSource.clip = toPlay.MusicClip;
@@ -63,13 +77,28 @@ namespace Nidavellir.Audio
         private IEnumerator PlayClipList(MusicData toPlay)
         {
             var current = toPlay;
+            float timeCounter = 0;
 
             while (current != null)
             {
                 this.m_currentMusicData = current;
                 this.PlayClip(current);
-                yield return new WaitForSeconds(current.MusicClip.length);
+                
+                while (timeCounter >= current.MusicClip.length)
+                {
+                    yield return null;
+                    if (isPaused)
+                    {
+                        timeCounter += 0;
+                    }
+                    else
+                    {
+                        timeCounter += Time.deltaTime;
+                    }
+                }
+                
                 current = toPlay.FollowingClip;
+                timeCounter = 0;
             }
 
             this.m_playingCoroutine = null;
