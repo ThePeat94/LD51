@@ -1278,12 +1278,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2672902096504504537, guid: 54c5ecf0346499d4cb531d714a6a92a2, type: 3}
       propertyPath: m_waveData.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2672902096504504537, guid: 54c5ecf0346499d4cb531d714a6a92a2, type: 3}
       propertyPath: m_waveData.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: bb7b0b542514a433589fc93b99f28ad4, type: 2}
+      objectReference: {fileID: 11400000, guid: 5d52922e0e4eb004eb9f25d651084c2f, type: 2}
     - target: {fileID: 2672902096504504537, guid: 54c5ecf0346499d4cb531d714a6a92a2, type: 3}
       propertyPath: m_waveData.Array.data[1]
       value: 

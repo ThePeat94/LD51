@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave 9
   m_EditorClassIdentifier: 
   m_spawnGroups:
-  - m_enemyPrefab: {fileID: 322870052839401412, guid: 0993db1623aa26742afa074fef7dc7c8, type: 3}
+  - m_enemyPrefab: {fileID: 322870052839401412, guid: 823c7a64964a8a840a26d4601ffff3b7, type: 3}
     m_count: 1
     m_healthData: {fileID: 11400000, guid: 35d87755542ff784c9b2e68dbf47a306, type: 2}
     m_enemyData: {fileID: 11400000, guid: 2a73acba93a05cc44b22e4de8ecbb032, type: 2}
