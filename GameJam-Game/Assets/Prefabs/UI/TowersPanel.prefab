@@ -124,7 +124,7 @@ MonoBehaviour:
     m_Bits: 131072
   nonPlaceableAreaLayerMask:
     serializedVersion: 2
-    m_Bits: 599
+    m_Bits: 855
   towerButtonPrefab: {fileID: 4573944427916241490, guid: 7142b116111584196984a598a29e0225, type: 3}
   towers:
   - {fileID: 11400000, guid: 7832317720550c44fa71be02b9665f37, type: 2}
