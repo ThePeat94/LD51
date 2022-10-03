@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Skeleton Spawning
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: a60440e21c8a3e541a154d27b5655df1, type: 3}
-  m_volume: 1
+  m_volume: 0.5

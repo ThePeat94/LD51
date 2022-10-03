@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Main Game Loop
   m_EditorClassIdentifier: 
   m_musicClip: {fileID: 8300000, guid: ff8e8bcc33ea92842a361919fa3fa275, type: 3}
-  m_volume: 0.5
+  m_volume: 0.4
   m_looping: 1
   m_followingClip: {fileID: 0}
