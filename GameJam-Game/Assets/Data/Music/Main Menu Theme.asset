@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Main Menu Theme
   m_EditorClassIdentifier: 
   m_musicClip: {fileID: 8300000, guid: 0e211ce903b58f54fb21e8ee1d26235c, type: 3}
-  m_volume: 0.132
+  m_volume: 0.91
   m_looping: 1
   m_followingClip: {fileID: 0}
