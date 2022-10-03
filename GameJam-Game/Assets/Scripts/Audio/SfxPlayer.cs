@@ -50,15 +50,17 @@ namespace Nidavellir.Audio
             Destroy(this);
         }
 
-        public void PlayLoopingSfx(SfxData sfxData)
+        public AudioSource PlayLoopingSfx(SfxData sfxData)
         {
-            if (this.m_loopingAudioSource == null)
-            {
-                this.m_loopingAudioSource = this.AddComponent<AudioSource>();
-                this.m_loopingAudioSource.loop = true;
-            }
+            var loopingAudioSource = this.AddComponent<AudioSource>();
+            loopingAudioSource.loop = true;
+            this.PlayClipOnAudioSource(sfxData, loopingAudioSource);
+            return loopingAudioSource;
+        }
 
-            this.PlayClipOnAudioSource(sfxData, this.m_loopingAudioSource);
+        public void DestroyAudioSource(AudioSource audioSource)
+        {
+            Destroy(audioSource);
         }
 
         public void StopLoopingCurrentSfx()

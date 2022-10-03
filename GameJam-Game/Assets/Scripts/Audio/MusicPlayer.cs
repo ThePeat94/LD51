@@ -84,7 +84,7 @@ namespace Nidavellir.Audio
                 this.m_currentMusicData = current;
                 this.PlayClip(current);
                 
-                while (timeCounter < current.MusicClip.length)
+                while (timeCounter <= current.MusicClip.length)
                 {
                     yield return null;
                     if (isPaused)

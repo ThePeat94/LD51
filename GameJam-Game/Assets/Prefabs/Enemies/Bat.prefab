@@ -457,6 +457,10 @@ PrefabInstance:
       propertyPath: Animator
       value: 
       objectReference: {fileID: 9039712864511849272}
+    - target: {fileID: 1477184434702443276, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
+      propertyPath: m_walkingSfx
+      value: 
+      objectReference: {fileID: 11400000, guid: dbc1fd290f1ab48189caae914e859f8b, type: 2}
     - target: {fileID: 1477184434702443277, guid: 8917f11284c30cd448ee6f25c0042cf5, type: 3}
       propertyPath: m_RootOrder
       value: 0

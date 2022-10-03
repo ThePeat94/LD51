@@ -1,5 +1,7 @@
 using System;
+using Nidavellir.Audio;
 using Nidavellir.PathManagement;
+using Nidavellir.Scriptables.Audio;
 using UnityEngine;
 
 namespace Nidavellir
@@ -10,12 +12,16 @@ namespace Nidavellir
         public static readonly int Die = Animator.StringToHash("Die");
 
         private EventHandler m_reachedGoal;
+
+        [SerializeField] private SfxData m_walkingSfx;
+        
         
         [Header("References")] 
         public Animator Animator;
         
         private int m_targetPointIndex;
         private EnemyStats m_enemyStats;
+        private AudioSource m_walkAudioSource;
 
         public Path Path { get; set; }
         
@@ -35,6 +41,14 @@ namespace Nidavellir
         void Start()
         {
             this.m_targetPointIndex = 0;
+            if(this.m_walkingSfx != null)
+                this.m_walkAudioSource = SfxPlayer.Instance.PlayLoopingSfx(this.m_walkingSfx);
+        }
+
+        private void OnDestroy()
+        {
+            if(this.m_walkAudioSource)
+                Destroy(this.m_walkAudioSource);
         }
 
         // Update is called once per frame

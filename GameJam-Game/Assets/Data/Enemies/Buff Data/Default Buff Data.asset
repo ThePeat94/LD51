@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddae26069d1449579708808ea58eaca9, type: 3}
   m_Name: Default Buff Data
   m_EditorClassIdentifier: 
-  m_movementSpeedIncrease: 0
-  m_healthIncrease: 0
+  m_movementSpeedIncrease: 1
+  m_healthIncrease: 10

@@ -53,10 +53,10 @@ namespace Nidavellir
             Destroy(this);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            tickTime += Time.deltaTime;
-            totalTime += Time.deltaTime;
+            tickTime += Time.fixedDeltaTime;
+            totalTime += Time.fixedDeltaTime;
 
             OnTimerTick?.Invoke(tickTime);
             OnTotalTimeTick?.Invoke(totalTime);
