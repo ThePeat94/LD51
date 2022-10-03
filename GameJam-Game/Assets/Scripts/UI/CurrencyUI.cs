@@ -10,22 +10,21 @@ namespace Nidavellir.UI
     {
         [Header("References")] 
         public TextMeshProUGUI ValueText;
-
-        private float currentCurrencyValue;
-        // private Tweener m_coinLossTweener;
-
+        
         private void Start()
         {
             UpdateCurrencyValueText((int) CurrencyController.Instance.CurrencyResource.ResourceController.CurrentValue);
             CurrencyController.Instance.CurrencyResource.ResourceController.ValueChanged += CurrencyValueChanged;
-            currentCurrencyValue = CurrencyController.Instance.CurrencyResource.ResourceController.CurrentValue;
         }
 
         private void CurrencyValueChanged(object sender, ResourceValueChangedEventArgs e)
         {
             UpdateCurrencyValueText((int)e.NewValue);
-            if (currentCurrencyValue < e.NewValue) AnimateCoinGain();
-            if (currentCurrencyValue > e.NewValue) AnimateCoinLoss();
+            
+            if (e.OldValue < e.NewValue) 
+                AnimateCoinGain();
+            else if (e.OldValue > e.NewValue) 
+                AnimateCoinLoss();
         }
 
         private void UpdateCurrencyValueText(int newValue)

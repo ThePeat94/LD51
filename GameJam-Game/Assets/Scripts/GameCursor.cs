@@ -12,12 +12,14 @@ namespace Nidavellir
         private InputProcessor m_inputProcessor;
         private PlayerHud m_playerHud;
         private GameStateManager m_gameStateManager;
+        [SerializeField] private Texture2D m_coursorTexture;
 
         private void Awake()
         {
             this.m_inputProcessor = this.GetOrAddComponent<InputProcessor>();
             this.m_playerHud = FindObjectOfType<PlayerHud>(true);
             this.m_gameStateManager = FindObjectOfType<GameStateManager>(true);
+            Cursor.SetCursor(m_coursorTexture, Vector2.zero, CursorMode.Auto);
         }
 
         private void Update()

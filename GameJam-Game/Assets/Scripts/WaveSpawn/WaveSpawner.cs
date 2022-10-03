@@ -68,6 +68,10 @@ namespace Nidavellir.Util
                     pathWalker.ReachedGoal += EnemyReachedGoal;
                     currentSpawnPosition += this.m_enemyOffset;
                     this.m_spawnedEnemies.Add(enemy);
+                    enemy.GetComponent<EnemyHealthController>()
+                        .Init(spawnGroup.HealthData);
+                    enemy.GetComponent<EnemyStats>()
+                        .Init(spawnGroup.EnemyData);
                     enemy.GetComponent<EnemyHealthController>().ResourceController.ValueChanged += ((sender, args) => this.EnemyHealthChanged(args, enemy));
                 }
             }

@@ -13,11 +13,14 @@ namespace Nidavellir
         private ResourceController m_resourceController;
         private bool dead;
 
+        public event Action OnDeath;
+
         public ResourceController ResourceController => this.m_resourceController;
 
-        private void Awake()
+
+        public void Init(ResourceData resourceData)
         {
-            this.m_resourceController = new(this.m_resourceData);
+            this.m_resourceController = new(resourceData);
         }
 
         public void TakeDamage(float amount)
@@ -41,6 +44,8 @@ namespace Nidavellir
             m_enemyPathWalker.enabled = false;
 
             Destroy(this.gameObject, 1.5f);
+            
+            OnDeath?.Invoke();
         }
     }
 }

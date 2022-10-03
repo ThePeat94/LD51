@@ -8,8 +8,6 @@ namespace Nidavellir.UI
 {
     public class TowersPanelPresenter : MonoBehaviour
     {
-        [SerializeField] private LayerMask withoutAttackTriggerLayerMask;
-
         [SerializeField] private LayerMask placeableAreaLayerMask;
 
         [SerializeField] private LayerMask nonPlaceableAreaLayerMask;
@@ -21,8 +19,6 @@ namespace Nidavellir.UI
         private Camera mainCamera;
         private InputAction click;
         private Tower activeTower;
-        private MeshRenderer activeTowerMeshRenderer;
-        private Color activeTowerOriginalColor;
         private TowerButton selectedTowerButton;
 
         private void Awake()
@@ -39,6 +35,7 @@ namespace Nidavellir.UI
                 towerButton.SetTowerSo(towerSo);
                 towerButton.OnButtonClick = towerSo =>
                 {
+                    Debug.Log("Tower button clicked");
                     if (activeTower != null)
                     {
                         Destroy(activeTower.gameObject);
@@ -50,16 +47,12 @@ namespace Nidavellir.UI
                         {
                             var activeTowerObject = Instantiate(towerSo.TowerPrefab.gameObject);
                             activeTower = activeTowerObject.GetComponent<Tower>();
-                            activeTowerMeshRenderer = activeTowerObject.GetComponentInChildren<MeshRenderer>();
-                            activeTowerOriginalColor = activeTowerMeshRenderer.material.color;
                         }
                     }
                     else
                     {
                         var activeTowerObject = Instantiate(towerSo.TowerPrefab.gameObject);
                         activeTower = activeTowerObject.GetComponent<Tower>();
-                        activeTowerMeshRenderer = activeTowerObject.GetComponentInChildren<MeshRenderer>();
-                        activeTowerOriginalColor = activeTowerMeshRenderer.material.color;
                     }
                 };
             }
@@ -72,21 +65,19 @@ namespace Nidavellir.UI
                 var mousePosition = Mouse.current.position.ReadValue();
                 var ray = mainCamera.ScreenPointToRay(mousePosition);
 
-                // var nonPlaceableAreaLayerMask = ~placeableAreaLayerMask;
-
-                if (Physics.Raycast(ray, out var raycastHit, float.MaxValue, withoutAttackTriggerLayerMask) &&
-                    Physics.Raycast(ray, out var raycastGroundHit, float.MaxValue, placeableAreaLayerMask))
+                if (Physics.Raycast(ray, out var raycastGroundHit, float.MaxValue, placeableAreaLayerMask))
                 {
                     var mouseWorldPosition = raycastGroundHit.point;
-                    mouseWorldPosition.y = 0.5f;
+                    // mouseWorldPosition.y = 0.5f;
                     activeTower.transform.position = mouseWorldPosition;
-                    
-                    var castAll = Physics.BoxCastAll(mouseWorldPosition, Vector3.one, Vector3.up, Quaternion.identity, float.MaxValue, nonPlaceableAreaLayerMask);
-                    if (castAll.Length == 0) // it shouldn't hit anything except ground
-                    {
-                        activeTowerMeshRenderer.material.color = activeTowerOriginalColor;
 
-                        if (Mouse.current.rightButton.wasPressedThisFrame && activeTower.Place())
+                    var castAll = Physics.BoxCastAll(mouseWorldPosition, Vector3.one, Vector3.up, Quaternion.identity, float.MaxValue, nonPlaceableAreaLayerMask);
+                    if (castAll.Length == 0 && GetTerrainLayer(raycastGroundHit) != 1)
+                    {
+                        activeTower.SetTowerPlaceable(true);
+                        // activeTowerMeshRenderer.material.color = activeTowerOriginalColor;
+
+                        if (Mouse.current.leftButton.wasPressedThisFrame && activeTower.Place())
                         {
                             activeTower.Init();
                             activeTower = null;
@@ -94,14 +85,43 @@ namespace Nidavellir.UI
                     }
                     else
                     {
-                        activeTowerMeshRenderer.material.color = Color.black;
+                        activeTower.SetTowerPlaceable(false);
                     }
                 }
                 else
                 {
-                    activeTowerMeshRenderer.material.color = Color.black;
+                    activeTower.SetTowerPlaceable(false);
                 }
             }
+        }
+
+        private int GetTerrainLayer(RaycastHit raycastGroundHit)
+        {
+            if (raycastGroundHit.collider.gameObject.TryGetComponent<Terrain>(out var terrain))
+            {
+                var terrainPosition = raycastGroundHit.point - terrain.transform.position;
+                var terrainData = terrain.terrainData;
+                var splatMapPosition = new Vector3(terrainPosition.x / terrainData.size.x, 0, terrainPosition.z / terrainData.size.z);
+
+                var x = Mathf.FloorToInt(splatMapPosition.x * terrainData.alphamapWidth);
+                var z = Mathf.FloorToInt(splatMapPosition.z * terrain.terrainData.alphamapHeight);
+
+                var alphaMap = terrain.terrainData.GetAlphamaps(x, z, 1, 1);
+
+                int primaryIndex = 0;
+
+                for (int i = 0; i < alphaMap.Length; i++)
+                {
+                    if (alphaMap[0, 0, i] > alphaMap[0,0,primaryIndex])
+                    {
+                        primaryIndex = i;
+                    }
+                }
+
+                return primaryIndex;
+            }
+
+            return 0;
         }
     }
 }

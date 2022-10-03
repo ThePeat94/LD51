@@ -22,9 +22,11 @@ namespace Nidavellir
 
         private float totalTime;
         private float tickTime;
+        private int waveNumber;
 
         public float TotalTime => totalTime;
         public float TickTime => tickTime;
+        public int WaveNumber => waveNumber;
 
         private TimerSystem()
         {
@@ -55,6 +57,7 @@ namespace Nidavellir
             {
                 SfxPlayer.Instance.PlayOneShot(tickSfxData);
                 tickTime = 0;
+                waveNumber++;
                 OnTimerEndTick?.Invoke();
             }
         }

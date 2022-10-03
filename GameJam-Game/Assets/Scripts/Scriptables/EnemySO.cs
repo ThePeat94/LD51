@@ -10,9 +10,12 @@ namespace Nidavellir.Scriptables
         [SerializeField] private new string name;
         [SerializeField] private float moveSpeed;
         [SerializeField] private int currencyReward;
+        [SerializeField] private float m_minimumSpeed;
+        
 
         public string Name => name;
         public float MoveSpeed => moveSpeed;
         public int CurrencyReward => currencyReward;
+        public float MinimumSpeed => this.m_minimumSpeed;
     }
 }
