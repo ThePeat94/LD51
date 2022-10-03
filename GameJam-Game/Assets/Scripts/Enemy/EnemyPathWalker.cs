@@ -45,7 +45,6 @@ namespace Nidavellir
             if (Vector3.Distance(this.transform.position, targetPoint) > 0.8f)
             {
                 var newPosition = Vector3.MoveTowards(this.transform.position, targetPoint, this.m_enemyStats.MovementSpeed * Time.deltaTime);
-                Animator.SetFloat("MoveSpeed", m_enemyStats.MovementSpeed * Time.deltaTime / Vector3.Distance(transform.position, newPosition));
                 
                 this.transform.position = newPosition;
                 this.transform.LookAt(new Vector3(targetPoint.x, transform.position.y, targetPoint.z));
