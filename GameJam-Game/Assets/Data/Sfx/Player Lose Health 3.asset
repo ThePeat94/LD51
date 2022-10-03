@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34f9063c464616c47835354fd6072487, type: 3}
-  m_Name: PlayerLoseHealth
+  m_Name: Player Lose Health 3
   m_EditorClassIdentifier: 
-  m_audioClip: {fileID: 8300000, guid: 4e329762ea14b1545b14969602c6468d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 998a30b2ba671a24ab80b572231bd6ca, type: 3}
   m_volume: 1
