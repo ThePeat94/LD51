@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84c751c413254c1bba01afb3f81b1f73, type: 3}
-  m_Name: DefaultEnemy
+  m_Name: PumpkinSkeleton
   m_EditorClassIdentifier: 
-  name: DefaultEnemy
+  name: PumpkinSkeleton
   moveSpeed: 20
   currencyReward: 20
