@@ -49,6 +49,7 @@ Material:
     - _ScrollSpeed: 0.3
     m_Colors:
     - Color_e3806eacaa57408b8ce430730d2e9dfa: {r: 0.24313726, g: 0.14705883, b: 0.029411765, a: 0}
+    - _Emission: {r: 0.2716586, g: 1.1138003, b: 0.2716586, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &4017414521589718814
 MonoBehaviour:

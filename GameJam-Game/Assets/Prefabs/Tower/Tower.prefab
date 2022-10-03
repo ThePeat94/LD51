@@ -116,6 +116,10 @@ MonoBehaviour:
   ProjectileSpawnPoint: {fileID: 0}
   Muzzle: {fileID: 0}
   rangeIndicator: {fileID: 5754044944578662671}
+  rangeIndicatorMeshRenderer: {fileID: 2008646978768820065}
+  rangeIndicatorColor: {r: 0.2716586, g: 1.1138003, b: 0.2716586, a: 1}
+  nonPlaceableRangeIndicatorColor: {r: 1.0377358, g: 0, b: 0, a: 1}
+  boxCollider: {fileID: 7040919320143694934}
 --- !u!65 &7040919320143694934
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -125,7 +129,7 @@ BoxCollider:
   m_GameObject: {fileID: 7677573017416105604}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.0990899, y: 2.6441362, z: 1.6430283}
   m_Center: {x: -0.013510108, y: 0.82206833, z: 0.016926885}
@@ -196,6 +200,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 7677573017416105606}
     m_Modifications:
+    - target: {fileID: 2293094508307813530, guid: ef7339b1022da4bbd8808dbd128eccd3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4358f0efa2bb14410976da2006340704, type: 2}
     - target: {fileID: 5469878907190973172, guid: ef7339b1022da4bbd8808dbd128eccd3, type: 3}
       propertyPath: m_Name
       value: RangeIndicator
@@ -247,6 +255,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ef7339b1022da4bbd8808dbd128eccd3, type: 3}
+--- !u!23 &2008646978768820065 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2293094508307813530, guid: ef7339b1022da4bbd8808dbd128eccd3, type: 3}
+  m_PrefabInstance: {fileID: 302463032950998011}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5754044944578662671 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5469878907190973172, guid: ef7339b1022da4bbd8808dbd128eccd3, type: 3}
