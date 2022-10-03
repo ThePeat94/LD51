@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c751c413254c1bba01afb3f81b1f73, type: 3}
   m_Name: Pumpkin Data Wave 2
   m_EditorClassIdentifier: 
-  name: Skeleton
+  name: Pumpkin
   moveSpeed: 11
   currencyReward: 10
   m_minimumSpeed: 5

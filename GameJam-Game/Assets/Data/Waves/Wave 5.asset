@@ -13,5 +13,15 @@ MonoBehaviour:
   m_Name: Wave 5
   m_EditorClassIdentifier: 
   m_spawnGroups:
+  - m_enemyPrefab: {fileID: 3955615323696169378, guid: e9da175b8c306fe439b3ac8609a8fc52, type: 3}
+    m_count: 1
+    m_healthData: {fileID: 11400000, guid: 671dc4b3fe4caed4c905b46e873ed6f0, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 0d64175e5670b7d4aa312faedab23b23, type: 2}
+  - m_enemyPrefab: {fileID: 8737240820323936012, guid: 0c7cbecbea34a4d4b9ed5785d639571c, type: 3}
+    m_count: 3
+    m_healthData: {fileID: 11400000, guid: 39444af774ba23c48a9fa107d2158834, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 77e27fa9f87740a4baf9404b9161716d, type: 2}
   - m_enemyPrefab: {fileID: 322870052839401412, guid: 0993db1623aa26742afa074fef7dc7c8, type: 3}
-    m_count: 5
+    m_count: 2
+    m_healthData: {fileID: 11400000, guid: 7deb0097ae9fb994aa07992f71c870b6, type: 2}
+    m_enemyData: {fileID: 11400000, guid: 92cd75a214e1ee5499a1082d58fefd08, type: 2}
