@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using Nidavellir.Scriptables;
 using UnityEngine;
@@ -9,20 +11,33 @@ namespace Nidavellir
     {
         [SerializeField] private Light directionalLight;
         [SerializeField] private LightingPreset lightingPreset;
-        [SerializeField, Range(0, 24)] private float timeOfDay;
+        [SerializeField, Range(0, 10)] private float timeOfDay;
 
         void Start()
         {
             if (Application.isPlaying)
             {
                 TimerSystem.Instance.OnTimerEndTick += OnTimerEndTick;
+                timeOfDay = 0;
             }
         }
 
         private void OnTimerEndTick()
         {
-            if (TimerSystem.Instance.WaveNumber == 1)
+            if (TimerSystem.Instance.WaveNumber == 6)
             {
+                StartCoroutine(DayToNight());
+            }
+        }
+
+        private IEnumerator DayToNight()
+        {
+            timeOfDay = 0;
+            while (timeOfDay <= 10)
+            {
+                timeOfDay += 0.01f;
+                UpdateLighting(timeOfDay / 10f);
+                yield return new WaitForSeconds(0.01f);
             }
         }
 
@@ -33,27 +48,22 @@ namespace Nidavellir
                 return;
             }
 
-            if (Application.isPlaying)
+            if (!Application.isPlaying)
             {
-                timeOfDay += Time.deltaTime;
-                timeOfDay %= 24;
-
-                UpdateLighting(timeOfDay / 24f);
-            }
-            else
-            {
-                UpdateLighting(timeOfDay / 24f);
+                UpdateLighting(timeOfDay / 10f);
             }
         }
 
         private void UpdateLighting(float timePercent)
         {
-            // RenderSettings.ambientLight = lightingPreset.AmbientColor.Evaluate(timePercent);
+            RenderSettings.ambientLight = lightingPreset.AmbientColor.Evaluate(timePercent);
+            RenderSettings.fogColor = lightingPreset.FogColor.Evaluate(timePercent);
 
             if (directionalLight != null)
             {
                 directionalLight.color = lightingPreset.DirectionalColor.Evaluate(timePercent);
-                directionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 170f, 0));
+                var angle = lightingPreset.directionalAngle.Evaluate(timePercent);
+                directionalLight.transform.localRotation = Quaternion.Euler(new Vector3( angle* 360f, angle * 180f, 0));
             }
         }
 

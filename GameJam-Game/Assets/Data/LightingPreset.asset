@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AmbientColor:
     serializedVersion: 2
-    key0: {r: 0.8254717, g: 1, b: 0.8955687, a: 1}
-    key1: {r: 0.03524386, g: 0.056085486, b: 0.6792453, a: 1}
-    key2: {r: 0.8235294, g: 1, b: 0.89411765, a: 1}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.374466, g: 0.37568703, b: 0.4245283, a: 1}
+    key1: {r: 0.07880917, g: 0.21698111, b: 0.10644357, a: 1}
+    key2: {r: 0.019607844, g: 0.078431375, b: 0.1882353, a: 1}
+    key3: {r: 0.019607844, g: 0.078431375, b: 0.1882353, a: 0}
+    key4: {r: 0.019607844, g: 0.078431375, b: 0.1882353, a: 0}
+    key5: {r: 0.019607844, g: 0.078431375, b: 0.1882353, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 31418
+    ctime1: 65535
     ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
+    ctime3: 65535
+    ctime4: 65535
+    ctime5: 65535
     ctime6: 0
     ctime7: 0
     atime0: 0
@@ -39,24 +39,24 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 3
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   DirectionalColor:
     serializedVersion: 2
-    key0: {r: 0.8254717, g: 1, b: 0.8955687, a: 1}
-    key1: {r: 0.03524386, g: 0.056085486, b: 0.6792453, a: 1}
-    key2: {r: 0.8235294, g: 1, b: 0.89411765, a: 1}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
+    key1: {r: 0.33259168, g: 0.33259168, b: 0.6981132, a: 1}
+    key2: {r: 0.1720521, g: 0.17232113, b: 0.46540377, a: 1}
+    key3: {r: 0.05882353, g: 0.0627451, b: 0.23529412, a: 0}
+    key4: {r: 0.05882353, g: 0.0627451, b: 0.23529412, a: 0}
+    key5: {r: 0, g: 0, b: 0.21568628, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 31418
+    ctime1: 65535
     ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
+    ctime3: 65535
+    ctime4: 65535
+    ctime5: 65535
     ctime6: 0
     ctime7: 0
     atime0: 0
@@ -68,23 +68,23 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 3
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   FogColor:
     serializedVersion: 2
-    key0: {r: 0.8254717, g: 1, b: 0.8955687, a: 1}
-    key1: {r: 0.03524386, g: 0.056085486, b: 0.6792453, a: 1}
-    key2: {r: 0.8235294, g: 1, b: 0.89411765, a: 1}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.8915094, g: 0.89481705, b: 1, a: 1}
+    key1: {r: 0.22745094, g: 0.8352941, b: 0.34801024, a: 1}
+    key2: {r: 0, g: 0.18454386, b: 0.5283019, a: 1}
+    key3: {r: 0, g: 0.18454386, b: 0.5283019, a: 0}
+    key4: {r: 0, g: 0.18454386, b: 0.5283019, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 31418
+    ctime1: 65535
     ctime2: 65535
-    ctime3: 0
-    ctime4: 0
+    ctime3: 65535
+    ctime4: 65535
     ctime5: 0
     ctime6: 0
     ctime7: 0
@@ -97,5 +97,38 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 3
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  directionalAngle:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.124572754
+      inSlope: 0.34794465
+      outSlope: 0.34794465
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5019499
+      value: 0.29922354
+      inSlope: -0.00083334744
+      outSlope: -0.00083334744
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0003818
+      value: 0.124966085
+      inSlope: -0.34961134
+      outSlope: -0.34961134
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

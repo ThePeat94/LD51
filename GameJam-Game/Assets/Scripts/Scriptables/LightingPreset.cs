@@ -9,5 +9,7 @@ namespace Nidavellir.Scriptables
     {
         public Gradient AmbientColor;
         public Gradient DirectionalColor;
+        public Gradient FogColor;
+        public AnimationCurve directionalAngle;
     }
 }
