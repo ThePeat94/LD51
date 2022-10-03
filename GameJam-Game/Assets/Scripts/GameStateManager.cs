@@ -136,6 +136,7 @@ namespace Nidavellir
         {
             OnValueReset?.Invoke();
 
+            TriggerUnpause();
             GameStateManager.instance = null;
             
             SceneManager.LoadScene(0);
