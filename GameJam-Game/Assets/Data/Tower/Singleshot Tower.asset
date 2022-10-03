@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Singleshot Tower
   towerRange: 10
   attackSpeed: 1
-  damage: 10
+  damage: 20
   Icon: {fileID: 21300000, guid: 10b714ca92b0b4d82972b26267bb669e, type: 3}
   price: 10
   TowerPrefab: {fileID: 2562498693779075591, guid: b921ba4bc1d1b584a9be98221a85e653, type: 3}
