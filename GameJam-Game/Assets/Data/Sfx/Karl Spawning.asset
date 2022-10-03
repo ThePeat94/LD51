@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Karl Spawning
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: 698df4b923322dd4cbfeda5eacc57200, type: 3}
-  m_volume: 1
+  m_volume: 0.9

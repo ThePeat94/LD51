@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Karl Data
   m_EditorClassIdentifier: 
   name: Karl the Witcher
-  moveSpeed: 7
+  moveSpeed: 33
   currencyReward: 100
   m_minimumSpeed: 0
