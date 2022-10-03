@@ -18,8 +18,8 @@ MonoBehaviour:
   damage: 5
   Icon: {fileID: 21300000, guid: 31af2d59d227b47d49d7e8e4b26fb4e0, type: 3}
   price: 15
-  TowerPrefab: {fileID: 8804260913370112849, guid: 742d8a6f9db3f49e4aa1a1c4d66a6cd9, type: 3}
-  Projectile: {fileID: 3632440093877231406, guid: a6d743c9c32054aa28bcb23ee782e548, type: 3}
+  TowerPrefab: {fileID: 2679977689409671936, guid: 80b4001144ad9405a913d91137a000bc, type: 3}
+  Projectile: {fileID: -8231468493807737498, guid: 965b735e03d272c45ac43a6b4d7d4a5a, type: 3}
   PossibleUpgrades:
   - {fileID: 11400000, guid: 85990d944878ab44ba0f1ddd4c2dba01, type: 2}
   - {fileID: 11400000, guid: 85990d944878ab44ba0f1ddd4c2dba01, type: 2}
