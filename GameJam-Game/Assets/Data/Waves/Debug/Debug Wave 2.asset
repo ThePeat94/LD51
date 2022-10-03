@@ -10,18 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f714c37bf80417b8ab34464927067f8, type: 3}
-  m_Name: Wave 2
+  m_Name: Debug Wave 2
   m_EditorClassIdentifier: 
   m_spawnGroups:
   - m_enemyPrefab: {fileID: 8737240820323936012, guid: 0c7cbecbea34a4d4b9ed5785d639571c, type: 3}
-    m_count: 1
-    m_healthData: {fileID: 11400000, guid: 5a769692c9893b14cbb7e9808b11a7fe, type: 2}
-    m_enemyData: {fileID: 11400000, guid: 3e856849150470b48bf366077cf0fc2e, type: 2}
-  - m_enemyPrefab: {fileID: 322870052839401412, guid: 0993db1623aa26742afa074fef7dc7c8, type: 3}
-    m_count: 1
-    m_healthData: {fileID: 11400000, guid: 454c27783e58659408fb72d5669dac32, type: 2}
-    m_enemyData: {fileID: 11400000, guid: dab1b92b5d683724db699a478427ca98, type: 2}
-  - m_enemyPrefab: {fileID: 8737240820323936012, guid: 0c7cbecbea34a4d4b9ed5785d639571c, type: 3}
-    m_count: 1
+    m_count: 4
     m_healthData: {fileID: 11400000, guid: 5a769692c9893b14cbb7e9808b11a7fe, type: 2}
     m_enemyData: {fileID: 11400000, guid: 3e856849150470b48bf366077cf0fc2e, type: 2}

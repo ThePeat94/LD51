@@ -26,6 +26,11 @@ namespace Nidavellir
         private void Awake()
         {
             this.m_healthController = this.GetComponent<EnemyHealthController>();
+        }
+
+        public void Init(EnemySO enemySo)
+        {
+            this.m_initialStats = enemySo;
             this.m_movementSpeed = this.m_initialStats.MoveSpeed;
             this.m_level = 1;
             this.m_damage = 1;
