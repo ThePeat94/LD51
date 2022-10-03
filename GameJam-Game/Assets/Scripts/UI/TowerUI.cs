@@ -18,7 +18,7 @@ namespace Nidavellir.UI
         [SerializeField] private TextMeshProUGUI m_rangeText;
         [SerializeField] private TextMeshProUGUI m_costsText;
         [SerializeField] private Button m_upgradeButton;
-        [SerializeField] private GameObject m_upgradeCostsRow;
+        [SerializeField] private GameObject m_upgradeCostsIcon;
         
         
         private Tower m_towerToDisplay;
@@ -30,16 +30,17 @@ namespace Nidavellir.UI
 
         public void DisplayTower(Tower toDisplay)
         {
+            this.m_towerToDisplay?.SetRangeIndicatorActive(false);
             this.gameObject.SetActive(true);
             this.m_towerToDisplay = toDisplay;
-            m_towerToDisplay.SetRangeIndicatorActive(true);
+            this.m_towerToDisplay.SetRangeIndicatorActive(true);
             this.UpdateUI();
         }
 
         public void Close()
         {
             this.gameObject.SetActive(false);
-            m_towerToDisplay.SetRangeIndicatorActive(false);
+            this.m_towerToDisplay.SetRangeIndicatorActive(false);
             this.m_towerToDisplay = null;
             this.m_currencyResource.ResourceController.ValueChanged -= this.OnCurrencyChanged;
         }
@@ -63,7 +64,8 @@ namespace Nidavellir.UI
             this.m_attackSpeedText.text = $"{this.m_towerToDisplay.AttackSpeed:F2}";
             this.m_costsText.text = $"{this.m_towerToDisplay.CostsForNextLevel}";
             this.m_rangeText.text = $"{this.m_towerToDisplay.TowerRange:F2}";
-            this.m_upgradeCostsRow.SetActive(this.m_towerToDisplay.HasUpgradeAvailable());
+            this.m_upgradeCostsIcon.SetActive(this.m_towerToDisplay.HasUpgradeAvailable());
+            this.m_costsText.gameObject.SetActive(this.m_towerToDisplay.HasUpgradeAvailable());
             this.UpdateButton();
         }
 

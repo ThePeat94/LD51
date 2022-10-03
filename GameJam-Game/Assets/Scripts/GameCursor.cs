@@ -9,13 +9,6 @@ namespace Nidavellir
 {
     public class GameCursor : MonoBehaviour
     {
-        public enum State
-        {
-            Normal,
-            Building
-        };
-        
-        
         private InputProcessor m_inputProcessor;
         private PlayerHud m_playerHud;
         private GameStateManager m_gameStateManager;
@@ -37,7 +30,6 @@ namespace Nidavellir
                 var ray = Camera.main.ScreenPointToRay(this.m_inputProcessor.MousePosition);
                 if(Physics.Raycast(ray, out var hitInfo, 100f, 1 << LayerMask.NameToLayer("Clickable")))
                 {
-                    Debug.Log("I HIT SOMETHING");
                     if (hitInfo.collider.TryGetComponent<Tower>(out var tower) && tower.IsPlaced)
                     {
                        this.m_playerHud.ShowTower(tower);

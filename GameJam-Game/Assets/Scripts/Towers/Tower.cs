@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Nidavellir.Scriptables;
@@ -5,6 +6,7 @@ using Nidavellir.Towers.Projectiles;
 using Nidavellir.Trigger;
 using Unity.VisualScripting;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Nidavellir.Towers
 {
@@ -173,6 +175,8 @@ namespace Nidavellir.Towers
             AttackSpeed -= towerUpgradeSo.AttackSpeedIncrease;
             Damage += towerUpgradeSo.DamageIncrease;
 
+            this.rangeIndicator.transform.localScale = Vector3.one * this.TowerRange * 2;
+
             if (towerUpgradeSo.Projectile != null)
                 Projectile = towerUpgradeSo.Projectile;
 
@@ -184,6 +188,11 @@ namespace Nidavellir.Towers
         private void OnValidate()
         {
             AttackBaseTrigger?.SetSize(Vector3.one * TowerSettings.TowerRange);
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawWireSphere(this.transform.position, this.TowerRange);
         }
 #endif
         public bool CanUpgrade() => this.HasUpgradeAvailable() & CurrencyController.Instance.CurrencyResource.ResourceController.CanAfford(this.CostsForNextLevel);

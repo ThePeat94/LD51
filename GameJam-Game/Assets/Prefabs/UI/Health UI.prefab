@@ -120,6 +120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerHealthResource: {fileID: 11400000, guid: 1196f3ce225d68547ab949a0137f88cd, type: 2}
   m_healthText: {fileID: 424846908807692579}
+  m_currentHealth: 0
+  m_background: {fileID: 0}
+  m_lowHealthThreshold: 3
 --- !u!1 &3390081969558953176
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +150,7 @@ RectTransform:
   m_GameObject: {fileID: 3390081969558953176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3217718184180255035}
@@ -186,9 +189,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 202185e9875074c2096a93a3e7f9d835, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -264,8 +267,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3fe82a189a7be8747a0fe5766f48b0bd, type: 2}
+  m_sharedMaterial: {fileID: 7132942837202033035, guid: 3fe82a189a7be8747a0fe5766f48b0bd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
