@@ -104,6 +104,11 @@ namespace Nidavellir.Audio
             this.m_playingCoroutine = null;
         }
 
+        public void ForceStop()
+        {
+            this.m_audioSource.Stop();
+        }
+
         private void SceneChanged(Scene loadedScene, LoadSceneMode arg1)
         {
             var hasLoadedMainMenu = loadedScene.buildIndex == 0;
