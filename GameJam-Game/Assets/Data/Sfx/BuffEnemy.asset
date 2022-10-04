@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f9063c464616c47835354fd6072487, type: 3}
   m_Name: BuffEnemy
   m_EditorClassIdentifier: 
-  m_audioClip: {fileID: 8300000, guid: 8fbd4f4c1cb754f919df7f2d190d23d8, type: 3}
+  m_audioClip: {fileID: 0}
   m_volume: 1

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player Lose Health 2
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: a2454086c2846d34795c8446fbd5286f, type: 3}
-  m_volume: 0.5
+  m_volume: 0.24

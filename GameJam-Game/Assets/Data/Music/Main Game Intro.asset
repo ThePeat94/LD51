@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Main Game Intro
   m_EditorClassIdentifier: 
   m_musicClip: {fileID: 8300000, guid: 3fe7d51826f3f7843a51c1d4d528a0b1, type: 3}
-  m_volume: 0.3
+  m_volume: 0.4
   m_looping: 0
   m_followingClip: {fileID: 11400000, guid: 3671562143ab0664ca7bd430529bd4da, type: 2}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WinFanfare
   m_EditorClassIdentifier: 
   m_audioClip: {fileID: 8300000, guid: a0fa2f18fd0124743bc359905bf74e56, type: 3}
-  m_volume: 0.2
+  m_volume: 0.4

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f9063c464616c47835354fd6072487, type: 3}
   m_Name: Tick
   m_EditorClassIdentifier: 
-  m_audioClip: {fileID: 8300000, guid: d52133c9a5a5eb54487981dc5a5ce07f, type: 3}
-  m_volume: 0
+  m_audioClip: {fileID: 0}
+  m_volume: 0.1
