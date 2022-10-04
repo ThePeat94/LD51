@@ -64,7 +64,7 @@ namespace Nidavellir.Towers
         private void DebugPlace()
         {
             Init();
-            Place();
+            Place(0);
         }
 
         public void Init()
@@ -150,9 +150,9 @@ namespace Nidavellir.Towers
             rangeIndicatorMeshRenderer.material.SetColor(Emission, placeable ? rangeIndicatorColor : nonPlaceableRangeIndicatorColor);
         }
 
-        public bool Place()
+        public bool Place(int price)
         {
-            if (CurrencyController.Instance.BuyItem(TowerSettings.Price))
+            if (CurrencyController.Instance.BuyItem(price))
             {
                 StartCoroutine(PlaceTower());
                 return true;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Nidavellir.Scriptables;
 using Nidavellir.Towers;
 using UnityEngine;
@@ -20,10 +21,12 @@ namespace Nidavellir.UI
         private InputAction click;
         private Tower activeTower;
         private TowerButton selectedTowerButton;
+        private Dictionary<TowerSO, int> m_turretCosts = new();
 
         private void Awake()
         {
             mainCamera = Camera.main;
+            this.m_turretCosts = this.towers.ToDictionary(t => t, v => v.Price);
         }
 
         private void Start()
@@ -85,8 +88,9 @@ namespace Nidavellir.UI
                         activeTower.SetTowerPlaceable(true);
                         // activeTowerMeshRenderer.material.color = activeTowerOriginalColor;
 
-                        if (Mouse.current.leftButton.wasPressedThisFrame && activeTower.Place())
+                        if (Mouse.current.leftButton.wasPressedThisFrame && activeTower.Place(this.m_turretCosts[this.activeTower.TowerSettings]))
                         {
+                            this.m_turretCosts[this.activeTower.TowerSettings] += this.activeTower.TowerSettings.Price;
                             activeTower.Init();
                             activeTower = null;
                         }
