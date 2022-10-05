@@ -64,6 +64,11 @@ namespace Nidavellir.Audio
             isPaused = false;
             this.m_audioSource.UnPause();
         }
+
+        public void PlayGameTheme()
+        {
+            this.m_playingCoroutine = this.StartCoroutine(this.PlayClipList(this.m_gameTheme));
+        }
         
         private void PlayClip(MusicData toPlay)
         {

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Nidavellir.Audio;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -72,7 +74,26 @@ namespace Nidavellir.UI
 
         public void StartGame()
         {
-            SceneManager.LoadScene(1);
+            StartCoroutine(this.LoadScene());
+        }
+
+        private IEnumerator LoadScene()
+        {
+            var loadingOperation = SceneManager.LoadSceneAsync(1);
+            loadingOperation.completed += operation =>
+            {
+                Debug.Log("Scene load completed");
+                Debug.Log(FindObjectOfType<MusicPlayer>() == null);
+                FindObjectOfType<MusicPlayer>().ForceStop();
+                FindObjectOfType<MusicPlayer>().PlayGameTheme();
+                TimerSystem.Instance.StartTimer();
+                Debug.Log(GameObject.Find("FIND ME")?.name);
+            };
+            while (!loadingOperation.isDone)
+            {
+                yield return null;
+            }
+
         }
     }
 }
