@@ -70,6 +70,11 @@ namespace Nidavellir.Audio
 
         public void PlayOneShot(SfxData sfxData)
         {
+            if (sfxData.AudioClip == null)
+            {
+                Debug.LogError($"SfxData {sfxData} has no AudioClip assigned");
+                return;
+            }
             this.StartCoroutine(this.PlayClipAndDestroySource(sfxData));
         }
 

@@ -7,6 +7,7 @@ namespace Nidavellir
     public class TimerSystem : MonoBehaviour
     {
         public static TimerSystem Instance;
+        private bool m_started;
 
         public delegate void TickTimerEnd();
         public delegate void TickTotalTime(float totalTime);
@@ -27,10 +28,6 @@ namespace Nidavellir
         public float TotalTime => totalTime;
         public float TickTime => tickTime;
         public int WaveNumber => waveNumber;
-
-        private TimerSystem()
-        {
-        }
 
         private void Awake()
         {
@@ -53,8 +50,16 @@ namespace Nidavellir
             Destroy(this);
         }
 
+        public void StartTimer()
+        {
+            m_started = true;
+        }
+
         private void FixedUpdate()
         {
+            if (!this.m_started)
+                return;
+            
             tickTime += Time.fixedDeltaTime;
             totalTime += Time.fixedDeltaTime;
 
