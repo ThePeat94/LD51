@@ -13,6 +13,9 @@ namespace Nidavellir.UI
         [SerializeField] private Slider m_musicVolumeSlider;
         [SerializeField] private Slider m_sfxVolumeSlider;
         [SerializeField] private GameObject m_optionsPanel;
+        [SerializeField] private Slider m_loadingBar;
+        [SerializeField] private GameObject m_loadingBarPanel;
+        private AsyncOperation m_loadingOperation;
 
 
         private void Awake()
@@ -25,6 +28,7 @@ namespace Nidavellir.UI
         {
             this.m_musicVolumeSlider.value = GlobalSettings.Instance.MusicVolume;
             this.m_sfxVolumeSlider.value = GlobalSettings.Instance.SfxVolume;
+            this.StartCoroutine(this.LoadMainGame());
         }
 
         public void BackFromCreditsToStart()
@@ -74,26 +78,20 @@ namespace Nidavellir.UI
 
         public void StartGame()
         {
-            StartCoroutine(this.LoadScene());
+            this.m_startMenu.SetActive(false);
+            this.m_loadingBarPanel.SetActive(true);
+            this.m_loadingOperation.allowSceneActivation = true;
         }
 
-        private IEnumerator LoadScene()
+        private IEnumerator LoadMainGame()
         {
-            var loadingOperation = SceneManager.LoadSceneAsync(1);
-            loadingOperation.completed += operation =>
+            this.m_loadingOperation = SceneManager.LoadSceneAsync(1);
+            this.m_loadingOperation.allowSceneActivation = false;
+            while (!this.m_loadingOperation.isDone)
             {
-                Debug.Log("Scene load completed");
-                Debug.Log(FindObjectOfType<MusicPlayer>() == null);
-                FindObjectOfType<MusicPlayer>().ForceStop();
-                FindObjectOfType<MusicPlayer>().PlayGameTheme();
-                TimerSystem.Instance.StartTimer();
-                Debug.Log(GameObject.Find("FIND ME")?.name);
-            };
-            while (!loadingOperation.isDone)
-            {
-                yield return null;
+                this.m_loadingBar.value = this.m_loadingOperation.progress;
+                yield return new WaitForEndOfFrame();
             }
-
         }
     }
 }

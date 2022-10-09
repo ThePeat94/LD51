@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f9063c464616c47835354fd6072487, type: 3}
-  m_Name: Graveyard Sound
+  m_Script: {fileID: 11500000, guid: fd63d081b0dd74b4ba2e0b4f020ff4b4, type: 3}
+  m_Name: Graveyard
   m_EditorClassIdentifier: 
-  m_audioClip: {fileID: 8300000, guid: 4b8aa3062c23dca4da879675846ac8e4, type: 3}
+  m_musicClip: {fileID: 8300000, guid: 4b8aa3062c23dca4da879675846ac8e4, type: 3}
   m_volume: 0.5
+  m_looping: 1
+  m_followingClip: {fileID: 0}

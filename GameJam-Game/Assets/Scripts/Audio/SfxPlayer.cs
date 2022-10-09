@@ -72,7 +72,7 @@ namespace Nidavellir.Audio
         {
             if (sfxData.AudioClip == null)
             {
-                Debug.LogError($"SfxData {sfxData} has no AudioClip assigned");
+                Debug.LogError($"SfxData {sfxData.name} has no AudioClip assigned");
                 return;
             }
             this.StartCoroutine(this.PlayClipAndDestroySource(sfxData));

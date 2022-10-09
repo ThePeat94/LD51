@@ -16,6 +16,7 @@ namespace Nidavellir.Audio
         [SerializeField] private MusicData m_gameTheme;
         
         private AudioSource m_audioSource;
+        private AudioSource m_followingAudioSource;
         private MusicData m_currentMusicData;
         private Coroutine m_playingCoroutine;
         private bool isPaused;
@@ -88,10 +89,12 @@ namespace Nidavellir.Audio
             {
                 this.m_currentMusicData = current;
                 this.PlayClip(current);
+                if (this.m_currentMusicData.FollowingClip != null)
+                    this.m_currentMusicData.FollowingClip.MusicClip.LoadAudioData();
                 
                 while (timeCounter <= current.MusicClip.length)
                 {
-                    yield return null;
+                    yield return new WaitForEndOfFrame();
                     if (isPaused)
                     {
                         timeCounter += 0;
@@ -123,8 +126,6 @@ namespace Nidavellir.Audio
 
             if (hasLoadedMainMenu)
                 this.m_playingCoroutine = this.StartCoroutine(this.PlayClipList(this.m_titleTheme));
-            else if (loadedScene.buildIndex == 1)
-                this.m_playingCoroutine = this.StartCoroutine(this.PlayClipList(this.m_gameTheme));
         }
     }
 }

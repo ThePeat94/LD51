@@ -50,16 +50,13 @@ namespace Nidavellir
             Destroy(this);
         }
 
-        public void StartTimer()
-        {
-            m_started = true;
-        }
-
         private void FixedUpdate()
         {
             if (!this.m_started)
+            {
                 return;
-            
+            }
+
             tickTime += Time.fixedDeltaTime;
             totalTime += Time.fixedDeltaTime;
 
@@ -73,6 +70,11 @@ namespace Nidavellir
                 waveNumber++;
                 OnTimerEndTick?.Invoke();
             }
+        }
+
+        public void StartTimer()
+        {
+            this.m_started = true;
         }
     }
 }

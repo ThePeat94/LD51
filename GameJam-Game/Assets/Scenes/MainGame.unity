@@ -325,7 +325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3204449547553041326, guid: 566a726774b579f4f817ec35d6572e3c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 3204449547553041326, guid: 566a726774b579f4f817ec35d6572e3c, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -666,7 +666,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 44.846, y: -38.03, z: -133.13}
 --- !u!114 &704493446
 MonoBehaviour:
@@ -717,7 +717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7719575269833631467, guid: 893cdb735b8e9448f9589e884d1f4425, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7719575269833631467, guid: 893cdb735b8e9448f9589e884d1f4425, type: 3}
       propertyPath: m_LocalPosition.x
@@ -848,7 +848,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1624031366
 GameObject:
@@ -897,7 +897,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1808138233
 GameObject:
@@ -908,8 +908,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1808138234}
+  - component: {fileID: 1808138235}
   m_Layer: 0
-  m_Name: FIND ME
+  m_Name: Prep Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -930,6 +931,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1808138235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808138233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9e379e03324c6abc6fd504bb0a7a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_preperationMusicData: {fileID: 11400000, guid: 286b45ce11c4cd54890509c1b44abf58, type: 2}
 --- !u!1001 &1858178334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1145,7 +1159,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1654714750227355616, guid: e3056d598a2041248b0cfe5139635ea5, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1654714750227355616, guid: e3056d598a2041248b0cfe5139635ea5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1288,7 +1302,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5809444244550209472, guid: 7681d50cfef2a4e6aa032e59f858b78a, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5809444244550209472, guid: 7681d50cfef2a4e6aa032e59f858b78a, type: 3}
       propertyPath: m_LocalPosition.x

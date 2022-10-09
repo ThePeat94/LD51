@@ -6,6 +6,7 @@ using Nidavellir.Scriptables;
 using Nidavellir.Scriptables.Audio;
 using Nidavellir.Towers.Projectiles;
 using Nidavellir.Trigger;
+using Nidavellir.UI;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -21,6 +22,8 @@ namespace Nidavellir.Towers
 
         [SerializeField] private GameObject rangeIndicator;
         [SerializeField] private MeshRenderer rangeIndicatorMeshRenderer;
+        [SerializeField] private TowerUpgradeHintUI m_upgradeHintUI;
+        
 
         [ColorUsageAttribute(true, true)] [SerializeField]
         private Color rangeIndicatorColor;
@@ -45,7 +48,7 @@ namespace Nidavellir.Towers
         public float Damage { get; protected set; }
         public Projectile Projectile { get; protected set; }
         public int CurrentLevel { get; private set; }
-        public float CostsForNextLevel => this.m_towerUpgrades.Count > 0 ? this.m_towerUpgrades.Peek().Price : 0;
+        public float CostsForNextLevel => this.m_towerUpgrades?.Count > 0 ? this.m_towerUpgrades.Peek().Price : 0;
         public bool IsPlaced => this.isPlaced;
 
         private static readonly int Emission = Shader.PropertyToID("_Emission");
@@ -170,6 +173,7 @@ namespace Nidavellir.Towers
             SetRangeIndicatorActive(false);
             this.CurrentLevel++;
             this.m_towerUpgrades = new(this.TowerSettings.PossibleUpgrades);
+            this.m_upgradeHintUI.gameObject.SetActive(true);
         }
 
         public void Unplace()

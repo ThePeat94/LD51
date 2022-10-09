@@ -153,5 +153,11 @@ namespace Nidavellir
             
             SceneManager.LoadScene(0);
         }
+
+        public void StartGame()
+        {
+            TimerSystem.Instance.StartTimer();
+            MusicPlayer.Instance.PlayGameTheme();
+        }
     }
 }
