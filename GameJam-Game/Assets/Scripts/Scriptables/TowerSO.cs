@@ -13,6 +13,8 @@ namespace Nidavellir.Scriptables
         [SerializeField] private float towerRange;
         [SerializeField] private float attackSpeed;
         [SerializeField] private float damage;
+        [SerializeField] private int m_shootFrameCoolDown;
+
 
         [Header("Shop Values")] 
         public Sprite Icon;
@@ -30,5 +32,7 @@ namespace Nidavellir.Scriptables
 
         public int Price => price;
         public int MaxLevel => PossibleUpgrades.Count + 1;
+        public int ShootFrameCoolDown => this.m_shootFrameCoolDown;
+
     }
 }

@@ -101,40 +101,40 @@ namespace Nidavellir.Towers
 
         private void Shoot(float deltaTime)
         {
-            timeUntilNextAttack -= deltaTime;
-
-            if (timeUntilNextAttack <= 0)
-            {
-                if (closestEnemy == null)
-                    return;
-
-                var projectile = Object.Instantiate(Projectile.gameObject).GetComponent<Projectile>();
-
-                if (ProjectileSpawnPoint != null)
-                {
-                    projectile.transform.position = ProjectileSpawnPoint.transform.position;
-                }
-                else
-                {
-                    Debug.LogError($"{TowerSettings.Name}: no ProjectileSpawnPoint defined");
-                    projectile.transform.position = transform.position;
-                }
-
-                projectile.Init(closestEnemy, closestEnemy.transform.position, Damage);
-                SfxPlayer.Instance.PlayOneShot(this.m_shootSfx);
-
-                timeUntilNextAttack = AttackSpeed;
-            }
+            // timeUntilNextAttack -= deltaTime;
+            //
+            // if (timeUntilNextAttack <= 0)
+            // {
+            //     if (closestEnemy == null)
+            //         return;
+            //
+            //     var projectile = Object.Instantiate(Projectile.gameObject).GetComponent<Projectile>();
+            //
+            //     if (ProjectileSpawnPoint != null)
+            //     {
+            //         projectile.transform.position = ProjectileSpawnPoint.transform.position;
+            //     }
+            //     else
+            //     {
+            //         Debug.LogError($"{TowerSettings.Name}: no ProjectileSpawnPoint defined");
+            //         projectile.transform.position = transform.position;
+            //     }
+            //
+            //     projectile.Init(closestEnemy, closestEnemy.transform.position, Damage);
+            //     SfxPlayer.Instance.PlayOneShot(this.m_shootSfx);
+            //
+            //     timeUntilNextAttack = AttackSpeed;
+            // }
         }
 
         private GameObject GetClosestEnemy()
         {
-            var enemiesHitByOverlapSphere = Physics.OverlapSphere(this.transform.position, this.TowerRange)
-                .Where(c => c.TryGetComponent<EnemyHealthController>(out _)).ToArray();
-
-            if (enemiesHitByOverlapSphere.Length > 0)
-                return enemiesHitByOverlapSphere.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).First().gameObject;
-
+        //     var enemiesHitByOverlapSphere = Physics.OverlapSphere(this.transform.position, this.TowerRange)
+        //         .Where(c => c.TryGetComponent<EnemyHealthController>(out _)).ToArray();
+        //
+        //     if (enemiesHitByOverlapSphere.Length > 0)
+        //         return enemiesHitByOverlapSphere.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).First().gameObject;
+        //
             return null;
         }
 
